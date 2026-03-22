@@ -72,7 +72,7 @@ function _parseSheet(xml,ss){
   while((m=rowRe.exec(xml))!==null){
     var rn=parseInt(m[1])-1;
     while(rows.length<=rn)rows.push(null);
-    var row=[],cellRe=/<c r="([A-Z]+)\d+"([^>]*)>([\s\S]*?)<\/c>/g,cm;
+    var row=[],cellRe=/<c r="([A-Z]+)\d+"([^>]*[^\/])>([\s\S]*?)<\/c>/g,cm;
     while((cm=cellRe.exec(m[2]))!==null){
       var ci=_cn(cm[1]),attrs=cm[2],inner=cm[3],val=null;
       if(/t="s"/.test(attrs)){var vm=inner.match(/<v>(\d+)<\/v>/);val=vm?(ss[parseInt(vm[1])]||null):null;}
