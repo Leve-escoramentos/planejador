@@ -158,13 +158,13 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;background:radial-grad
 
 /* GAUGE KPI ROW */
 .gauge-kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:20px}
-.gauge-kpi-card{background:var(--card);border:1px solid var(--bd);border-radius:var(--r2);padding:18px 20px 14px;box-shadow:var(--sh);display:flex;flex-direction:column;align-items:center}
-.gauge-kpi-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.7px;color:var(--mu);font-weight:600;margin-bottom:4px;text-align:center}
-.gauge-canvas-wrap{position:relative;width:160px;height:90px;margin:0 auto}
-.gauge-canvas-wrap canvas{position:absolute;top:0;left:0}
-.gauge-center-val{position:absolute;bottom:0;left:0;right:0;text-align:center;font-family:var(--ft);font-weight:700;font-size:1.5rem;color:var(--tx);letter-spacing:-.5px;line-height:1}
-.gauge-center-unit{font-size:.85rem;font-weight:500;display:inline;margin-left:1px}
-.gauge-kpi-sub{font-size:.68rem;color:var(--mu);margin-top:8px;text-align:center}
+.gauge-kpi-card{background:#1a2818;border:1px solid rgba(138,183,58,.2);border-radius:var(--r2);padding:14px 16px 16px;box-shadow:0 4px 20px rgba(0,0,0,.3);display:flex;flex-direction:column;align-items:center}
+.gauge-kpi-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.7px;color:rgba(255,255,255,.65);font-weight:700;margin-bottom:4px;text-align:center}
+.gauge-canvas-wrap{display:flex;flex-direction:column;align-items:center;width:200px;margin:0 auto}
+.gauge-canvas-wrap canvas{display:block}
+.gauge-center-val{text-align:center;font-family:var(--ft);font-weight:700;font-size:1.6rem;color:#ffffff;letter-spacing:-.5px;line-height:1;margin-top:8px;padding:4px 0 2px}
+.gauge-center-unit{font-size:.85rem;font-weight:500;display:inline;margin-left:1px;color:rgba(255,255,255,.7)}
+.gauge-kpi-sub{font-size:.68rem;color:rgba(255,255,255,.45);margin-top:8px;text-align:center}
 
 /* KPI SMALL */
 .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin-bottom:16px}
@@ -460,41 +460,178 @@ function showTab(id,btn){
 }
 
 // ── SPEEDOMETER GAUGES ──
-function drawGauge(canvasId,pct,colorHex){
-  const canvas=document.getElementById(canvasId);
-  if(!canvas)return;
-  const ctx=canvas.getContext('2d');
-  const W=canvas.width,H=canvas.height,cx=W/2,cy=H-8,R=Math.min(W,H*2)/2-8;
+function drawGauge(canvasId, pct, zones, meta){
+  var canvas = document.getElementById(canvasId);
+  if(!canvas) return;
+
+  var SIZE = 200;
+  canvas.width  = SIZE;
+  canvas.height = Math.round(SIZE * 0.60);
+
+  var ctx = canvas.getContext('2d');
+  var W = canvas.width, H = canvas.height;
+  if(!W||!H||W<=0||H<=0) return;
+
+  var cx = W/2;
+  var cy = H - 14;
+  var Ro = W * 0.38;
+  var Ri = Ro * 0.44;
+
   ctx.clearRect(0,0,W,H);
-  ctx.beginPath();ctx.arc(cx,cy,R,Math.PI,0);ctx.strokeStyle='#E8EEE0';ctx.lineWidth=14;ctx.lineCap='round';ctx.stroke();
-  const valA=Math.PI+(pct/100)*Math.PI;
-  ctx.beginPath();ctx.arc(cx,cy,R,Math.PI,valA);ctx.strokeStyle=colorHex;ctx.lineWidth=14;ctx.lineCap='round';ctx.stroke();
-  for(let i=0;i<=10;i++){
-    const a=Math.PI+(i/10)*Math.PI,r1=R+10,r2=R+16;
-    ctx.beginPath();ctx.moveTo(cx+r1*Math.cos(a),cy+r1*Math.sin(a));ctx.lineTo(cx+r2*Math.cos(a),cy+r2*Math.sin(a));
-    ctx.strokeStyle=i%5===0?'#8F9E80':'rgba(143,158,128,.3)';ctx.lineWidth=i%5===0?1.5:0.8;ctx.stroke();
+  function toA(p){ return Math.PI + (p/100)*Math.PI; }
+
+  function wedge(p1,p2,fillColor){
+    if(p2<=p1) return;
+    ctx.beginPath();
+    ctx.moveTo(cx,cy);
+    ctx.arc(cx,cy,Ro,toA(p1),toA(p2));
+    ctx.arc(cx,cy,Ri,toA(p2),toA(p1),true);
+    ctx.closePath();
+    ctx.fillStyle=fillColor; ctx.fill();
   }
-  ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+(R-18)*Math.cos(Math.PI+(pct/100)*Math.PI),cy+(R-18)*Math.sin(Math.PI+(pct/100)*Math.PI));
-  ctx.strokeStyle='#3D5044';ctx.lineWidth=2.5;ctx.lineCap='round';ctx.stroke();
-  ctx.beginPath();ctx.arc(cx,cy,5,0,Math.PI*2);ctx.fillStyle='#3D5044';ctx.fill();
+
+  // ── 1. BACKGROUND ZONES ──────────────────────────
+  var prev=0;
+  if(zones&&zones.length){
+    for(var i=0;i<zones.length;i++){ wedge(prev,zones[i].end,zones[i].bgColor); prev=zones[i].end; }
+  } else { wedge(0,100,'rgba(255,255,255,0.1)'); }
+
+  // ── 2. BRIGHT FILL ───────────────────────────────
+  if(pct>0&&zones&&zones.length){
+    var p=0;
+    for(var i=0;i<zones.length;i++){
+      var se=Math.min(pct,zones[i].end);
+      if(p<se) wedge(p,se,zones[i].color);
+      p=zones[i].end; if(p>=pct) break;
+    }
+  } else if(pct>0){ wedge(0,pct,'#58a6ff'); }
+
+  // ── 3. ZONE SEPARATORS ───────────────────────────
+  if(zones&&zones.length){
+    ctx.strokeStyle='rgba(10,20,10,0.65)'; ctx.lineWidth=2;
+    for(var i=0;i<zones.length-1;i++){
+      var a=toA(zones[i].end);
+      ctx.beginPath();
+      ctx.moveTo(cx+Ri*Math.cos(a),cy+Ri*Math.sin(a));
+      ctx.lineTo(cx+Ro*Math.cos(a),cy+Ro*Math.sin(a));
+      ctx.stroke();
+    }
+  }
+
+  // ── 4. OUTER BORDER ──────────────────────────────
+  ctx.beginPath(); ctx.arc(cx,cy,Ro,Math.PI,0); ctx.arc(cx,cy,Ri,0,Math.PI,true);
+  ctx.closePath(); ctx.strokeStyle='rgba(0,0,0,0.25)'; ctx.lineWidth=1; ctx.stroke();
+
+  // ── 5. NEEDLE ────────────────────────────────────
+  var nA=toA(pct), nLen=Ri*0.85;
+  ctx.shadowColor='rgba(0,0,0,0.5)'; ctx.shadowBlur=4;
+  ctx.beginPath();
+  ctx.moveTo(cx-3*Math.cos(nA+Math.PI/2),cy-3*Math.sin(nA+Math.PI/2));
+  ctx.lineTo(cx+nLen*Math.cos(nA),cy+nLen*Math.sin(nA));
+  ctx.lineTo(cx+3*Math.cos(nA+Math.PI/2),cy+3*Math.sin(nA+Math.PI/2));
+  ctx.closePath(); ctx.fillStyle='#000000'; ctx.fill();
+  // White outline for contrast
+  ctx.beginPath();
+  ctx.moveTo(cx-3*Math.cos(nA+Math.PI/2),cy-3*Math.sin(nA+Math.PI/2));
+  ctx.lineTo(cx+nLen*Math.cos(nA),cy+nLen*Math.sin(nA));
+  ctx.lineTo(cx+3*Math.cos(nA+Math.PI/2),cy+3*Math.sin(nA+Math.PI/2));
+  ctx.closePath(); ctx.strokeStyle='rgba(255,255,255,0.6)'; ctx.lineWidth=1; ctx.stroke();
+  ctx.shadowColor='transparent'; ctx.shadowBlur=0;
+  ctx.beginPath(); ctx.arc(cx,cy,Ri*0.28,0,Math.PI*2);
+  ctx.fillStyle='#000000'; ctx.fill();
+  ctx.strokeStyle='rgba(255,255,255,0.4)'; ctx.lineWidth=1.5; ctx.stroke();
+
+  // ── 6. OUTSIDE LABELS — all same style (tick + pill) ─
+  function outsideLabel(pVal, txt){
+    var a   = toA(pVal);
+    var tR  = Ro + 8;
+    var lR  = Ro + 20;
+    var tx  = cx + lR*Math.cos(a);
+    var ty  = cy + lR*Math.sin(a);
+
+    // tick
+    ctx.beginPath();
+    ctx.moveTo(cx+(Ro+1)*Math.cos(a), cy+(Ro+1)*Math.sin(a));
+    ctx.lineTo(cx+tR*Math.cos(a),     cy+tR*Math.sin(a));
+    ctx.strokeStyle='rgba(255,255,255,0.85)';
+    ctx.lineWidth=2; ctx.stroke();
+
+    // pill background
+    ctx.font='bold 8px Inter,sans-serif';
+    var tw=ctx.measureText(txt).width+7;
+    var th=13;
+    // roundRect fallback for older browsers
+    var rx=3, bx=tx-tw/2, by=ty-th/2;
+    ctx.beginPath();
+    ctx.moveTo(bx+rx,by);
+    ctx.lineTo(bx+tw-rx,by); ctx.arcTo(bx+tw,by,bx+tw,by+rx,rx);
+    ctx.lineTo(bx+tw,by+th-rx); ctx.arcTo(bx+tw,by+th,bx+tw-rx,by+th,rx);
+    ctx.lineTo(bx+rx,by+th); ctx.arcTo(bx,by+th,bx,by+th-rx,rx);
+    ctx.lineTo(bx,by+rx); ctx.arcTo(bx,by,bx+rx,by,rx);
+    ctx.closePath();
+    ctx.fillStyle='rgba(0,0,0,0.55)'; ctx.fill();
+
+    // text
+    ctx.fillStyle='#ffffff';
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText(txt, tx, ty);
+  }
+
+  // All boundaries: 0%, zone ends (15%,30% or 70%,85%), 100%
+  if(zones&&zones.length){
+    outsideLabel(0, '0%');
+    for(var i=0;i<zones.length-1;i++){
+      outsideLabel(zones[i].end, zones[i].end+'%');
+    }
+    outsideLabel(100, '100%');
+  } else {
+    outsideLabel(0,'0%'); outsideLabel(100,'100%');
+  }
 }
 
 function renderGaugeKPIs(){
   const k=D.kpis;
+  // Zone definitions for each gauge
+  const zOcio=[
+    {end:15, color:'#2d7a3a', bgColor:'rgba(45,122,58,0.35)'},   // green: within target
+    {end:30, color:'#c98a00', bgColor:'rgba(201,138,0,0.35)'},   // yellow: warning
+    {end:100,color:'#9b1c1c', bgColor:'rgba(155,28,28,0.35)'},   // red: critical
+  ];
+  const zLoc=[
+    {end:70, color:'#9b1c1c', bgColor:'rgba(155,28,28,0.35)'},   // red: critical
+    {end:85, color:'#c98a00', bgColor:'rgba(201,138,0,0.35)'},   // yellow: warning
+    {end:100,color:'#2d7a3a', bgColor:'rgba(45,122,58,0.35)'},   // green: target
+  ];
+  // For t-based gauges: pct relative to total stock
+  const dispPct=Math.round(k.ociosidade_pct);
+  const locPct=Math.round(k.taxa_locacao_pct);
+  // Disponível: zones same logic as ociosidade (lower = more idle = bad if too high)
+  const zDisp=[
+    {end:15, color:'#2d7a3a', bgColor:'rgba(45,122,58,0.35)'},
+    {end:30, color:'#c98a00', bgColor:'rgba(201,138,0,0.35)'},
+    {end:100,color:'#9b1c1c', bgColor:'rgba(155,28,28,0.35)'},
+  ];
+  // Locado: same as taxa de locação
+  const zFld=[
+    {end:70, color:'#9b1c1c', bgColor:'rgba(155,28,28,0.35)'},
+    {end:85, color:'#c98a00', bgColor:'rgba(201,138,0,0.35)'},
+    {end:100,color:'#2d7a3a', bgColor:'rgba(45,122,58,0.35)'},
+  ];
+
   const gauges=[
-    {id:'g-ocio', label:'Ociosidade Geral',  val:k.ociosidade_pct,   unit:'%', sub:'peso disponível / total',              color:k.ociosidade_pct>40?CL.green:k.ociosidade_pct>20?CL.orange:CL.red, pct:k.ociosidade_pct},
-    {id:'g-loc',  label:'Taxa de Locação',    val:k.taxa_locacao_pct, unit:'%', sub:'peso em campo / total',                color:k.taxa_locacao_pct>70?CL.greenMid:k.taxa_locacao_pct>50?CL.orange:CL.red, pct:k.taxa_locacao_pct},
-    {id:'g-disp', label:'Disponível no Pátio',val:Math.round(k.peso_disponivel_kg/100)/10, unit:'t', sub:'de '+Math.round(k.peso_total_kg/100)/10+' t totais', color:CL.blue, pct:k.ociosidade_pct},
-    {id:'g-fld',  label:'Locado em Campo',    val:Math.round(k.peso_locado_kg/100)/10,     unit:'t', sub:'de '+Math.round(k.peso_total_kg/100)/10+' t no estoque total', color:CL.greenDark, pct:k.taxa_locacao_pct},
+    {id:'g-ocio', label:'Ociosidade Geral',   val:k.ociosidade_pct,                      unit:'%', sub:'meta: máx 15%',              pct:Math.round(k.ociosidade_pct),   zones:zOcio,  meta:15},
+    {id:'g-loc',  label:'Taxa de Locação',     val:k.taxa_locacao_pct,                    unit:'%', sub:'meta: mín 85%',              pct:Math.round(k.taxa_locacao_pct), zones:zLoc,   meta:85},
+    {id:'g-disp', label:'Disponível no Pátio', val:Math.round(k.peso_disponivel_kg/100)/10, unit:'t', sub:'de '+Math.round(k.peso_total_kg/100)/10+' t totais', pct:dispPct, zones:zDisp},
+    {id:'g-fld',  label:'Locado em Campo',     val:Math.round(k.peso_locado_kg/100)/10,   unit:'t', sub:'de '+Math.round(k.peso_total_kg/100)/10+' t no estoque total', pct:locPct, zones:zFld},
   ];
   document.getElementById('gaugeKpiRow').innerHTML=gauges.map(g=>
     '<div class="gauge-kpi-card">'+
     '<div class="gauge-kpi-label">'+g.label+'</div>'+
-    '<div class="gauge-canvas-wrap"><canvas id="'+g.id+'" width="160" height="90"></canvas>'+
+    '<div class="gauge-canvas-wrap"><canvas id="'+g.id+'"></canvas>'+
     '<div class="gauge-center-val">'+g.val+'<span class="gauge-center-unit">'+g.unit+'</span></div></div>'+
     '<div class="gauge-kpi-sub">'+g.sub+'</div></div>'
   ).join('');
-  requestAnimationFrame(()=>{gauges.forEach(g=>drawGauge(g.id,g.pct,g.color));});
+  requestAnimationFrame(()=>{gauges.forEach(g=>drawGauge(g.id,g.pct,g.zones,g.meta||null));});
 }
 
 // ── CALENDAR ──
