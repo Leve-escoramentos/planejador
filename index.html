@@ -1103,7 +1103,55 @@ function renderAll(){
   buildFilterBar();
   renderEstoque();
 }
-renderAll();
+// ── AUTO-LOAD FROM GITHUB ────────────────────────────────────────────────
+// Tries to fetch sam.csv and planejamento.xlsx from the same folder.
+// If found, loads them automatically. Falls back to demo data.
+async function autoLoad(){
+  var base = window.location.href.replace(/\/[^/]*$/, '/');
+  // Only auto-load when served from a real URL (not file://)
+  if(window.location.protocol === 'file:'){
+    renderAll();
+    return;
+  }
+  var loaded = false;
+  try{
+    // Try CSV
+    var csvResp = await fetch(base + 'sam.csv', {cache:'no-cache'});
+    if(csvResp.ok){
+      var csvText = await csvResp.text();
+      var csvFile = new File([csvText], 'sam.csv', {type:'text/plain'});
+      var csvData = await parseSAMCsv(csvFile);
+      if(csvData) Object.assign(D, csvData);
+      loaded = true;
+      document.getElementById('liveStatus').style.display='flex';
+    }
+  } catch(e){}
+
+  try{
+    // Try XLSX
+    var xlsxResp = await fetch(base + 'planejamento.xlsx', {cache:'no-cache'});
+    if(xlsxResp.ok){
+      var xlsxBuf = await xlsxResp.arrayBuffer();
+      var xlsxFile = new File([xlsxBuf], 'planejamento.xlsx');
+      var xlsxData = await parseXLSXPlanning(xlsxFile);
+      if(xlsxData) Object.assign(D, xlsxData);
+      loaded = true;
+    }
+  } catch(e){}
+
+  renderAll();
+
+  if(loaded){
+    // Show "Dados carregados automaticamente" briefly
+    var btn = document.getElementById('updateBtn');
+    if(btn){
+      var orig = btn.textContent;
+      btn.textContent = '✓ Dados atualizados';
+      setTimeout(function(){ btn.textContent = orig; }, 3000);
+    }
+  }
+}
+autoLoad();
 </script>
 </body>
 </html    var lines = text.split(/\r?\n/).filter(function(l){return l.trim()!=='';});>
