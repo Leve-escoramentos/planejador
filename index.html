@@ -749,9 +749,9 @@ function parseSAMCsv(file){
         const n=function(s){if(!s||s==='nan')return 0;return parseFloat(String(s).replace('%','').replace(/\./g,'').replace(',','.'))||0;};
         const colPT=cols.find(function(c,i){return i>=18&&c.toLowerCase().includes('total');})||cols[18];
         const colPD=cols.find(function(c,i){return i>=18&&c.toLowerCase().includes('disp');})||cols[19];
-        const itens=rows.filter(function(r){return r[cols[0]]&&r[cols[0]].trim()!='';}).map(function(r){
-          return{Equipamento:r[cols[0]]&&r[cols[0]].trim()||'',Grupo:r[cols[1]]&&r[cols[1]].trim()||'',
-            Qtde_Disponivel:n(r[cols[2]]),Qtde_Locado:n(r[cols[3]]),Qtde_Manutencao:n(r[cols[4]]),
+        const itens=rows.filter(function(r){return r[cols[1]]&&r[cols[1]].trim()!='';}).map(function(r){
+          return{Equipamento:r[cols[1]]&&r[cols[1]].trim()||'',Grupo:r[cols[2]]&&r[cols[2]].trim()||'',
+            Qtde_Disponivel:n(r[cols[3]]),Qtde_Locado:n(r[cols[4]]),Qtde_Manutencao:n(r[cols[5]]),
             Peso_Total:n(r[colPT]),Peso_Disponivel:n(r[colPD]),Peso_Locado:Math.max(0,n(r[colPT])-n(r[colPD]))};
         }).filter(function(x){return x.Peso_Total>0;});
         const grpMap={};
