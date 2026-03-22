@@ -6,8 +6,219 @@
 <title>Leve — Dashboard Logístico</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+var Papa={parse:function(t,o){var d=o.delimiter||",",ls=[],c="",i,ch;for(i=0;i<t.length;i++){ch=t[i];if(ch.charCodeAt(0)===13)continue;if(ch.charCodeAt(0)===10){if(c.trim())ls.push(c);c="";}else c+=ch;}if(c.trim())ls.push(c);if(!ls.length)return{data:[]};if(o.header){var h=ls[0].split(d).map(function(x){return x.trim();});return{data:ls.slice(1).map(function(l){var v=l.split(d),ob={};h.forEach(function(k,i){ob[k]=v[i]!==undefined?v[i].trim():"";});return ob;})}}return{data:ls.map(function(l){return l.split(d);})}}};
+
+// ── Minimal XLSX Parser (replaces SheetJS) ───────────────────────────────
+// Minimal XLSX parser — pure JS, no dependencies
+// Reads .xlsx files using browser's built-in APIs
+var XLSXMini = (function(){
+
+async function readFile(file){
+  const buf = await file.arrayBuffer();
+  return readBuffer(buf);
+}
+
+async function readBuffer(buf){
+  // XLSX is a ZIP file — use DecompressionStream if available, else JSZip-free approach
+  // We'll use a simple ZIP parser
+  const bytes = new Uint8Array(buf);
+  const files = parseZip(bytes);
+  
+  // Find the first sheet
+  const sharedStrings = parseSharedStrings(files['xl/sharedStrings.xml'] || '');
+  const sheet = findFirstSheet(files);
+  if(!sheet) return [];
+  
+  return parseSheet(sheet, sharedStrings);
+}
+
+function parseZip(bytes){
+  const files = {};
+  let i = 0;
+  const len = bytes.length;
+  
+  while(i < len - 4){
+    // Local file header signature
+    if(bytes[i]===0x50 && bytes[i+1]===0x4B && bytes[i+2]===0x03 && bytes[i+3]===0x04){
+      const compression = bytes[i+8] | (bytes[i+9]<<8);
+      const compressedSize = bytes[i+18] | (bytes[i+19]<<8) | (bytes[i+20]<<16) | (bytes[i+21]<<24);
+      const filenameLen = bytes[i+26] | (bytes[i+27]<<8);
+      const extraLen = bytes[i+28] | (bytes[i+29]<<8);
+      const filename = new TextDecoder().decode(bytes.slice(i+30, i+30+filenameLen));
+      const dataStart = i+30+filenameLen+extraLen;
+      const data = bytes.slice(dataStart, dataStart+compressedSize);
+      
+      if(compression === 0){
+        // Stored (no compression)
+        files[filename] = new TextDecoder('utf-8',{fatal:false}).decode(data);
+      } else if(compression === 8){
+        // Deflate — use DecompressionStream
+        try{
+          const ds = new DecompressionStream('deflate-raw');
+          const writer = ds.writable.getWriter();
+          const reader = ds.readable.getReader();
+          writer.write(data);
+          writer.close();
+          const chunks = [];
+          let done = false;
+          // We'll handle this async later
+          files[filename+'__compressed__'] = {data, compression};
+        }catch(e){}
+      }
+      i = dataStart + compressedSize;
+    } else {
+      i++;
+    }
+  }
+  return files;
+}
+
+// Actually - DecompressionStream is async, let's use a different approach
+// Use the Central Directory to find files, then decompress async
+
+async function readBufferAsync(buf){
+  const bytes = new Uint8Array(buf);
+  const files = await parseZipAsync(bytes);
+  const sharedStrings = parseSharedStrings(files['xl/sharedStrings.xml'] || '');
+  const sheet = findFirstSheet(files);
+  if(!sheet) return [];
+  return parseSheet(sheet, sharedStrings);
+}
+
+async function decompress(data){
+  try{
+    const ds = new DecompressionStream('deflate-raw');
+    const writer = ds.writable.getWriter();
+    writer.write(data);
+    writer.close();
+    const chunks = [];
+    const reader = ds.readable.getReader();
+    while(true){
+      const {done, value} = await reader.read();
+      if(done) break;
+      chunks.push(value);
+    }
+    const total = chunks.reduce((s,c)=>s+c.length,0);
+    const result = new Uint8Array(total);
+    let offset = 0;
+    for(const chunk of chunks){ result.set(chunk, offset); offset+=chunk.length; }
+    return new TextDecoder('utf-8',{fatal:false}).decode(result);
+  }catch(e){ return ''; }
+}
+
+async function parseZipAsync(bytes){
+  const files = {};
+  let i = 0;
+  const len = bytes.length;
+  const promises = [];
+  
+  while(i < len - 4){
+    if(bytes[i]===0x50 && bytes[i+1]===0x4B && bytes[i+2]===0x03 && bytes[i+3]===0x04){
+      const compression = bytes[i+8] | (bytes[i+9]<<8);
+      const compressedSize = bytes[i+18] | (bytes[i+19]<<8) | (bytes[i+20]<<16) | (bytes[i+21]<<24);
+      const filenameLen = bytes[i+26] | (bytes[i+27]<<8);
+      const extraLen = bytes[i+28] | (bytes[i+29]<<8);
+      const filename = new TextDecoder().decode(bytes.slice(i+30, i+30+filenameLen));
+      const dataStart = i+30+filenameLen+extraLen;
+      const data = bytes.slice(dataStart, dataStart+compressedSize);
+      
+      if(compression === 0){
+        files[filename] = new TextDecoder('utf-8',{fatal:false}).decode(data);
+      } else if(compression === 8){
+        const fname = filename;
+        const d = data.slice();
+        promises.push(decompress(d).then(txt=>{ files[fname]=txt; }));
+      }
+      i = dataStart + compressedSize;
+    } else { i++; }
+  }
+  await Promise.all(promises);
+  return files;
+}
+
+function findFirstSheet(files){
+  // Try sheet1 first
+  return files['xl/worksheets/sheet1.xml'] || 
+         files['xl/worksheets/Sheet1.xml'] ||
+         Object.entries(files).find(([k])=>k.startsWith('xl/worksheets/sheet'))?.[1] || '';
+}
+
+function parseSharedStrings(xml){
+  if(!xml) return [];
+  const strings = [];
+  const re = /<si>[\s\S]*?<\/si>/g;
+  let m;
+  while((m=re.exec(xml))!==null){
+    // Extract text, handling <t> tags
+    const texts = [];
+    const tr = /<t[^>]*>([^<]*)<\/t>/g;
+    let tm;
+    while((tm=tr.exec(m[0]))!==null){
+      texts.push(tm[1]);
+    }
+    strings.push(texts.join(''));
+  }
+  return strings;
+}
+
+function colToNum(col){
+  let n = 0;
+  for(let i=0;i<col.length;i++) n = n*26 + col.charCodeAt(i) - 64;
+  return n-1;
+}
+
+function parseSheet(xml, sharedStrings){
+  const rows = [];
+  const rowRe = /<row[^>]*>([\s\S]*?)<\/row>/g;
+  let rm;
+  while((rm=rowRe.exec(xml))!==null){
+    const rowAttr = rm[0].match(/r="(\d+)"/);
+    const rowNum = rowAttr ? parseInt(rowAttr[1])-1 : rows.length;
+    const row = [];
+    const cellRe = /<c r="([A-Z]+)\d+"([^>]*)>([\s\S]*?)<\/c>/g;
+    let cm;
+    while((cm=cellRe.exec(rm[1]))!==null){
+      const colStr = cm[1];
+      const attrs = cm[2];
+      const content = cm[3];
+      const colIdx = colToNum(colStr);
+      const isString = /t="s"/.test(attrs);
+      const isInline = /t="inlineStr"/.test(attrs);
+      let val = null;
+      if(isInline){
+        const tm = content.match(/<t[^>]*>([^<]*)<\/t>/);
+        val = tm ? decodeXML(tm[1]) : null;
+      } else if(isString){
+        const vm = content.match(/<v>(\d+)<\/v>/);
+        val = vm ? (sharedStrings[parseInt(vm[1])] || null) : null;
+        if(val) val = decodeXML(val);
+      } else {
+        const vm = content.match(/<v>([^<]*)<\/v>/);
+        if(vm){
+          const n = parseFloat(vm[1]);
+          val = isNaN(n) ? vm[1] : n;
+        }
+      }
+      // Extend row
+      while(row.length <= colIdx) row.push(null);
+      row[colIdx] = val;
+    }
+    while(rows.length <= rowNum) rows.push(null);
+    rows[rowNum] = row;
+  }
+  return rows;
+}
+
+function decodeXML(s){
+  return s.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#(\d+);/g,(_,n)=>String.fromCharCode(parseInt(n)));
+}
+
+return { readFile, readBufferAsync };
+})();
+
+
+</script>
 <style>
 :root{
   --leve-green:#8AB73A;--leve-dark:#3D5044;--leve-mid:#6A9228;--leve-lt:#C5DC8A;--leve-pale:#EEF4DC;--leve-olive:#4A6030;
@@ -673,11 +884,12 @@ function parseSAMCsv(file){
 function parseXLSXPlanning(file){
   return new Promise(function(res,rej){
     var reader=new FileReader();
-    reader.onload=function(e){
+    reader.onload=async function(e){
       try{
-        var wb=XLSX.read(e.target.result,{type:'array'});
-        var ws=wb.Sheets[wb.SheetNames[0]];
-        var raw=XLSX.utils.sheet_to_json(ws,{header:1,defval:null,raw:true});
+        // Use XLSXMini — pure JS parser, no CDN needed
+        // readBufferAsync returns a Promise — handle via .then() inside try/catch
+        var raw = null;
+        try{ raw = await XLSXMini.readBufferAsync(e.target.result); }catch(xe){rej(xe);return;}
         if(!raw||raw.length<4){rej(new Error('Planilha vazia'));return;}
 
         var rows=raw.length;
@@ -863,4 +1075,4 @@ function renderAll(){
 renderAll();
 </script>
 </body>
-</html>
+</html    var lines = text.split(/\r?\n/).filter(function(l){return l.trim()!=='';});>
