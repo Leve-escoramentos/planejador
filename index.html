@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Leve — Dashboard Logístico</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,sans-serif;background:#F2F5EC;color:#2A3A24;font-size:14px}
+  nav{background:rgba(242,245,236,.97);border-bottom:1px solid rgba(58,80,44,.15);padding:0 24px;height:54px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+  .logo{font-weight:800;font-size:1.1rem;color:#3D5044;letter-spacing:-0.5px}
+  .logo span{color:#8AB73A}
+  .nav-right{font-size:.72rem;color:#6B7E5A}
+  .main{max-width:1400px;margin:0 auto;padding:20px}
+  .tabs{display:flex;gap:4px;margin-bottom:20px;flex-wrap:wrap}
+  .tab{padding:6px 14px;border-radius:6px;cursor:pointer;font-size:.78rem;font-weight:500;color:#6B7E5A;border:none;background:none;font-family:Inter,sans-serif}
+  .tab:hover{background:rgba(138,183,58,.15);color:#3D5044}
+  .tab.active{background:rgba(138,183,58,.2);color:#3D5044;font-weight:700}
+  .section{display:none}.section.active{display:block}
+  .grid{display:grid;gap:14px}
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:1fr 1fr 1fr}
+  .g4{grid-template-columns:1fr 1fr 1fr 1fr}
+  @media(max-width:900px){.g2,.g3,.g4{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:#fff;border-radius:10px;padding:18px;border:1px solid rgba(58,80,44,.1);box-shadow:0 1px 4px rgba(0,0,0,.06)}
+  .card-title{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#6B7E5A;margin-bottom:12px}
+  .kpi-val{font-size:2.2rem;font-weight:800;color:#3D5044;line-height:1}
+  .kpi-sub{font-size:.75rem;color:#8F9E80;margin-top:4px}
+  .badge{display:inline-block;padding:3px 8px;border-radius:12px;font-size:.7rem;font-weight:700}
+  .badge-green{background:rgba(138,183,58,.18);color:#4a7a1a}
+  .badge-red{background:rgba(192,57,43,.12);color:#c0392b}
+  .badge-yellow{background:rgba(214,137,16,.15);color:#d68910}
+  .bar-wrap{background:#e8ede0;border-radius:4px;height:10px;overflow:hidden;margin:6px 0}
+  .bar-fill{height:10px;border-radius:4px;transition:width .4s}
+  .green{background:#8AB73A}.orange{background:#D68910}.red{background:#C0392B}.blue{background:#2471A3}
+  .row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(58,80,44,.08)}
+  .row:last-child{border-bottom:none}
+  table{width:100%;border-collapse:collapse;font-size:.78rem}
+  th{text-align:left;padding:6px 10px;font-size:.65rem;text-transform:uppercase;letter-spacing:.5px;color:#6B7E5A;border-bottom:2px solid rgba(58,80,44,.12)}
+  td{padding:7px 10px;border-bottom:1px solid rgba(58,80,44,.07)}
+  tr:last-child td{border-bottom:none}
+  .gauge-wrap{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 0}
+  .gauge-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .gauge-lbl{width:120px;font-size:.78rem;text-align:right;color:#4A6030}
+  .gauge-bar{flex:1;background:#e8ede0;border-radius:4px;height:14px;overflow:hidden}
+  .gauge-pct{width:50px;font-size:.75rem;font-weight:700;text-align:right}
+  .sec-title{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#8F9E80;margin:20px 0 12px;display:flex;align-items:center;gap:8px}
+  .sec-title::after{content:'';flex:1;height:1px;background:rgba(58,80,44,.12)}
+  .error{background:#fff3cd;border:1px solid #ffc107;border-radius:8px;padding:16px;text-align:center}
+  canvas{display:block;max-width:100%}
+  .pin-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .pin{background:#e8ede0;border-radius:8px;padding:8px 12px;font-size:.75rem}
+  .pin strong{display:block;color:#3D5044}
+  .pin span{color:#6B7E5A}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo"><span>leve</span> — Dashboard Logístico</div>
+  <div class="nav-right" id="navDate">Carregando...</div>
+</nav>
+
+<div class="main">
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('geral',this)">Visão Geral</button>
+    <button class="tab" onclick="showTab('grupos',this)">Por Família</button>
+    <button class="tab" onclick="showTab('cargas',this)">Grade Logística</button>
+    <button class="tab" onclick="showTab('estoque',this)">Estoque</button>
+    <button class="tab" onclick="showTab('mapa',this)">Contratos</button>
+    <button class="tab" onclick="showTab('ocioso',this)">Ociosidade Imediata</button>
+  </div>
+
+  <!-- VISÃO GERAL -->
+  <div id="s-geral" class="section active">
+    <div class="grid g4" id="kpi-cards"></div>
+    <div class="sec-title">Ociosidade por família</div>
+    <div class="card"><div id="gauges"></div></div>
+    <div class="sec-title">Ociosidade para locação imediata</div>
+    <div class="card"><div id="ocio-imediata"></div></div>
+  </div>
+
+  <!-- POR FAMÍLIA -->
+  <div id="s-grupos" class="section">
+    <div class="card">
+      <div class="card-title">Detalhamento por família</div>
+      <table id="tbl-grupos">
+        <thead><tr><th>Família</th><th>Itens</th><th>Peso Total (t)</th><th>Disponível (t)</th><th>Locado (t)</th><th>Ociosidade</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- GRADE LOGÍSTICA -->
+  <div id="s-cargas" class="section">
+    <div class="grid g2" id="deficit-cards"></div>
+  </div>
+
+  <!-- ESTOQUE -->
+  <div id="s-estoque" class="section">
+    <div class="card">
+      <input id="estoque-search" placeholder="Buscar equipamento..." style="width:100%;padding:8px 12px;border:1px solid rgba(58,80,44,.2);border-radius:6px;font-size:.82rem;margin-bottom:12px;font-family:Inter,sans-serif">
+      <table id="tbl-estoque">
+        <thead><tr><th>Equipamento</th><th>Grupo</th><th>Disp.</th><th>Locado</th><th>Peso Disp. (kg)</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- CONTRATOS (MAPA) -->
+  <div id="s-mapa" class="section">
+    <div class="card">
+      <div class="card-title">Contratos ativos</div>
+      <table id="tbl-mapa">
+        <thead><tr><th>CT</th><th>Obra</th><th>Cliente</th><th>Saldo (t)</th><th>Sublocado</th><th>% Sub</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- OCIOSIDADE IMEDIATA -->
+  <div id="s-ocioso" class="section">
+    <div class="card"><div id="ocioso-detail"></div></div>
+  </div>
+</div>
+
+<script>
+var D = null;
+
+function showTab(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('s-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function fmt(kg) { return (kg/1000).toFixed(1)+'t'; }
+function pct(p)  { return p.toFixed(1)+'%'; }
+function color(p, inv) {
+  if(inv) return p>85?'green':p>70?'orange':'red';
+  return p<15?'green':p<30?'orange':'red';
+}
+
+function renderKPIs(k) {
+  var cards = [
+    {label:'Ociosidade Geral', val:pct(k.ociosidade_pct), sub:fmt(k.peso_disponivel_kg)+' disponível', c:color(k.ociosidade_pct,false)},
+    {label:'Taxa de Locação',  val:pct(k.taxa_locacao_pct), sub:fmt(k.peso_locado_kg)+' em campo', c:color(k.taxa_locacao_pct,true)},
+    {label:'Ociosidade 30d',   val:pct(k.ociosidade_pct_30d), sub:fmt(k.peso_disponivel_30d)+' previsto', c:color(k.ociosidade_pct_30d,false)},
+    {label:'Ociosidade 60d',   val:pct(k.ociosidade_pct_60d), sub:fmt(k.peso_disponivel_60d)+' previsto', c:color(k.ociosidade_pct_60d,false)},
+  ];
+  document.getElementById('kpi-cards').innerHTML = cards.map(c =>
+    '<div class="card"><div class="card-title">'+c.label+'</div>' +
+    '<div class="kpi-val" style="color:'+(c.c==='green'?'#4a7a1a':c.c==='orange'?'#d68910':'#c0392b')+'">'+c.val+'</div>' +
+    '<div class="kpi-sub">'+c.sub+'</div></div>'
+  ).join('');
+}
+
+function renderGauges(grupos) {
+  var max = Math.max.apply(null, grupos.map(g=>g.Ociosidade||0)) || 100;
+  document.getElementById('gauges').innerHTML = grupos.filter(g=>g.Peso_Total>0).map(g => {
+    var p = Math.min(g.Ociosidade||0, 100);
+    var c = g.Ociosidade<15?'#8AB73A':g.Ociosidade<30?'#D68910':'#C0392B';
+    return '<div class="gauge-row">' +
+      '<div class="gauge-lbl">'+g.Grupo+'</div>' +
+      '<div class="gauge-bar"><div class="bar-fill" style="width:'+Math.min(p,100)+'%;background:'+c+'"></div></div>' +
+      '<div class="gauge-pct" style="color:'+c+'">'+pct(g.Ociosidade)+'</div>' +
+      '</div>';
+  }).join('');
+}
+
+function renderOcioImediata(itens, ociosoMap) {
+  var metros = function(name) {
+    var m = name.match(/[-\s](\d{2,3})\s*(?:E)?$/i);
+    return m ? parseInt(m[1])/100 : null;
+  };
+  var quadros = [], perfMap = {};
+  Object.keys(ociosoMap).forEach(function(name) {
+    var qty = ociosoMap[name];
+    if(qty <= 0 || /prolongador/i.test(name)) return;
+    if(/quadro/i.test(name)) {
+      quadros.push({nome:name, qtde:qty});
+    } else if(/^perfil\s/i.test(name)) {
+      var m = metros(name); if(!m) return;
+      var fam = name.replace(/\s+\d+\s*E?\s*$/i,'').replace(/-\d+\s*E?\s*$/i,'').trim();
+      if(!perfMap[fam]) perfMap[fam] = {nome:fam, totalM:0};
+      perfMap[fam].totalM += qty * m;
+    }
+  });
+  quadros.sort(function(a,b){return a.nome.localeCompare(b.nome);});
+  var perfis = Object.values(perfMap).sort(function(a,b){return a.nome.localeCompare(b.nome);});
+  perfis.forEach(function(p){p.totalM=Math.round(p.totalM*10)/10;});
+
+  var totalQ = quadros.reduce(function(s,q){return s+q.qtde;},0);
+  var totalM = perfis.reduce(function(s,p){return s+p.totalM;},0);
+
+  var maxM = perfis.length ? Math.max.apply(null,perfis.map(function(p){return p.totalM;})) : 1;
+  var maxQ = quadros.length ? Math.max.apply(null,quadros.map(function(q){return q.qtde;})) : 1;
+
+  var html = '<div style="display:flex;gap:16px;margin-bottom:16px">' +
+    '<div style="background:rgba(138,183,58,.12);border-left:3px solid #8AB73A;padding:8px 14px;border-radius:0 6px 6px 0">' +
+    '<div style="font-size:.63rem;color:#6B7E5A;text-transform:uppercase">Total quadros</div>' +
+    '<div style="font-size:1.4rem;font-weight:700;color:#3D5044">'+totalQ+' <span style="font-size:.75rem">un</span></div></div>' +
+    '<div style="background:rgba(138,183,58,.12);border-left:3px solid #8AB73A;padding:8px 14px;border-radius:0 6px 6px 0">' +
+    '<div style="font-size:.63rem;color:#6B7E5A;text-transform:uppercase">Total perfis</div>' +
+    '<div style="font-size:1.4rem;font-weight:700;color:#3D5044">'+Math.round(totalM).toLocaleString('pt-BR')+' <span style="font-size:.75rem">m</span></div></div>' +
+    '</div>';
+
+  html += '<div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:#6B7E5A;margin-bottom:8px">Equipamentos principais disponíveis</div>';
+
+  var allRows = perfis.map(function(p) {
+    var pct2 = Math.round(p.totalM/maxM*100);
+    var short = p.nome.replace(/^PERFIL\s+/i,'');
+    return '<div style="display:flex;align-items:center;gap:10px;margin-bottom:5px">' +
+      '<div style="width:70px;font-size:.74rem;font-weight:600;text-align:right;white-space:nowrap">'+short+'</div>' +
+      '<div style="flex:1;height:14px;background:#e8ede0;border-radius:3px;overflow:hidden">' +
+      '<div style="height:14px;width:'+pct2+'%;background:#8AB73A;border-radius:3px"></div></div>' +
+      '<div style="width:65px;font-size:.75rem;font-weight:600;color:#3D5044;text-align:right">'+p.totalM.toLocaleString('pt-BR')+'m</div></div>';
+  });
+
+  if(perfis.length && quadros.length)
+    allRows.push('<div style="height:1px;background:rgba(58,80,44,.15);margin:8px 0"></div>');
+
+  allRows = allRows.concat(quadros.map(function(q) {
+    var pct2 = Math.max(1,Math.round(q.qtde/maxQ*100));
+    var short = q.nome.replace(/^QUADRO\s+/i,'');
+    return '<div style="display:flex;align-items:center;gap:10px;margin-bottom:5px">' +
+      '<div style="width:70px;font-size:.72rem;font-weight:600;text-align:right;white-space:nowrap">'+short+'</div>' +
+      '<div style="flex:1;height:14px;background:#e8ede0;border-radius:3px;overflow:hidden">' +
+      '<div style="height:14px;width:'+pct2+'%;background:#6A9228;border-radius:3px"></div></div>' +
+      '<div style="width:65px;font-size:.75rem;font-weight:600;color:#3D5044;text-align:right">'+q.qtde+' un</div></div>';
+  }));
+
+  document.getElementById('ocio-imediata').innerHTML = html + allRows.join('');
+  document.getElementById('ocioso-detail').innerHTML = html + allRows.join('');
+}
+
+function renderGrupos(grupos) {
+  document.querySelector('#tbl-grupos tbody').innerHTML = grupos.map(g =>
+    '<tr><td><strong>'+g.Grupo+'</strong></td><td>'+g.Itens+'</td>' +
+    '<td>'+fmt(g.Peso_Total)+'</td><td>'+fmt(g.Peso_Disp)+'</td><td>'+fmt(g.Peso_Loc)+'</td>' +
+    '<td><span class="badge badge-'+(g.Ociosidade<15?'green':g.Ociosidade<30?'yellow':'red')+'">'+pct(g.Ociosidade)+'</span></td></tr>'
+  ).join('');
+}
+
+function renderDeficit(cards) {
+  if(!cards.length) {
+    document.getElementById('deficit-cards').innerHTML = '<div class="card"><p style="color:#6B7E5A">Nenhuma carga com déficit prevista.</p></div>';
+    return;
+  }
+  document.getElementById('deficit-cards').innerHTML = cards.map(c => {
+    var status = c.n_deficit > 0 ? 'red' : 'green';
+    var items = (c.itens_falta||[]).map(i =>
+      '<div class="row"><span>'+i.equip+'</span><span style="color:#c0392b;font-weight:600">falta '+i.falta+'</span></div>'
+    ).join('');
+    return '<div class="card">' +
+      '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">' +
+      '<div><div style="font-weight:700;font-size:.88rem">'+c.obra+'</div>' +
+      '<div style="font-size:.72rem;color:#6B7E5A">'+c.data+' · '+fmt(c.peso_kg)+'</div></div>' +
+      '<span class="badge badge-'+status+'">'+(c.n_deficit>0?c.n_deficit+' itens em falta':'OK')+'</span></div>' +
+      (items || '<div style="color:#8F9E80;font-size:.78rem">Sem déficit</div>') +
+      '</div>';
+  }).join('');
+}
+
+function renderEstoque(itens) {
+  var all = itens;
+  var render = function(list) {
+    document.querySelector('#tbl-estoque tbody').innerHTML = list.map(it =>
+      '<tr><td>'+it.Equipamento+'</td><td>'+it.Grupo+'</td>' +
+      '<td>'+it.Qtde_Disponivel+'</td><td>'+it.Qtde_Locado+'</td>' +
+      '<td>'+it.Peso_Disponivel+'</td></tr>'
+    ).join('');
+  };
+  render(all);
+  document.getElementById('estoque-search').oninput = function() {
+    var q = this.value.toLowerCase();
+    render(all.filter(it => it.Equipamento.toLowerCase().includes(q)));
+  };
+}
+
+function renderMapa(mapa) {
+  var sorted = mapa.slice().sort(function(a,b){return b.peso_total-a.peso_total;});
+  document.querySelector('#tbl-mapa tbody').innerHTML = sorted.map(c =>
+    '<tr><td><strong>'+c.contrato+'</strong></td><td>'+c.obra+'</td><td>'+c.cliente+'</td>' +
+    '<td>'+fmt(c.peso_total)+'</td>' +
+    '<td>'+fmt(c.peso_sub)+'</td>' +
+    '<td><span class="badge badge-'+(c.pct_sub>50?'red':c.pct_sub>20?'yellow':'green')+'">'+c.pct_sub+'%</span></td></tr>'
+  ).join('');
+}
+
+function render(d) {
+  document.getElementById('navDate').textContent = 'Base: ' + d.atualizado_em;
+  renderKPIs(d.kpis);
+  renderGauges(d.grupos);
+  renderOcioImediata(d.itens, d.ociosoMap);
+  renderGrupos(d.grupos);
+  renderDeficit(d.deficit_cards);
+  renderEstoque(d.itens);
+  renderMapa(d.mapa);
+}
+
+// Load dados.json
+fetch('dados.json')
+  .then(function(r) {
+    if(!r.ok) throw new Error(r.status);
+    return r.json();
+  })
+  .then(function(d) { D = d; render(d); })
+  .catch(function(err) {
+    document.querySelector('.main').insertAdjacentHTML('afterbegin',
+      '<div class="error" style="margin-bottom:16px">'+
+      '<strong>⚠ dados.json não encontrado</strong><br>'+
+      'Execute <code>python gerar_dados.py</code> e coloque o <code>dados.json</code> na mesma pasta.'+
+      '</div>'
+    );
+  });
+</script>
+</body>
+</html>
