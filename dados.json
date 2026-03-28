@@ -1,0 +1,7057 @@
+{
+  "atualizado_em": "28/03/2026 12:01",
+  "kpis": {
+    "peso_total_kg": 56677.82,
+    "peso_disponivel_kg": 150233.19,
+    "peso_locado_kg": 13001.7,
+    "ociosidade_pct": 265.1,
+    "taxa_locacao_pct": 22.9,
+    "qtd_disponivel": 25760,
+    "qtd_locado": 6,
+    "peso_disponivel_30d": 120572.09,
+    "peso_disponivel_60d": 120572.09,
+    "ociosidade_pct_30d": 212.7,
+    "ociosidade_pct_60d": 212.7
+  },
+  "grupos": [
+    {
+      "Grupo": "Escoramentos",
+      "Itens": 64,
+      "Peso_Total": 38377.79,
+      "Peso_Disp": 105043.96,
+      "Peso_Loc": 6912.32,
+      "Qtd_Disp": 15641.0,
+      "Qtd_Loc": 4.0,
+      "Qtd_Man": 0.0,
+      "Ociosidade": 273.7
+    },
+    {
+      "Grupo": "Andaimes",
+      "Itens": 42,
+      "Peso_Total": 9689.75,
+      "Peso_Disp": 33663.91,
+      "Peso_Loc": 2870.82,
+      "Qtd_Disp": 7234.0,
+      "Qtd_Loc": 2.0,
+      "Qtd_Man": 0.0,
+      "Ociosidade": 347.4
+    },
+    {
+      "Grupo": "Ancoragem",
+      "Itens": 5,
+      "Peso_Total": 6280.82,
+      "Peso_Disp": 3403.68,
+      "Peso_Loc": 2877.14,
+      "Qtd_Disp": 2013.0,
+      "Qtd_Loc": 0.0,
+      "Qtd_Man": 0.0,
+      "Ociosidade": 54.2
+    },
+    {
+      "Grupo": "Fachadeiro 90",
+      "Itens": 7,
+      "Peso_Total": 1657.7,
+      "Peso_Disp": 5698.7,
+      "Peso_Loc": 96.0,
+      "Qtd_Disp": 726.0,
+      "Qtd_Loc": 0.0,
+      "Qtd_Man": 0.0,
+      "Ociosidade": 343.8
+    },
+    {
+      "Grupo": "Multidirecional",
+      "Itens": 2,
+      "Peso_Total": 268.27,
+      "Peso_Disp": 95.28,
+      "Peso_Loc": 172.99,
+      "Qtd_Disp": 12.0,
+      "Qtd_Loc": 0.0,
+      "Qtd_Man": 0.0,
+      "Ociosidade": 35.5
+    },
+    {
+      "Grupo": "Formas",
+      "Itens": 1,
+      "Peso_Total": 190.0,
+      "Peso_Disp": 2128.0,
+      "Peso_Loc": 0.0,
+      "Qtd_Disp": 112.0,
+      "Qtd_Loc": 0.0,
+      "Qtd_Man": 0.0,
+      "Ociosidade": 1120.0
+    },
+    {
+      "Grupo": "Andaime de Quadro",
+      "Itens": 2,
+      "Peso_Total": 136.09,
+      "Peso_Disp": 181.66,
+      "Peso_Loc": 4.03,
+      "Qtd_Disp": 16.0,
+      "Qtd_Loc": 0.0,
+      "Qtd_Man": 0.0,
+      "Ociosidade": 133.5
+    },
+    {
+      "Grupo": "Acessórios",
+      "Itens": 2,
+      "Peso_Total": 77.4,
+      "Peso_Disp": 18.0,
+      "Peso_Loc": 68.4,
+      "Qtd_Disp": 6.0,
+      "Qtd_Loc": 0.0,
+      "Qtd_Man": 0.0,
+      "Ociosidade": 23.3
+    }
+  ],
+  "itens": [
+    {
+      "Equipamento": "APRUMADOR S/350",
+      "Grupo": "Ancoragem",
+      "Qtde_Disponivel": 18.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 1255.1,
+      "Peso_Disponivel": 205.38,
+      "Peso_Locado": 1049.72
+    },
+    {
+      "Equipamento": "ARCO DE GC",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 8.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 42.24,
+      "Peso_Disponivel": 28.16,
+      "Peso_Locado": 14.08
+    },
+    {
+      "Equipamento": "BAG",
+      "Grupo": "Acessórios",
+      "Qtde_Disponivel": 6.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 9.0,
+      "Peso_Disponivel": 18.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "BARRA DE LIGAÇÃO FCH 90",
+      "Grupo": "Fachadeiro 90",
+      "Qtde_Disponivel": 289.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 93.0,
+      "Peso_Disponivel": 867.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "BARRA S075",
+      "Grupo": "Ancoragem",
+      "Qtde_Disponivel": 726.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 1116.36,
+      "Peso_Disponivel": 914.76,
+      "Peso_Locado": 201.6
+    },
+    {
+      "Equipamento": "BARRA S100",
+      "Grupo": "Ancoragem",
+      "Qtde_Disponivel": 186.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 448.56,
+      "Peso_Disponivel": 312.48,
+      "Peso_Locado": 136.08
+    },
+    {
+      "Equipamento": "BARRA S100 SUPER",
+      "Grupo": "Ancoragem",
+      "Qtde_Disponivel": 0.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 468.72,
+      "Peso_Disponivel": 0.0,
+      "Peso_Locado": 468.72
+    },
+    {
+      "Equipamento": "BASE FIXA LEV",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 21.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 149.76,
+      "Peso_Disponivel": 40.32,
+      "Peso_Locado": 109.44
+    },
+    {
+      "Equipamento": "BASE FIXA S",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 44.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 1.92,
+      "Peso_Disponivel": 84.48,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "BASE REGULAVEL 30S",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 795.0,
+      "Qtde_Locado": 2.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 2.8,
+      "Peso_Disponivel": 2226.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "BASE REGULAVEL 32S",
+      "Grupo": "Fachadeiro 90",
+      "Qtde_Disponivel": 26.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 179.2,
+      "Peso_Disponivel": 83.2,
+      "Peso_Locado": 96.0
+    },
+    {
+      "Equipamento": "BASE REGULAVEL 45S",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 1059.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 819.4,
+      "Peso_Disponivel": 3600.6,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "BRAÇADEIRA FIXA 48",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 870.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 69.03,
+      "Peso_Disponivel": 1017.9,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "BRAÇADEIRA GIRATÓRIA S",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 1271.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 35.38,
+      "Peso_Disponivel": 1550.62,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "BRAÇADEIRA GIRATÓRIA X",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 233.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 5.48,
+      "Peso_Disponivel": 319.21,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "Compensado 12mm 110x220",
+      "Grupo": "Formas",
+      "Qtde_Disponivel": 112.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 190.0,
+      "Peso_Disponivel": 2128.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "CONECTOR S",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 915.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 245.1,
+      "Peso_Disponivel": 521.55,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "CRUZETA 135/155 S",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 895.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 1035.72,
+      "Peso_Disponivel": 3678.45,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "CRUZETA 155 N",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 43.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 94.53,
+      "Peso_Disponivel": 176.73,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "DIAGONAL 100x200 - 2,25",
+      "Grupo": "Multidirecional",
+      "Qtde_Disponivel": 0.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 61.83,
+      "Peso_Disponivel": 0.0,
+      "Peso_Locado": 61.83
+    },
+    {
+      "Equipamento": "DIAGONAL 170x200 - 2,60",
+      "Grupo": "Multidirecional",
+      "Qtde_Disponivel": 12.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 206.44,
+      "Peso_Disponivel": 95.28,
+      "Peso_Locado": 111.16
+    },
+    {
+      "Equipamento": "DIAGONAL FCH 90",
+      "Grupo": "Fachadeiro 90",
+      "Qtde_Disponivel": 141.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 206.5,
+      "Peso_Disponivel": 493.5,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "DIAGONAL HORIZONTAL LEV 155",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 76.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 329.84,
+      "Peso_Disponivel": 202.16,
+      "Peso_Locado": 127.68
+    },
+    {
+      "Equipamento": "DIAGONAL PAINEL 1,50m",
+      "Grupo": "Andaime de Quadro",
+      "Qtde_Disponivel": 2.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 12.09,
+      "Peso_Disponivel": 8.06,
+      "Peso_Locado": 4.03
+    },
+    {
+      "Equipamento": "ESCADA LEV 200",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 2.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 43.28,
+      "Peso_Disponivel": 21.64,
+      "Peso_Locado": 21.64
+    },
+    {
+      "Equipamento": "ESCORA FÊMEA EURO",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 828.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 1915.2,
+      "Peso_Disponivel": 9273.6,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "ESCORA FÊMEA S350",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 1050.0,
+      "Qtde_Locado": 4.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 2527.8,
+      "Peso_Disponivel": 6930.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "ESCORA MACHO EURO",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 828.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 1590.3,
+      "Peso_Disponivel": 7700.4,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "ESCORA MACHO S350",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 1045.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 1592.8,
+      "Peso_Disponivel": 4598.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "ESCORA S320",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 0.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 15.0,
+      "Peso_Disponivel": 0.0,
+      "Peso_Locado": 15.0
+    },
+    {
+      "Equipamento": "ESCORA S320 EURO",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 0.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 15.0,
+      "Peso_Disponivel": 0.0,
+      "Peso_Locado": 15.0
+    },
+    {
+      "Equipamento": "FORCADO DUPLO S",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 327.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 111.8,
+      "Peso_Disponivel": 562.44,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "FORCADO DUPLO S20",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 267.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 139.75,
+      "Peso_Disponivel": 867.75,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "FORCADO REGULÁVEL E",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 147.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 5.6,
+      "Peso_Disponivel": 823.2,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "FORCADO REGULÁVEL S",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 474.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 134.4,
+      "Peso_Disponivel": 2654.4,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "FORCADO REGULÁVEL S20",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 806.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 834.4,
+      "Peso_Disponivel": 4513.6,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "FORCADO SIMPLES S",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 369.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 21.0,
+      "Peso_Disponivel": 221.4,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "FORCADO SIMPLES S20",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 60.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 33.6,
+      "Peso_Disponivel": 63.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "LUVA 42 S",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 32.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 19.44,
+      "Peso_Disponivel": 34.56,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "LUVA 48 S",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 308.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 28.08,
+      "Peso_Disponivel": 332.64,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PAINEL 150/100",
+      "Grupo": "Andaime de Quadro",
+      "Qtde_Disponivel": 14.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 124.0,
+      "Peso_Disponivel": 173.6,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PARAFUSO DE ESCORA",
+      "Grupo": "Acessórios",
+      "Qtde_Disponivel": 0.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 68.4,
+      "Peso_Disponivel": 0.0,
+      "Peso_Locado": 68.4
+    },
+    {
+      "Equipamento": "PERFIL L14 150",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 26.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 6.75,
+      "Peso_Disponivel": 175.5,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PERFIL L14 200",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 16.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 90.0,
+      "Peso_Disponivel": 144.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PERFIL L14 400",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 50.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 594.0,
+      "Peso_Disponivel": 900.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PERFIL S10 100",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 0.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 99.0,
+      "Peso_Disponivel": 0.0,
+      "Peso_Locado": 99.0
+    },
+    {
+      "Equipamento": "PERFIL S10 150",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 32.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 544.5,
+      "Peso_Disponivel": 264.0,
+      "Peso_Locado": 280.5
+    },
+    {
+      "Equipamento": "PERFIL S10 200",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 34.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 495.0,
+      "Peso_Disponivel": 374.0,
+      "Peso_Locado": 121.0
+    },
+    {
+      "Equipamento": "PERFIL S10 250",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 59.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 990.0,
+      "Peso_Disponivel": 811.25,
+      "Peso_Locado": 178.75
+    },
+    {
+      "Equipamento": "PERFIL S10 300",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 20.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 16.5,
+      "Peso_Disponivel": 330.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PERFIL S12 450",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 17.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 965.25,
+      "Peso_Disponivel": 497.25,
+      "Peso_Locado": 468.0
+    },
+    {
+      "Equipamento": "PERFIL S12-150",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 18.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 312.0,
+      "Peso_Disponivel": 175.5,
+      "Peso_Locado": 136.5
+    },
+    {
+      "Equipamento": "PERFIL S20 145",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 39.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 30.0,
+      "Peso_Disponivel": 292.5,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PERFIL S20 195",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 31.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 190.0,
+      "Peso_Disponivel": 310.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PERFIL S20 290",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 20.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 13.5,
+      "Peso_Disponivel": 270.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PERFIL S20 360",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 8.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 78.0,
+      "Peso_Disponivel": 156.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PERFIL S20 390",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 113.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 58.5,
+      "Peso_Disponivel": 2203.5,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PERFIL S20 490",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 41.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 108.0,
+      "Peso_Disponivel": 1107.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PERFIL S20 590",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 101.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 29.5,
+      "Peso_Disponivel": 2979.5,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PERFIL S5 100",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 294.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 985.8,
+      "Peso_Disponivel": 1822.8,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PERFIL S5 150",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 152.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 911.4,
+      "Peso_Disponivel": 1413.6,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PERFIL S6 100",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 76.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 148.8,
+      "Peso_Disponivel": 471.2,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PERFIL S6 150",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 10.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 1869.3,
+      "Peso_Disponivel": 93.0,
+      "Peso_Locado": 1776.3
+    },
+    {
+      "Equipamento": "PERFIL S6 300",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 0.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 1785.6,
+      "Peso_Disponivel": 0.0,
+      "Peso_Locado": 1785.6
+    },
+    {
+      "Equipamento": "PERFIL S8 100",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 15.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 38.5,
+      "Peso_Disponivel": 82.5,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PERFIL S8 200",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 1223.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 4180.0,
+      "Peso_Disponivel": 13453.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PERFIL S8 220",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 9.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 568.7,
+      "Peso_Disponivel": 108.9,
+      "Peso_Locado": 459.8
+    },
+    {
+      "Equipamento": "PERFIL S8 250",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 413.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 3011.25,
+      "Peso_Disponivel": 5678.75,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PERFIL S8 280",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 10.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 184.8,
+      "Peso_Disponivel": 154.0,
+      "Peso_Locado": 30.8
+    },
+    {
+      "Equipamento": "PERFIL S8 300",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 56.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 742.5,
+      "Peso_Disponivel": 924.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PERFIL S8 350",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 233.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 308.0,
+      "Peso_Disponivel": 4485.25,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PERFIL S8 400",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 134.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 2673.0,
+      "Peso_Disponivel": 3316.5,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PERFIL W200-300",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 0.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 135.0,
+      "Peso_Disponivel": 0.0,
+      "Peso_Locado": 135.0
+    },
+    {
+      "Equipamento": "PERFIL W200-600",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 0.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 540.0,
+      "Peso_Disponivel": 0.0,
+      "Peso_Locado": 540.0
+    },
+    {
+      "Equipamento": "PERFIL W310-600",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 0.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 339.6,
+      "Peso_Disponivel": 0.0,
+      "Peso_Locado": 339.6
+    },
+    {
+      "Equipamento": "PINO EURO",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 838.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 36.08,
+      "Peso_Disponivel": 184.36,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PINO S350",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 1098.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 69.08,
+      "Peso_Disponivel": 241.56,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PISO ALCAPÃO FCH 90 - 60X250",
+      "Grupo": "Fachadeiro 90",
+      "Qtde_Disponivel": 12.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 156.0,
+      "Peso_Disponivel": 468.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PISO METALICO S220",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 4.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 35.2,
+      "Peso_Disponivel": 70.4,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PISO METALICO S300",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 168.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 432.0,
+      "Peso_Disponivel": 4032.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "PORCA S",
+      "Grupo": "Ancoragem",
+      "Qtde_Disponivel": 1083.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 2992.08,
+      "Peso_Disponivel": 1971.06,
+      "Peso_Locado": 1021.02
+    },
+    {
+      "Equipamento": "PROLONGADOR DE QUADRO 025",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 120.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 17.85,
+      "Peso_Disponivel": 714.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "QUADRO FCH 90 C/ ESCADA",
+      "Grupo": "Fachadeiro 90",
+      "Qtde_Disponivel": 42.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 378.0,
+      "Peso_Disponivel": 882.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "QUADRO FCH 90 S/ ESCADA",
+      "Grupo": "Fachadeiro 90",
+      "Qtde_Disponivel": 157.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 561.0,
+      "Peso_Disponivel": 2669.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "QUADRO LEV 125-2",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 488.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 1500.24,
+      "Peso_Disponivel": 5504.64,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "QUADRO LEV 125-2 N",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 23.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 327.12,
+      "Peso_Disponivel": 259.44,
+      "Peso_Locado": 67.68
+    },
+    {
+      "Equipamento": "QUADRO LEV 200-2",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 418.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 997.5,
+      "Peso_Disponivel": 7315.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "RODAPÉ 250 FCH 90",
+      "Grupo": "Fachadeiro 90",
+      "Qtde_Disponivel": 59.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 84.0,
+      "Peso_Disponivel": 236.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "RODIZIO DE BORRACHA S",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 0.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 35.2,
+      "Peso_Disponivel": 0.0,
+      "Peso_Locado": 35.2
+    },
+    {
+      "Equipamento": "SUPORTE DE FORCADO",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 31.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 151.11,
+      "Peso_Disponivel": 67.89,
+      "Peso_Locado": 83.22
+    },
+    {
+      "Equipamento": "TRIPÉ ARTICULADO",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 136.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 274.04,
+      "Peso_Disponivel": 1096.16,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TRIPÉ FIXO",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 27.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 185.38,
+      "Peso_Disponivel": 217.62,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO 48/025",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 179.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 17.1,
+      "Peso_Disponivel": 161.1,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO 48/050",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 170.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 21.6,
+      "Peso_Disponivel": 306.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO 48/075",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 172.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 21.6,
+      "Peso_Disponivel": 464.4,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO 48/100",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 91.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 680.4,
+      "Peso_Disponivel": 327.6,
+      "Peso_Locado": 352.8
+    },
+    {
+      "Equipamento": "TUBO 48/125",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 171.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 4.5,
+      "Peso_Disponivel": 769.5,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO 48/150",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 306.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 2052.0,
+      "Peso_Disponivel": 1652.4,
+      "Peso_Locado": 399.6
+    },
+    {
+      "Equipamento": "TUBO 48/175",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 70.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 926.1,
+      "Peso_Disponivel": 441.0,
+      "Peso_Locado": 485.1
+    },
+    {
+      "Equipamento": "TUBO 48/200",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 160.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 2498.4,
+      "Peso_Disponivel": 1152.0,
+      "Peso_Locado": 1346.4
+    },
+    {
+      "Equipamento": "TUBO 48/225",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 13.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 105.3,
+      "Peso_Disponivel": 105.3,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO 48/250",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 74.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 9.0,
+      "Peso_Disponivel": 666.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO 48/300",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 45.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 108.0,
+      "Peso_Disponivel": 486.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO 48/325",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 26.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 35.1,
+      "Peso_Disponivel": 304.2,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO 48/350",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 29.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 12.6,
+      "Peso_Disponivel": 365.4,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO S025",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 100.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 81.0,
+      "Peso_Disponivel": 90.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO S050",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 105.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 5.4,
+      "Peso_Disponivel": 189.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO S075",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 66.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 48.6,
+      "Peso_Disponivel": 178.2,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO S100",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 148.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 140.4,
+      "Peso_Disponivel": 532.8,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO S125",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 278.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 49.5,
+      "Peso_Disponivel": 1251.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO S150",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 157.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 162.0,
+      "Peso_Disponivel": 847.8,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO S175",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 96.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 302.4,
+      "Peso_Disponivel": 604.8,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO S200",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 43.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 525.6,
+      "Peso_Disponivel": 309.6,
+      "Peso_Locado": 216.0
+    },
+    {
+      "Equipamento": "TUBO S225",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 49.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 40.5,
+      "Peso_Disponivel": 396.9,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO S250",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 63.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 27.0,
+      "Peso_Disponivel": 567.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO S300",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 267.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 54.0,
+      "Peso_Disponivel": 2883.6,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO S325",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 187.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 46.8,
+      "Peso_Disponivel": 2187.9,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO S350",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 114.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 327.6,
+      "Peso_Disponivel": 1436.4,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO S375",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 12.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 27.0,
+      "Peso_Disponivel": 162.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO S400",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 99.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 475.2,
+      "Peso_Disponivel": 1425.6,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO S450",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 154.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 113.4,
+      "Peso_Disponivel": 2494.8,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "TUBO S600",
+      "Grupo": "Andaimes",
+      "Qtde_Disponivel": 55.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 21.6,
+      "Peso_Disponivel": 1188.0,
+      "Peso_Locado": 0.0
+    },
+    {
+      "Equipamento": "VIGA S20 150-MAD",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 0.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 22.5,
+      "Peso_Disponivel": 0.0,
+      "Peso_Locado": 22.5
+    },
+    {
+      "Equipamento": "VIGA S20 175-MAD",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 1.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 70.0,
+      "Peso_Disponivel": 10.0,
+      "Peso_Locado": 60.0
+    },
+    {
+      "Equipamento": "VIGA S20 195-MAD",
+      "Grupo": "Escoramentos",
+      "Qtde_Disponivel": 1.0,
+      "Qtde_Locado": 0.0,
+      "Qtde_Manutencao": 0.0,
+      "Peso_Total": 73.14,
+      "Peso_Disponivel": 12.19,
+      "Peso_Locado": 60.95
+    }
+  ],
+  "deficit_cards": [
+    {
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_sort": "2026-03-24",
+      "peso_kg": 23458.62,
+      "itens_falta": [
+        {
+          "equip": "BRAÇADEIRA FIXA S",
+          "necessario": 156.0,
+          "disponivel": 0,
+          "falta": 156.0
+        },
+        {
+          "equip": "CONECTOR S",
+          "necessario": 816.0,
+          "disponivel": 430.0,
+          "falta": 386.0
+        },
+        {
+          "equip": "CRUZETA 135/155 S",
+          "necessario": 544.0,
+          "disponivel": 252.0,
+          "falta": 292.0
+        },
+        {
+          "equip": "DIAGONAL HORIZONTAL LEV 155",
+          "necessario": 136.0,
+          "disponivel": 124.0,
+          "falta": 12.0
+        },
+        {
+          "equip": "FORCADO REGULÁVEL E",
+          "necessario": 7.0,
+          "disponivel": 1.0,
+          "falta": 6.0
+        },
+        {
+          "equip": "FORCADO REGULÁVEL S",
+          "necessario": 47.0,
+          "disponivel": 24.0,
+          "falta": 23.0
+        }
+      ],
+      "n_ok": 13,
+      "n_deficit": 19,
+      "status": "deficit"
+    },
+    {
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_sort": "2026-03-25",
+      "peso_kg": 5172.24,
+      "itens_falta": [
+        {
+          "equip": "BASE REGULAVEL 32S",
+          "necessario": 20.0,
+          "disponivel": 0,
+          "falta": 20.0
+        },
+        {
+          "equip": "BRAÇADEIRA FIXA S",
+          "necessario": 330.0,
+          "disponivel": 0,
+          "falta": 486.0
+        },
+        {
+          "equip": "BRAÇADEIRA GIRATÓRIA S",
+          "necessario": 50.0,
+          "disponivel": 31.0,
+          "falta": 19.0
+        },
+        {
+          "equip": "ESCADA ENTRADA/SAÍDA S200",
+          "necessario": 4.0,
+          "disponivel": 0,
+          "falta": 4.0
+        },
+        {
+          "equip": "LUVA 48 S",
+          "necessario": 45.0,
+          "disponivel": 26.0,
+          "falta": 19.0
+        },
+        {
+          "equip": "PERFIL S20 245",
+          "necessario": 4.0,
+          "disponivel": 0,
+          "falta": 6.0
+        }
+      ],
+      "n_ok": 10,
+      "n_deficit": 22,
+      "status": "deficit"
+    },
+    {
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_sort": "2026-03-28",
+      "peso_kg": 6941.9,
+      "itens_falta": [
+        {
+          "equip": "BASE REGULAVEL 30S",
+          "necessario": 19.0,
+          "disponivel": 2.0,
+          "falta": 17.0
+        },
+        {
+          "equip": "BRAÇADEIRA FIXA S",
+          "necessario": 10.0,
+          "disponivel": 0,
+          "falta": 292.0
+        },
+        {
+          "equip": "BRAÇADEIRA GIRATÓRIA S",
+          "necessario": 60.0,
+          "disponivel": 0,
+          "falta": 79.0
+        },
+        {
+          "equip": "FORCADO REGULÁVEL S20",
+          "necessario": 3.0,
+          "disponivel": 0,
+          "falta": 116.0
+        },
+        {
+          "equip": "PERFIL S20 590",
+          "necessario": 1.0,
+          "disponivel": 0,
+          "falta": 4.0
+        },
+        {
+          "equip": "PISO METALICO S200",
+          "necessario": 3.0,
+          "disponivel": 0,
+          "falta": 3.0
+        }
+      ],
+      "n_ok": 5,
+      "n_deficit": 16,
+      "status": "deficit"
+    },
+    {
+      "contrato": "164",
+      "obra": "LINDENBERG",
+      "data": "2026-03-30",
+      "data_sort": "2026-03-30",
+      "peso_kg": 1489.28,
+      "itens_falta": [
+        {
+          "equip": "BASE REGULAVEL 30S",
+          "necessario": 18.0,
+          "disponivel": 0,
+          "falta": 35.0
+        },
+        {
+          "equip": "PISO METALICO S250",
+          "necessario": 3.0,
+          "disponivel": 0,
+          "falta": 12.0
+        },
+        {
+          "equip": "PISO METALICO S300",
+          "necessario": 18.0,
+          "disponivel": 0,
+          "falta": 24.0
+        },
+        {
+          "equip": "POSTE S100",
+          "necessario": 7.0,
+          "disponivel": 0,
+          "falta": 7.0
+        },
+        {
+          "equip": "POSTE S250",
+          "necessario": 11.0,
+          "disponivel": 0,
+          "falta": 41.0
+        },
+        {
+          "equip": "QUEBRA VÃO 100",
+          "necessario": 13.0,
+          "disponivel": 0,
+          "falta": 41.0
+        }
+      ],
+      "n_ok": 1,
+      "n_deficit": 9,
+      "status": "deficit"
+    },
+    {
+      "contrato": "01",
+      "obra": "CADETE | TRAV.",
+      "data": "2026-04-01",
+      "data_sort": "2026-04-01",
+      "peso_kg": 9219.24,
+      "itens_falta": [
+        {
+          "equip": "PERFIL S5 100",
+          "necessario": 182.0,
+          "disponivel": 167.0,
+          "falta": 15.0
+        },
+        {
+          "equip": "PERFIL S8 220",
+          "necessario": 8.0,
+          "disponivel": 0,
+          "falta": 9.0
+        },
+        {
+          "equip": "PERFIL S8 280",
+          "necessario": 12.0,
+          "disponivel": 2.0,
+          "falta": 10.0
+        },
+        {
+          "equip": "PERFIL S8 400",
+          "necessario": 16.0,
+          "disponivel": 0,
+          "falta": 22.0
+        }
+      ],
+      "n_ok": 13,
+      "n_deficit": 4,
+      "status": "deficit"
+    },
+    {
+      "contrato": "01",
+      "obra": "OLAM TRAV",
+      "data": "2026-04-01",
+      "data_sort": "2026-04-01",
+      "peso_kg": 6941.85,
+      "itens_falta": [
+        {
+          "equip": "LUVA WATERSTOP 5/8\"",
+          "necessario": 336.0,
+          "disponivel": 0,
+          "falta": 336.0
+        },
+        {
+          "equip": "PERFIL S8 200",
+          "necessario": 336.0,
+          "disponivel": 222.0,
+          "falta": 114.0
+        }
+      ],
+      "n_ok": 7,
+      "n_deficit": 2,
+      "status": "deficit"
+    },
+    {
+      "contrato": "04",
+      "obra": "CADETE | ELV 1",
+      "data": "2026-04-04",
+      "data_sort": "2026-04-04",
+      "peso_kg": 7231.57,
+      "itens_falta": [
+        {
+          "equip": "BASE REGULAVEL 45S",
+          "necessario": 76.0,
+          "disponivel": 73.0,
+          "falta": 3.0
+        },
+        {
+          "equip": "CRUZETA 135/155 S",
+          "necessario": 40.0,
+          "disponivel": 0,
+          "falta": 332.0
+        },
+        {
+          "equip": "FORCADO REGULÁVEL S20",
+          "necessario": 76.0,
+          "disponivel": 0,
+          "falta": 192.0
+        },
+        {
+          "equip": "PERFIL S20 330",
+          "necessario": 2.0,
+          "disponivel": 0,
+          "falta": 10.0
+        },
+        {
+          "equip": "PERFIL S20 390",
+          "necessario": 1.0,
+          "disponivel": 0,
+          "falta": 8.0
+        },
+        {
+          "equip": "PERFIL S20 450",
+          "necessario": 2.0,
+          "disponivel": 0,
+          "falta": 5.0
+        }
+      ],
+      "n_ok": 7,
+      "n_deficit": 10,
+      "status": "deficit"
+    },
+    {
+      "contrato": "173",
+      "obra": "IDALBERTO MORO",
+      "data": "2026-04-05",
+      "data_sort": "2026-04-05",
+      "peso_kg": 6004.87,
+      "itens_falta": [
+        {
+          "equip": "BASE FIXA LEV",
+          "necessario": 218.0,
+          "disponivel": 90.0,
+          "falta": 128.0
+        },
+        {
+          "equip": "BASE REGULAVEL 30S",
+          "necessario": 184.0,
+          "disponivel": 149.0,
+          "falta": 35.0
+        },
+        {
+          "equip": "QUADRO LEV 125-2",
+          "necessario": 46.0,
+          "disponivel": 9.0,
+          "falta": 37.0
+        },
+        {
+          "equip": "TUBO 48/125",
+          "necessario": 63.0,
+          "disponivel": 57.0,
+          "falta": 6.0
+        }
+      ],
+      "n_ok": 12,
+      "n_deficit": 4,
+      "status": "deficit"
+    },
+    {
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_sort": "2026-04-05",
+      "peso_kg": 6886.05,
+      "itens_falta": [
+        {
+          "equip": "BRAÇADEIRA FIXA S",
+          "necessario": 24.0,
+          "disponivel": 8.0,
+          "falta": 16.0
+        },
+        {
+          "equip": "CRUZETA 135/155 S",
+          "necessario": 38.0,
+          "disponivel": 0,
+          "falta": 38.0
+        },
+        {
+          "equip": "FORCADO REGULÁVEL S20",
+          "necessario": 73.0,
+          "disponivel": 0,
+          "falta": 96.0
+        },
+        {
+          "equip": "PERFIL S20 145",
+          "necessario": 2.0,
+          "disponivel": 0,
+          "falta": 3.0
+        },
+        {
+          "equip": "PERFIL S20 330",
+          "necessario": 5.0,
+          "disponivel": 0,
+          "falta": 11.0
+        },
+        {
+          "equip": "PERFIL S20 490",
+          "necessario": 10.0,
+          "disponivel": 9.0,
+          "falta": 1.0
+        }
+      ],
+      "n_ok": 23,
+      "n_deficit": 12,
+      "status": "deficit"
+    },
+    {
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_sort": "2026-04-06",
+      "peso_kg": 5804.1,
+      "itens_falta": [
+        {
+          "equip": "BASE FIXA LEV",
+          "necessario": 21.0,
+          "disponivel": 0,
+          "falta": 149.0
+        },
+        {
+          "equip": "FORCADO REGULÁVEL S20",
+          "necessario": 78.0,
+          "disponivel": 0,
+          "falta": 174.0
+        },
+        {
+          "equip": "PERFIL S12 450",
+          "necessario": 20.0,
+          "disponivel": 3.0,
+          "falta": 17.0
+        },
+        {
+          "equip": "PERFIL S20 290",
+          "necessario": 13.0,
+          "disponivel": 2.0,
+          "falta": 11.0
+        },
+        {
+          "equip": "PERFIL S20 490",
+          "necessario": 7.0,
+          "disponivel": 0,
+          "falta": 8.0
+        },
+        {
+          "equip": "PERFIL S20 590",
+          "necessario": 2.0,
+          "disponivel": 0,
+          "falta": 22.0
+        }
+      ],
+      "n_ok": 18,
+      "n_deficit": 11,
+      "status": "deficit"
+    },
+    {
+      "contrato": "07",
+      "obra": "CONTRACTOR | PIRULITOS + PAR 1",
+      "data": "2026-04-07",
+      "data_sort": "2026-04-07",
+      "peso_kg": 2935.23,
+      "itens_falta": [
+        {
+          "equip": "BARRA S150",
+          "necessario": 10.0,
+          "disponivel": 0,
+          "falta": 10.0
+        },
+        {
+          "equip": "BARRA S200 E",
+          "necessario": 10.0,
+          "disponivel": 0,
+          "falta": 10.0
+        },
+        {
+          "equip": "PERFIL S8 100",
+          "necessario": 20.0,
+          "disponivel": 0,
+          "falta": 39.0
+        },
+        {
+          "equip": "PERFIL S8 200",
+          "necessario": 9.0,
+          "disponivel": 0,
+          "falta": 25.0
+        },
+        {
+          "equip": "PERFIL S8 200 E",
+          "necessario": 26.0,
+          "disponivel": 0,
+          "falta": 26.0
+        },
+        {
+          "equip": "PERFIL S8 250 E",
+          "necessario": 1.0,
+          "disponivel": 0,
+          "falta": 1.0
+        }
+      ],
+      "n_ok": 5,
+      "n_deficit": 8,
+      "status": "deficit"
+    },
+    {
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_sort": "2026-04-08",
+      "peso_kg": 7264.18,
+      "itens_falta": [
+        {
+          "equip": "BARRA S150",
+          "necessario": 10.0,
+          "disponivel": 0,
+          "falta": 20.0
+        },
+        {
+          "equip": "BASE REGULAVEL 45S",
+          "necessario": 82.0,
+          "disponivel": 37.0,
+          "falta": 45.0
+        },
+        {
+          "equip": "BRAÇADEIRA FIXA S",
+          "necessario": 28.0,
+          "disponivel": 0,
+          "falta": 44.0
+        },
+        {
+          "equip": "CONECTOR S",
+          "necessario": 108.0,
+          "disponivel": 0,
+          "falta": 169.0
+        },
+        {
+          "equip": "CRUZETA 135/155 S",
+          "necessario": 104.0,
+          "disponivel": 0,
+          "falta": 142.0
+        },
+        {
+          "equip": "FORCADO REGULÁVEL S",
+          "necessario": 116.0,
+          "disponivel": 23.0,
+          "falta": 93.0
+        }
+      ],
+      "n_ok": 19,
+      "n_deficit": 15,
+      "status": "deficit"
+    }
+  ],
+  "movimentacoes": [
+    {
+      "tipo": "Retorno",
+      "contrato": "150",
+      "obra": "ALESSANDRA",
+      "data": "2026-03-23",
+      "data_fmt": "23/03/2026",
+      "peso_kg": 0.0,
+      "equip": "BASE REGULAVEL 30S",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "150",
+      "obra": "ALESSANDRA",
+      "data": "2026-03-23",
+      "data_fmt": "23/03/2026",
+      "peso_kg": 2.32,
+      "equip": "BASE REGULAVEL 45S",
+      "qty": 3.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "150",
+      "obra": "ALESSANDRA",
+      "data": "2026-03-23",
+      "data_fmt": "23/03/2026",
+      "peso_kg": 0.06,
+      "equip": "BRAÇADEIRA GIRATÓRIA S",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "150",
+      "obra": "ALESSANDRA",
+      "data": "2026-03-23",
+      "data_fmt": "23/03/2026",
+      "peso_kg": 37.01,
+      "equip": "ESCORA FÊMEA EURO",
+      "qty": 16.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "150",
+      "obra": "ALESSANDRA",
+      "data": "2026-03-23",
+      "data_fmt": "23/03/2026",
+      "peso_kg": 0.0,
+      "equip": "ESCORA FÊMEA MÁX",
+      "qty": 6.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "150",
+      "obra": "ALESSANDRA",
+      "data": "2026-03-23",
+      "data_fmt": "23/03/2026",
+      "peso_kg": 57.56,
+      "equip": "ESCORA FÊMEA S350",
+      "qty": 24.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "150",
+      "obra": "ALESSANDRA",
+      "data": "2026-03-23",
+      "data_fmt": "23/03/2026",
+      "peso_kg": 30.73,
+      "equip": "ESCORA MACHO EURO",
+      "qty": 16.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "150",
+      "obra": "ALESSANDRA",
+      "data": "2026-03-23",
+      "data_fmt": "23/03/2026",
+      "peso_kg": 0.0,
+      "equip": "ESCORA MACHO MÁX",
+      "qty": 6.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "150",
+      "obra": "ALESSANDRA",
+      "data": "2026-03-23",
+      "data_fmt": "23/03/2026",
+      "peso_kg": 36.58,
+      "equip": "ESCORA MACHO S350",
+      "qty": 24.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "150",
+      "obra": "ALESSANDRA",
+      "data": "2026-03-23",
+      "data_fmt": "23/03/2026",
+      "peso_kg": 2.09,
+      "equip": "FORCADO DUPLO S20",
+      "qty": 4.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "150",
+      "obra": "ALESSANDRA",
+      "data": "2026-03-23",
+      "data_fmt": "23/03/2026",
+      "peso_kg": 2.07,
+      "equip": "FORCADO REGULÁVEL S20",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "150",
+      "obra": "ALESSANDRA",
+      "data": "2026-03-23",
+      "data_fmt": "23/03/2026",
+      "peso_kg": 43.68,
+      "equip": "PERFIL S10 200",
+      "qty": 3.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "150",
+      "obra": "ALESSANDRA",
+      "data": "2026-03-23",
+      "data_fmt": "23/03/2026",
+      "peso_kg": 0.73,
+      "equip": "PINO EURO",
+      "qty": 17.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "150",
+      "obra": "ALESSANDRA",
+      "data": "2026-03-23",
+      "data_fmt": "23/03/2026",
+      "peso_kg": 0.0,
+      "equip": "PINO MÁX",
+      "qty": 6.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "150",
+      "obra": "ALESSANDRA",
+      "data": "2026-03-23",
+      "data_fmt": "23/03/2026",
+      "peso_kg": 1.51,
+      "equip": "PINO S350",
+      "qty": 24.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "150",
+      "obra": "ALESSANDRA",
+      "data": "2026-03-23",
+      "data_fmt": "23/03/2026",
+      "peso_kg": 73.14,
+      "equip": "VIGA S20 195-MAD",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 385.97,
+      "equip": "BASE REGULAVEL 32S",
+      "qty": 56.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 167.13,
+      "equip": "BASE REGULAVEL 45S",
+      "qty": 216.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 0.0,
+      "equip": "BRAÇADEIRA FIXA S",
+      "qty": 156.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 218.58,
+      "equip": "CONECTOR S",
+      "qty": 816.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 629.53,
+      "equip": "CRUZETA 135/155 S",
+      "qty": 544.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 590.24,
+      "equip": "DIAGONAL HORIZONTAL LEV 155",
+      "qty": 136.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 0.27,
+      "equip": "FORCADO REGULÁVEL E",
+      "qty": 7.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 13.33,
+      "equip": "FORCADO REGULÁVEL S",
+      "qty": 47.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 281.58,
+      "equip": "FORCADO REGULÁVEL S20",
+      "qty": 272.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 1646.6,
+      "equip": "PERFIL S12 450",
+      "qty": 29.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 12.31,
+      "equip": "PERFIL S20 145",
+      "qty": 16.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 12.26,
+      "equip": "PERFIL S20 195",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S20 245",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S20 330",
+      "qty": 10.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 5.18,
+      "equip": "PERFIL S20 390",
+      "qty": 10.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S20 450",
+      "qty": 3.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 5.26,
+      "equip": "PERFIL S20 590",
+      "qty": 18.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S8 150",
+      "qty": 30.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 680.15,
+      "equip": "PERFIL S8 200",
+      "qty": 199.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S8 200 E",
+      "qty": 26.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 3033.07,
+      "equip": "PERFIL S8 220",
+      "qty": 48.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 721.83,
+      "equip": "PERFIL S8 250",
+      "qty": 99.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 184.8,
+      "equip": "PERFIL S8 280",
+      "qty": 10.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 2274.04,
+      "equip": "PERFIL S8 400",
+      "qty": 114.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 1029.88,
+      "equip": "QUADRO LEV 125-2",
+      "qty": 335.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 412.46,
+      "equip": "QUADRO LEV 125-2 N",
+      "qty": 29.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 429.55,
+      "equip": "QUADRO LEV 200-2",
+      "qty": 180.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 263.22,
+      "equip": "SUPORTE DE FORCADO",
+      "qty": 54.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 281.65,
+      "equip": "TUBO 48/150",
+      "qty": 42.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 198.45,
+      "equip": "TUBO 48/175",
+      "qty": 15.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 327.92,
+      "equip": "TUBO 48/200",
+      "qty": 21.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "24",
+      "obra": "OLAM ESC",
+      "data": "2026-03-24",
+      "data_fmt": "24/03/2026",
+      "peso_kg": 16.2,
+      "equip": "TUBO 48/225",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 137.85,
+      "equip": "BASE REGULAVEL 32S",
+      "qty": 20.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 0.0,
+      "equip": "BRAÇADEIRA FIXA S",
+      "qty": 330.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 1.39,
+      "equip": "BRAÇADEIRA GIRATÓRIA S",
+      "qty": 50.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 0.0,
+      "equip": "ESCADA ENTRADA/SAÍDA S200",
+      "qty": 4.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 46.26,
+      "equip": "ESCORA FÊMEA EURO",
+      "qty": 20.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 38.41,
+      "equip": "ESCORA MACHO EURO",
+      "qty": 20.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 4.1,
+      "equip": "FORCADO DUPLO S",
+      "qty": 12.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 4.1,
+      "equip": "LUVA 48 S",
+      "qty": 45.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S20 245",
+      "qty": 4.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S20 330",
+      "qty": 4.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 23.92,
+      "equip": "PERFIL S8 200",
+      "qty": 7.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 212.14,
+      "equip": "PERFIL S8 300",
+      "qty": 16.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 0.86,
+      "equip": "PINO EURO",
+      "qty": 20.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 0.0,
+      "equip": "PISO METALICO 30X250",
+      "qty": 50.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 0.0,
+      "equip": "PISO METALICO S100",
+      "qty": 15.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 0.0,
+      "equip": "PISO METALICO S150",
+      "qty": 12.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 0.0,
+      "equip": "PRANCHÃO 30X100",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 0.0,
+      "equip": "PRANCHÃO 30X150",
+      "qty": 12.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 0.0,
+      "equip": "PRANCHÃO 30X200",
+      "qty": 10.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 0.0,
+      "equip": "PRANCHÃO 30X250",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 0.0,
+      "equip": "TERMINAL GUARDA CORPO S200",
+      "qty": 10.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 335.29,
+      "equip": "TUBO 48/150",
+      "qty": 50.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 66.15,
+      "equip": "TUBO 48/175",
+      "qty": 5.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 78.08,
+      "equip": "TUBO 48/200",
+      "qty": 5.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 81.0,
+      "equip": "TUBO 48/225",
+      "qty": 10.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 1.82,
+      "equip": "TUBO 48/250",
+      "qty": 15.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 0.0,
+      "equip": "TUBO 48/275",
+      "qty": 10.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 84.0,
+      "equip": "TUBO 48/300",
+      "qty": 35.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 2.17,
+      "equip": "TUBO 48/350",
+      "qty": 5.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 0.0,
+      "equip": "TUBO 48/400",
+      "qty": 25.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 0.0,
+      "equip": "TUBO 48/450",
+      "qty": 16.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "25",
+      "obra": "GEPLANO - GALERIA",
+      "data": "2026-03-25",
+      "data_fmt": "25/03/2026",
+      "peso_kg": 0.0,
+      "equip": "TUBO 48/600",
+      "qty": 16.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 12.3,
+      "equip": "BARRA S075",
+      "qty": 8.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 85.58,
+      "equip": "BASE FIXA LEV",
+      "qty": 12.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 0.79,
+      "equip": "BASE FIXA S",
+      "qty": 18.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 14.7,
+      "equip": "BASE REGULAVEL 45S",
+      "qty": 19.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 19.99,
+      "equip": "BRAÇADEIRA FIXA 48",
+      "qty": 252.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 0.0,
+      "equip": "BRAÇADEIRA FIXA S",
+      "qty": 204.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 1061.69,
+      "equip": "ESCORA FÊMEA EURO",
+      "qty": 459.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 247.02,
+      "equip": "ESCORA FÊMEA S350",
+      "qty": 103.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 881.58,
+      "equip": "ESCORA MACHO EURO",
+      "qty": 459.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 156.99,
+      "equip": "ESCORA MACHO S350",
+      "qty": 103.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 42.4,
+      "equip": "FORCADO DUPLO S",
+      "qty": 124.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 51.29,
+      "equip": "FORCADO DUPLO S20",
+      "qty": 98.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 12.19,
+      "equip": "FORCADO REGULÁVEL S",
+      "qty": 43.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 8.28,
+      "equip": "FORCADO REGULÁVEL S20",
+      "qty": 8.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 14.57,
+      "equip": "FORCADO SIMPLES S",
+      "qty": 256.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 17.92,
+      "equip": "FORCADO SIMPLES S20",
+      "qty": 32.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 262.06,
+      "equip": "PERFIL S10 200",
+      "qty": 18.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 208.0,
+      "equip": "PERFIL S12-150",
+      "qty": 12.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 0.77,
+      "equip": "PERFIL S20 145",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S20 245",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S20 330",
+      "qty": 6.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 29.25,
+      "equip": "PERFIL S20 360",
+      "qty": 3.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 2.63,
+      "equip": "PERFIL S20 490",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 4.09,
+      "equip": "PERFIL S20 590",
+      "qty": 14.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 26.82,
+      "equip": "PERFIL S5 100",
+      "qty": 8.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 164.06,
+      "equip": "PERFIL S8 200",
+      "qty": 48.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 36.46,
+      "equip": "PERFIL S8 250",
+      "qty": 5.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 1723.66,
+      "equip": "PERFIL S8 300",
+      "qty": 130.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 19.81,
+      "equip": "PINO EURO",
+      "qty": 460.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 6.48,
+      "equip": "PINO S350",
+      "qty": 103.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 44.2,
+      "equip": "PORCA S",
+      "qty": 16.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 3.81,
+      "equip": "TUBO 48/050",
+      "qty": 30.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 142.06,
+      "equip": "TUBO 48/100",
+      "qty": 19.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 0.13,
+      "equip": "TUBO 48/125",
+      "qty": 5.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 1146.71,
+      "equip": "TUBO 48/150",
+      "qty": 171.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 52.92,
+      "equip": "TUBO 48/175",
+      "qty": 4.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 124.92,
+      "equip": "TUBO 48/200",
+      "qty": 8.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 84.0,
+      "equip": "TUBO 48/300",
+      "qty": 35.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "157",
+      "obra": "MIX CAR",
+      "data": "2026-03-27",
+      "data_fmt": "27/03/2026",
+      "peso_kg": 2.02,
+      "equip": "TUBO S300",
+      "qty": 10.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_fmt": "28/03/2026",
+      "peso_kg": 0.07,
+      "equip": "BASE REGULAVEL 30S",
+      "qty": 19.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_fmt": "28/03/2026",
+      "peso_kg": 7.74,
+      "equip": "BASE REGULAVEL 45S",
+      "qty": 10.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_fmt": "28/03/2026",
+      "peso_kg": 0.0,
+      "equip": "BRAÇADEIRA FIXA S",
+      "qty": 10.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_fmt": "28/03/2026",
+      "peso_kg": 1.67,
+      "equip": "BRAÇADEIRA GIRATÓRIA S",
+      "qty": 60.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_fmt": "28/03/2026",
+      "peso_kg": 5.1,
+      "equip": "FORCADO REGULÁVEL S",
+      "qty": 18.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_fmt": "28/03/2026",
+      "peso_kg": 3.11,
+      "equip": "FORCADO REGULÁVEL S20",
+      "qty": 3.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_fmt": "28/03/2026",
+      "peso_kg": 33.56,
+      "equip": "PERFIL S10 250",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_fmt": "28/03/2026",
+      "peso_kg": 0.29,
+      "equip": "PERFIL S20 590",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_fmt": "28/03/2026",
+      "peso_kg": 304.96,
+      "equip": "PERFIL S8 300",
+      "qty": 23.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_fmt": "28/03/2026",
+      "peso_kg": 0.0,
+      "equip": "PISO METALICO S200",
+      "qty": 3.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_fmt": "28/03/2026",
+      "peso_kg": 0.0,
+      "equip": "PISO METALICO S250",
+      "qty": 9.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_fmt": "28/03/2026",
+      "peso_kg": 61.71,
+      "equip": "PISO METALICO S300",
+      "qty": 24.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_fmt": "28/03/2026",
+      "peso_kg": 0.0,
+      "equip": "POSTE S250",
+      "qty": 30.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_fmt": "28/03/2026",
+      "peso_kg": 0.0,
+      "equip": "POSTE S300",
+      "qty": 90.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_fmt": "28/03/2026",
+      "peso_kg": 0.0,
+      "equip": "QUEBRA VÃO 100",
+      "qty": 28.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_fmt": "28/03/2026",
+      "peso_kg": 0.0,
+      "equip": "TRAVESSA S100",
+      "qty": 90.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_fmt": "28/03/2026",
+      "peso_kg": 0.0,
+      "equip": "TRAVESSA S220",
+      "qty": 28.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_fmt": "28/03/2026",
+      "peso_kg": 0.0,
+      "equip": "TRAVESSA S250",
+      "qty": 224.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_fmt": "28/03/2026",
+      "peso_kg": 33.53,
+      "equip": "TUBO 48/150",
+      "qty": 5.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_fmt": "28/03/2026",
+      "peso_kg": 6.75,
+      "equip": "TUBO 48/325",
+      "qty": 5.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "135",
+      "obra": "TEATRO",
+      "data": "2026-03-28",
+      "data_fmt": "28/03/2026",
+      "peso_kg": 10.86,
+      "equip": "TUBO 48/350",
+      "qty": 25.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "164",
+      "obra": "LINDENBERG",
+      "data": "2026-03-30",
+      "data_fmt": "30/03/2026",
+      "peso_kg": 0.06,
+      "equip": "BASE REGULAVEL 30S",
+      "qty": 18.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "164",
+      "obra": "LINDENBERG",
+      "data": "2026-03-30",
+      "data_fmt": "30/03/2026",
+      "peso_kg": 0.0,
+      "equip": "PISO METALICO S250",
+      "qty": 3.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "164",
+      "obra": "LINDENBERG",
+      "data": "2026-03-30",
+      "data_fmt": "30/03/2026",
+      "peso_kg": 46.29,
+      "equip": "PISO METALICO S300",
+      "qty": 18.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "164",
+      "obra": "LINDENBERG",
+      "data": "2026-03-30",
+      "data_fmt": "30/03/2026",
+      "peso_kg": 0.0,
+      "equip": "POSTE S100",
+      "qty": 7.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "164",
+      "obra": "LINDENBERG",
+      "data": "2026-03-30",
+      "data_fmt": "30/03/2026",
+      "peso_kg": 0.0,
+      "equip": "POSTE S250",
+      "qty": 11.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "164",
+      "obra": "LINDENBERG",
+      "data": "2026-03-30",
+      "data_fmt": "30/03/2026",
+      "peso_kg": 0.0,
+      "equip": "QUEBRA VÃO 100",
+      "qty": 13.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "164",
+      "obra": "LINDENBERG",
+      "data": "2026-03-30",
+      "data_fmt": "30/03/2026",
+      "peso_kg": 0.0,
+      "equip": "RODAPE FIBRA 250",
+      "qty": 16.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "164",
+      "obra": "LINDENBERG",
+      "data": "2026-03-30",
+      "data_fmt": "30/03/2026",
+      "peso_kg": 0.0,
+      "equip": "TRAVESSA S100",
+      "qty": 22.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "164",
+      "obra": "LINDENBERG",
+      "data": "2026-03-30",
+      "data_fmt": "30/03/2026",
+      "peso_kg": 0.0,
+      "equip": "TRAVESSA S250",
+      "qty": 48.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "164",
+      "obra": "LINDENBERG",
+      "data": "2026-03-30",
+      "data_fmt": "30/03/2026",
+      "peso_kg": 1.72,
+      "equip": "TUBO 48/025",
+      "qty": 18.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "CADETE | TRAV.",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 3974.48,
+      "equip": "APRUMADOR S/350",
+      "qty": 57.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "OLAM TRAV",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 675.04,
+      "equip": "BARRA S075",
+      "qty": 439.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "CADETE | TRAV.",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 533.58,
+      "equip": "BARRA S075",
+      "qty": 347.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "OLAM TRAV",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 643.9,
+      "equip": "BARRA S100",
+      "qty": 267.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "OLAM TRAV",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 0.0,
+      "equip": "BARRA S100 SUPER",
+      "qty": 158.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "CADETE | TRAV.",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 340.02,
+      "equip": "ESCORA FÊMEA EURO",
+      "qty": 147.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "CADETE | TRAV.",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 282.34,
+      "equip": "ESCORA MACHO EURO",
+      "qty": 147.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "CADETE | TRAV.",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 25.98,
+      "equip": "FORCADO DUPLO S",
+      "qty": 76.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "CADETE | TRAV.",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 2.96,
+      "equip": "FORCADO SIMPLES S",
+      "qty": 52.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "CADETE | TRAV.",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 27.44,
+      "equip": "FORCADO SIMPLES S20",
+      "qty": 49.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "OLAM TRAV",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 0.0,
+      "equip": "LUVA WATERSTOP 5/8\"",
+      "qty": 336.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "OLAM TRAV",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S10 100",
+      "qty": 18.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "OLAM TRAV",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 1071.98,
+      "equip": "PERFIL S10 150",
+      "qty": 63.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "OLAM TRAV",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 305.74,
+      "equip": "PERFIL S10 200",
+      "qty": 21.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "CADETE | TRAV.",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 610.26,
+      "equip": "PERFIL S5 100",
+      "qty": 182.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "CADETE | TRAV.",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 587.61,
+      "equip": "PERFIL S5 150",
+      "qty": 98.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "OLAM TRAV",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 1148.39,
+      "equip": "PERFIL S8 200",
+      "qty": 336.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "CADETE | TRAV.",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 505.51,
+      "equip": "PERFIL S8 220",
+      "qty": 8.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "CADETE | TRAV.",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 145.82,
+      "equip": "PERFIL S8 250",
+      "qty": 20.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "CADETE | TRAV.",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 221.76,
+      "equip": "PERFIL S8 280",
+      "qty": 12.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "CADETE | TRAV.",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 755.76,
+      "equip": "PERFIL S8 300",
+      "qty": 57.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "CADETE | TRAV.",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 21.15,
+      "equip": "PERFIL S8 350",
+      "qty": 16.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "CADETE | TRAV.",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 319.16,
+      "equip": "PERFIL S8 400",
+      "qty": 16.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "CADETE | TRAV.",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 6.33,
+      "equip": "PINO EURO",
+      "qty": 147.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "OLAM TRAV",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 1458.74,
+      "equip": "PORCA S",
+      "qty": 528.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "01",
+      "obra": "CADETE | TRAV.",
+      "data": "2026-04-01",
+      "data_fmt": "01/04/2026",
+      "peso_kg": 958.68,
+      "equip": "PORCA S",
+      "qty": 347.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "167",
+      "obra": "OTAMERICA",
+      "data": "2026-04-03",
+      "data_fmt": "03/04/2026",
+      "peso_kg": 27.85,
+      "equip": "BASE REGULAVEL 45S",
+      "qty": 36.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "167",
+      "obra": "OTAMERICA",
+      "data": "2026-04-03",
+      "data_fmt": "03/04/2026",
+      "peso_kg": 0.0,
+      "equip": "BRAÇADEIRA FIXA S",
+      "qty": 250.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "167",
+      "obra": "OTAMERICA",
+      "data": "2026-04-03",
+      "data_fmt": "03/04/2026",
+      "peso_kg": 1.34,
+      "equip": "BRAÇADEIRA GIRATÓRIA S",
+      "qty": 48.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "167",
+      "obra": "OTAMERICA",
+      "data": "2026-04-03",
+      "data_fmt": "03/04/2026",
+      "peso_kg": 0.02,
+      "equip": "BRAÇADEIRA GIRATÓRIA X",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "167",
+      "obra": "OTAMERICA",
+      "data": "2026-04-03",
+      "data_fmt": "03/04/2026",
+      "peso_kg": 0.0,
+      "equip": "ESCADA ENTRADA/SAÍDA S200",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "167",
+      "obra": "OTAMERICA",
+      "data": "2026-04-03",
+      "data_fmt": "03/04/2026",
+      "peso_kg": 0.0,
+      "equip": "ESCADA S200",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "167",
+      "obra": "OTAMERICA",
+      "data": "2026-04-03",
+      "data_fmt": "03/04/2026",
+      "peso_kg": 0.46,
+      "equip": "LUVA 48 S",
+      "qty": 5.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "167",
+      "obra": "OTAMERICA",
+      "data": "2026-04-03",
+      "data_fmt": "03/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PISO METALICO 30X250",
+      "qty": 68.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "167",
+      "obra": "OTAMERICA",
+      "data": "2026-04-03",
+      "data_fmt": "03/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PISO METALICO S100",
+      "qty": 28.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "167",
+      "obra": "OTAMERICA",
+      "data": "2026-04-03",
+      "data_fmt": "03/04/2026",
+      "peso_kg": 17.08,
+      "equip": "RODAPÉ 250 FCH 90",
+      "qty": 12.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "167",
+      "obra": "OTAMERICA",
+      "data": "2026-04-03",
+      "data_fmt": "03/04/2026",
+      "peso_kg": 0.0,
+      "equip": "TERMINAL GUARDA CORPO S200",
+      "qty": 5.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "167",
+      "obra": "OTAMERICA",
+      "data": "2026-04-03",
+      "data_fmt": "03/04/2026",
+      "peso_kg": 0.03,
+      "equip": "TUBO 48/125",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "167",
+      "obra": "OTAMERICA",
+      "data": "2026-04-03",
+      "data_fmt": "03/04/2026",
+      "peso_kg": 31.23,
+      "equip": "TUBO 48/200",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "167",
+      "obra": "OTAMERICA",
+      "data": "2026-04-03",
+      "data_fmt": "03/04/2026",
+      "peso_kg": 0.0,
+      "equip": "TUBO 48/400",
+      "qty": 5.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "167",
+      "obra": "OTAMERICA",
+      "data": "2026-04-03",
+      "data_fmt": "03/04/2026",
+      "peso_kg": 0.0,
+      "equip": "TUBO S275",
+      "qty": 91.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "167",
+      "obra": "OTAMERICA",
+      "data": "2026-04-03",
+      "data_fmt": "03/04/2026",
+      "peso_kg": 77.59,
+      "equip": "TUBO S350",
+      "qty": 27.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "167",
+      "obra": "OTAMERICA",
+      "data": "2026-04-03",
+      "data_fmt": "03/04/2026",
+      "peso_kg": 13.5,
+      "equip": "TUBO S375",
+      "qty": 6.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "167",
+      "obra": "OTAMERICA",
+      "data": "2026-04-03",
+      "data_fmt": "03/04/2026",
+      "peso_kg": 100.8,
+      "equip": "TUBO S400",
+      "qty": 21.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "167",
+      "obra": "OTAMERICA",
+      "data": "2026-04-03",
+      "data_fmt": "03/04/2026",
+      "peso_kg": 1.47,
+      "equip": "TUBO S450",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "04",
+      "obra": "CADETE | ELV 1",
+      "data": "2026-04-04",
+      "data_fmt": "04/04/2026",
+      "peso_kg": 58.8,
+      "equip": "BASE REGULAVEL 45S",
+      "qty": 76.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "04",
+      "obra": "CADETE | ELV 1",
+      "data": "2026-04-04",
+      "data_fmt": "04/04/2026",
+      "peso_kg": 46.29,
+      "equip": "CRUZETA 135/155 S",
+      "qty": 40.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "04",
+      "obra": "CADETE | ELV 1",
+      "data": "2026-04-04",
+      "data_fmt": "04/04/2026",
+      "peso_kg": 115.65,
+      "equip": "ESCORA FÊMEA EURO",
+      "qty": 50.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "04",
+      "obra": "CADETE | ELV 1",
+      "data": "2026-04-04",
+      "data_fmt": "04/04/2026",
+      "peso_kg": 96.03,
+      "equip": "ESCORA MACHO EURO",
+      "qty": 50.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "04",
+      "obra": "CADETE | ELV 1",
+      "data": "2026-04-04",
+      "data_fmt": "04/04/2026",
+      "peso_kg": 2.05,
+      "equip": "FORCADO DUPLO S",
+      "qty": 6.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "04",
+      "obra": "CADETE | ELV 1",
+      "data": "2026-04-04",
+      "data_fmt": "04/04/2026",
+      "peso_kg": 23.03,
+      "equip": "FORCADO DUPLO S20",
+      "qty": 44.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "04",
+      "obra": "CADETE | ELV 1",
+      "data": "2026-04-04",
+      "data_fmt": "04/04/2026",
+      "peso_kg": 78.68,
+      "equip": "FORCADO REGULÁVEL S20",
+      "qty": 76.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "04",
+      "obra": "CADETE | ELV 1",
+      "data": "2026-04-04",
+      "data_fmt": "04/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S20 330",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "04",
+      "obra": "CADETE | ELV 1",
+      "data": "2026-04-04",
+      "data_fmt": "04/04/2026",
+      "peso_kg": 0.52,
+      "equip": "PERFIL S20 390",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "04",
+      "obra": "CADETE | ELV 1",
+      "data": "2026-04-04",
+      "data_fmt": "04/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S20 450",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "04",
+      "obra": "CADETE | ELV 1",
+      "data": "2026-04-04",
+      "data_fmt": "04/04/2026",
+      "peso_kg": 5.27,
+      "equip": "PERFIL S20 490",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "04",
+      "obra": "CADETE | ELV 1",
+      "data": "2026-04-04",
+      "data_fmt": "04/04/2026",
+      "peso_kg": 6.43,
+      "equip": "PERFIL S20 590",
+      "qty": 22.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "04",
+      "obra": "CADETE | ELV 1",
+      "data": "2026-04-04",
+      "data_fmt": "04/04/2026",
+      "peso_kg": 10.06,
+      "equip": "PERFIL S5 100",
+      "qty": 3.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "04",
+      "obra": "CADETE | ELV 1",
+      "data": "2026-04-04",
+      "data_fmt": "04/04/2026",
+      "peso_kg": 721.16,
+      "equip": "PERFIL S8 200",
+      "qty": 211.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "04",
+      "obra": "CADETE | ELV 1",
+      "data": "2026-04-04",
+      "data_fmt": "04/04/2026",
+      "peso_kg": 736.41,
+      "equip": "PERFIL S8 250",
+      "qty": 101.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "04",
+      "obra": "CADETE | ELV 1",
+      "data": "2026-04-04",
+      "data_fmt": "04/04/2026",
+      "peso_kg": 2.15,
+      "equip": "PINO EURO",
+      "qty": 50.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "04",
+      "obra": "CADETE | ELV 1",
+      "data": "2026-04-04",
+      "data_fmt": "04/04/2026",
+      "peso_kg": 90.68,
+      "equip": "QUADRO LEV 200-2",
+      "qty": 38.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 6.0,
+      "equip": "BAG",
+      "qty": 4.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 87.65,
+      "equip": "BARRA S075",
+      "qty": 57.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "173",
+      "obra": "IDALBERTO MORO",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 1554.65,
+      "equip": "BASE FIXA LEV",
+      "qty": 218.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.65,
+      "equip": "BASE REGULAVEL 30S",
+      "qty": 184.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "173",
+      "obra": "IDALBERTO MORO",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.65,
+      "equip": "BASE REGULAVEL 30S",
+      "qty": 184.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 194.98,
+      "equip": "BASE REGULAVEL 45S",
+      "qty": 252.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "173",
+      "obra": "IDALBERTO MORO",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 70.41,
+      "equip": "BASE REGULAVEL 45S",
+      "qty": 91.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 49.52,
+      "equip": "BASE REGULAVEL 45S",
+      "qty": 64.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "BRAÇADEIRA FIXA S",
+      "qty": 50.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "BRAÇADEIRA FIXA S",
+      "qty": 24.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "BRAÇADEIRA FIXA X",
+      "qty": 60.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "BRAÇADEIRA FIXA X E",
+      "qty": 122.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 2.34,
+      "equip": "BRAÇADEIRA GIRATÓRIA S",
+      "qty": 84.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.94,
+      "equip": "BRAÇADEIRA GIRATÓRIA X",
+      "qty": 40.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 87.06,
+      "equip": "CONECTOR S",
+      "qty": 325.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 437.43,
+      "equip": "CRUZETA 135/155 S",
+      "qty": 378.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "173",
+      "obra": "IDALBERTO MORO",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 53.23,
+      "equip": "CRUZETA 135/155 S",
+      "qty": 46.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 43.97,
+      "equip": "CRUZETA 135/155 S",
+      "qty": 38.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 247.38,
+      "equip": "DIAGONAL HORIZONTAL LEV 155",
+      "qty": 57.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 446.42,
+      "equip": "ESCORA FÊMEA EURO",
+      "qty": 193.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 138.78,
+      "equip": "ESCORA FÊMEA EURO",
+      "qty": 60.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "ESCORA FÊMEA MÁX",
+      "qty": 14.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 318.97,
+      "equip": "ESCORA FÊMEA S350",
+      "qty": 133.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 79.14,
+      "equip": "ESCORA FÊMEA S350",
+      "qty": 33.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 370.69,
+      "equip": "ESCORA MACHO EURO",
+      "qty": 193.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 115.24,
+      "equip": "ESCORA MACHO EURO",
+      "qty": 60.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "ESCORA MACHO MÁX",
+      "qty": 14.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 202.72,
+      "equip": "ESCORA MACHO S350",
+      "qty": 133.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 50.3,
+      "equip": "ESCORA MACHO S350",
+      "qty": 33.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 15.39,
+      "equip": "FORCADO DUPLO S",
+      "qty": 45.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 4.1,
+      "equip": "FORCADO DUPLO S",
+      "qty": 12.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 36.64,
+      "equip": "FORCADO DUPLO S20",
+      "qty": 70.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 24.08,
+      "equip": "FORCADO DUPLO S20",
+      "qty": 46.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 4.19,
+      "equip": "FORCADO REGULÁVEL E",
+      "qty": 110.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 43.1,
+      "equip": "FORCADO REGULÁVEL S",
+      "qty": 152.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "173",
+      "obra": "IDALBERTO MORO",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 36.86,
+      "equip": "FORCADO REGULÁVEL S",
+      "qty": 130.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 174.95,
+      "equip": "FORCADO REGULÁVEL S20",
+      "qty": 169.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 75.57,
+      "equip": "FORCADO REGULÁVEL S20",
+      "qty": 73.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 17.01,
+      "equip": "LUVA 42 S",
+      "qty": 28.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 2.74,
+      "equip": "LUVA 48 S",
+      "qty": 30.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 201.96,
+      "equip": "PERFIL L14 400",
+      "qty": 17.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 136.12,
+      "equip": "PERFIL S10 150",
+      "qty": 8.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "173",
+      "obra": "IDALBERTO MORO",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 34.03,
+      "equip": "PERFIL S10 150",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 320.29,
+      "equip": "PERFIL S10 200",
+      "qty": 22.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "173",
+      "obra": "IDALBERTO MORO",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 72.79,
+      "equip": "PERFIL S10 200",
+      "qty": 5.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 302.03,
+      "equip": "PERFIL S10 250",
+      "qty": 18.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "173",
+      "obra": "IDALBERTO MORO",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 151.02,
+      "equip": "PERFIL S10 250",
+      "qty": 9.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 5.77,
+      "equip": "PERFIL S10 300",
+      "qty": 7.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "173",
+      "obra": "IDALBERTO MORO",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 56.78,
+      "equip": "PERFIL S12 450",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 7.69,
+      "equip": "PERFIL S20 145",
+      "qty": 10.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 1.54,
+      "equip": "PERFIL S20 145",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 30.65,
+      "equip": "PERFIL S20 195",
+      "qty": 5.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 30.65,
+      "equip": "PERFIL S20 195",
+      "qty": 5.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S20 250 E",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 3.38,
+      "equip": "PERFIL S20 290",
+      "qty": 5.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 2.7,
+      "equip": "PERFIL S20 290",
+      "qty": 4.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S20 330",
+      "qty": 4.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S20 330",
+      "qty": 5.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 9.75,
+      "equip": "PERFIL S20 360",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 35.2,
+      "equip": "PERFIL S20 390",
+      "qty": 68.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.52,
+      "equip": "PERFIL S20 390",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S20 400 E",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 15.8,
+      "equip": "PERFIL S20 490",
+      "qty": 6.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 26.34,
+      "equip": "PERFIL S20 490",
+      "qty": 10.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 5.84,
+      "equip": "PERFIL S20 590",
+      "qty": 20.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 4.09,
+      "equip": "PERFIL S20 590",
+      "qty": 14.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 147.53,
+      "equip": "PERFIL S5 100",
+      "qty": 44.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 6.71,
+      "equip": "PERFIL S5 100",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S8 150",
+      "qty": 70.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S8 150",
+      "qty": 5.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S8 150 E",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 1900.31,
+      "equip": "PERFIL S8 200",
+      "qty": 556.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "173",
+      "obra": "IDALBERTO MORO",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 468.24,
+      "equip": "PERFIL S8 200",
+      "qty": 137.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 375.96,
+      "equip": "PERFIL S8 200",
+      "qty": 110.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S8 200 E",
+      "qty": 26.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 568.7,
+      "equip": "PERFIL S8 220",
+      "qty": 9.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 102.08,
+      "equip": "PERFIL S8 250",
+      "qty": 14.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 605.17,
+      "equip": "PERFIL S8 250",
+      "qty": 83.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 184.8,
+      "equip": "PERFIL S8 280",
+      "qty": 10.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 53.04,
+      "equip": "PERFIL S8 300",
+      "qty": 4.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 172.37,
+      "equip": "PERFIL S8 300",
+      "qty": 13.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 2.64,
+      "equip": "PERFIL S8 350",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 1.32,
+      "equip": "PERFIL S8 350",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 1037.28,
+      "equip": "PERFIL S8 400",
+      "qty": 52.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "173",
+      "obra": "IDALBERTO MORO",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 538.59,
+      "equip": "PERFIL S8 400",
+      "qty": 27.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 79.79,
+      "equip": "PERFIL S8 400",
+      "qty": 4.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S8 400 E",
+      "qty": 4.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 8.31,
+      "equip": "PINO EURO",
+      "qty": 193.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 2.58,
+      "equip": "PINO EURO",
+      "qty": 60.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PINO MÁX",
+      "qty": 14.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 8.37,
+      "equip": "PINO S350",
+      "qty": 133.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 2.08,
+      "equip": "PINO S350",
+      "qty": 33.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 49.73,
+      "equip": "PORCA S",
+      "qty": 18.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "POSTE S250",
+      "qty": 36.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 10.41,
+      "equip": "PROLONGADOR DE QUADRO 025",
+      "qty": 70.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 648.67,
+      "equip": "QUADRO LEV 125-2",
+      "qty": 211.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "173",
+      "obra": "IDALBERTO MORO",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 141.42,
+      "equip": "QUADRO LEV 125-2",
+      "qty": 46.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 18.45,
+      "equip": "QUADRO LEV 125-2",
+      "qty": 6.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 264.89,
+      "equip": "QUADRO LEV 200-2",
+      "qty": 111.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 62.05,
+      "equip": "QUADRO LEV 200-2",
+      "qty": 26.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 92.62,
+      "equip": "SUPORTE DE FORCADO",
+      "qty": 19.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "TRAVESSA S100",
+      "qty": 36.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "TRAVESSA S170",
+      "qty": 48.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 64.48,
+      "equip": "TRIPÉ ARTICULADO",
+      "qty": 32.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 54.93,
+      "equip": "TRIPÉ FIXO",
+      "qty": 8.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "173",
+      "obra": "IDALBERTO MORO",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 13.73,
+      "equip": "TRIPÉ FIXO",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 6.87,
+      "equip": "TRIPÉ FIXO",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "TUBO 42/025",
+      "qty": 4.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "TUBO 42/050",
+      "qty": 4.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "TUBO 42/075",
+      "qty": 4.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "TUBO 42/300",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.57,
+      "equip": "TUBO 48/025",
+      "qty": 6.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.13,
+      "equip": "TUBO 48/050",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 3.77,
+      "equip": "TUBO 48/075",
+      "qty": 30.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 14.95,
+      "equip": "TUBO 48/100",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "173",
+      "obra": "IDALBERTO MORO",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 897.23,
+      "equip": "TUBO 48/100",
+      "qty": 120.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 1.32,
+      "equip": "TUBO 48/125",
+      "qty": 50.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "173",
+      "obra": "IDALBERTO MORO",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 1.66,
+      "equip": "TUBO 48/125",
+      "qty": 63.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 40.24,
+      "equip": "TUBO 48/150",
+      "qty": 6.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "173",
+      "obra": "IDALBERTO MORO",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 241.41,
+      "equip": "TUBO 48/150",
+      "qty": 36.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 218.61,
+      "equip": "TUBO 48/200",
+      "qty": 14.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 4.74,
+      "equip": "TUBO 48/250",
+      "qty": 39.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 22.95,
+      "equip": "TUBO 48/325",
+      "qty": 17.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 24.3,
+      "equip": "TUBO S025",
+      "qty": 30.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.15,
+      "equip": "TUBO S050",
+      "qty": 3.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 4.42,
+      "equip": "TUBO S075",
+      "qty": 6.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 3.1,
+      "equip": "TUBO S150",
+      "qty": 3.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 100.8,
+      "equip": "TUBO S175",
+      "qty": 32.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.0,
+      "equip": "TUBO S275",
+      "qty": 3.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "05",
+      "obra": "CADETE | ELV 2",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 0.61,
+      "equip": "TUBO S300",
+      "qty": 3.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "146",
+      "obra": "DW CARONE",
+      "data": "2026-04-05",
+      "data_fmt": "05/04/2026",
+      "peso_kg": 5.76,
+      "equip": "TUBO S325",
+      "qty": 23.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 149.76,
+      "equip": "BASE FIXA LEV",
+      "qty": 21.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 44.1,
+      "equip": "BASE REGULAVEL 45S",
+      "qty": 57.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 0.0,
+      "equip": "BRAÇADEIRA FIXA X",
+      "qty": 10.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 50.89,
+      "equip": "ESCORA FÊMEA EURO",
+      "qty": 22.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 472.46,
+      "equip": "ESCORA FÊMEA S350",
+      "qty": 197.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 42.25,
+      "equip": "ESCORA MACHO EURO",
+      "qty": 22.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 300.27,
+      "equip": "ESCORA MACHO S350",
+      "qty": 197.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 9.57,
+      "equip": "FORCADO DUPLO S",
+      "qty": 28.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 0.52,
+      "equip": "FORCADO DUPLO S20",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 0.28,
+      "equip": "FORCADO REGULÁVEL S",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 80.75,
+      "equip": "FORCADO REGULÁVEL S20",
+      "qty": 78.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 1135.59,
+      "equip": "PERFIL S12 450",
+      "qty": 20.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 8.78,
+      "equip": "PERFIL S20 290",
+      "qty": 13.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 18.44,
+      "equip": "PERFIL S20 490",
+      "qty": 7.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 0.58,
+      "equip": "PERFIL S20 590",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 66.73,
+      "equip": "PERFIL S8 100",
+      "qty": 26.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 131.24,
+      "equip": "PERFIL S8 250",
+      "qty": 18.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 132.59,
+      "equip": "PERFIL S8 300",
+      "qty": 10.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 0.95,
+      "equip": "PINO EURO",
+      "qty": 22.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 12.39,
+      "equip": "PINO S350",
+      "qty": 197.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 0.45,
+      "equip": "PROLONGADOR DE QUADRO 025",
+      "qty": 3.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 35.8,
+      "equip": "QUADRO LEV 200-2",
+      "qty": 15.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 61.79,
+      "equip": "TRIPÉ FIXO",
+      "qty": 9.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 2.85,
+      "equip": "TUBO S100",
+      "qty": 3.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 6.05,
+      "equip": "TUBO S125",
+      "qty": 34.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 33.02,
+      "equip": "TUBO S150",
+      "qty": 32.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 34.65,
+      "equip": "TUBO S175",
+      "qty": 11.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 24.45,
+      "equip": "TUBO S200",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "158",
+      "obra": "AMARY",
+      "data": "2026-04-06",
+      "data_fmt": "06/04/2026",
+      "peso_kg": 0.0,
+      "equip": "TUBO S275",
+      "qty": 6.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "07",
+      "obra": "CONTRACTOR | PIRULITOS + PAR 1",
+      "data": "2026-04-07",
+      "data_fmt": "07/04/2026",
+      "peso_kg": 557.82,
+      "equip": "APRUMADOR S/350",
+      "qty": 8.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "07",
+      "obra": "CONTRACTOR | PIRULITOS + PAR 1",
+      "data": "2026-04-07",
+      "data_fmt": "07/04/2026",
+      "peso_kg": 61.51,
+      "equip": "BARRA S075",
+      "qty": 40.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "07",
+      "obra": "CONTRACTOR | PIRULITOS + PAR 1",
+      "data": "2026-04-07",
+      "data_fmt": "07/04/2026",
+      "peso_kg": 0.0,
+      "equip": "BARRA S150",
+      "qty": 10.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "07",
+      "obra": "CONTRACTOR | PIRULITOS + PAR 1",
+      "data": "2026-04-07",
+      "data_fmt": "07/04/2026",
+      "peso_kg": 0.0,
+      "equip": "BARRA S200 E",
+      "qty": 10.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "07",
+      "obra": "CONTRACTOR | PIRULITOS + PAR 1",
+      "data": "2026-04-07",
+      "data_fmt": "07/04/2026",
+      "peso_kg": 51.33,
+      "equip": "PERFIL S8 100",
+      "qty": 20.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "07",
+      "obra": "CONTRACTOR | PIRULITOS + PAR 1",
+      "data": "2026-04-07",
+      "data_fmt": "07/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S8 150",
+      "qty": 15.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "07",
+      "obra": "CONTRACTOR | PIRULITOS + PAR 1",
+      "data": "2026-04-07",
+      "data_fmt": "07/04/2026",
+      "peso_kg": 30.76,
+      "equip": "PERFIL S8 200",
+      "qty": 9.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "07",
+      "obra": "CONTRACTOR | PIRULITOS + PAR 1",
+      "data": "2026-04-07",
+      "data_fmt": "07/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S8 200 E",
+      "qty": 26.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "07",
+      "obra": "CONTRACTOR | PIRULITOS + PAR 1",
+      "data": "2026-04-07",
+      "data_fmt": "07/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S8 250 E",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "07",
+      "obra": "CONTRACTOR | PIRULITOS + PAR 1",
+      "data": "2026-04-07",
+      "data_fmt": "07/04/2026",
+      "peso_kg": 437.54,
+      "equip": "PERFIL S8 300",
+      "qty": 33.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "07",
+      "obra": "CONTRACTOR | PIRULITOS + PAR 1",
+      "data": "2026-04-07",
+      "data_fmt": "07/04/2026",
+      "peso_kg": 2.64,
+      "equip": "PERFIL S8 350",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "07",
+      "obra": "CONTRACTOR | PIRULITOS + PAR 1",
+      "data": "2026-04-07",
+      "data_fmt": "07/04/2026",
+      "peso_kg": 857.75,
+      "equip": "PERFIL S8 400",
+      "qty": 43.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "07",
+      "obra": "CONTRACTOR | PIRULITOS + PAR 1",
+      "data": "2026-04-07",
+      "data_fmt": "07/04/2026",
+      "peso_kg": 690.69,
+      "equip": "PORCA S",
+      "qty": 250.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 976.19,
+      "equip": "APRUMADOR S/350",
+      "qty": 14.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 192.21,
+      "equip": "BARRA S075",
+      "qty": 125.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 0.0,
+      "equip": "BARRA S150",
+      "qty": 10.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 63.45,
+      "equip": "BASE REGULAVEL 45S",
+      "qty": 82.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 0.0,
+      "equip": "BRAÇADEIRA FIXA S",
+      "qty": 28.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 28.93,
+      "equip": "CONECTOR S",
+      "qty": 108.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 120.35,
+      "equip": "CRUZETA 135/155 S",
+      "qty": 104.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 95.48,
+      "equip": "DIAGONAL HORIZONTAL LEV 155",
+      "qty": 22.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 6.94,
+      "equip": "ESCORA FÊMEA EURO",
+      "qty": 3.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 0.0,
+      "equip": "ESCORA FÊMEA MÁX",
+      "qty": 3.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 5.76,
+      "equip": "ESCORA MACHO EURO",
+      "qty": 3.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 0.0,
+      "equip": "ESCORA MACHO MÁX",
+      "qty": 3.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 2.05,
+      "equip": "FORCADO DUPLO S",
+      "qty": 6.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 32.89,
+      "equip": "FORCADO REGULÁVEL S",
+      "qty": 116.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 0.26,
+      "equip": "PERFIL L14 150",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 39.38,
+      "equip": "PERFIL L14 200",
+      "qty": 7.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 237.6,
+      "equip": "PERFIL L14 400",
+      "qty": 20.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 33.53,
+      "equip": "PERFIL S5 100",
+      "qty": 10.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S8 150",
+      "qty": 123.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 71.77,
+      "equip": "PERFIL S8 200",
+      "qty": 21.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S8 200 E",
+      "qty": 26.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 109.37,
+      "equip": "PERFIL S8 250",
+      "qty": 15.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 477.32,
+      "equip": "PERFIL S8 300",
+      "qty": 36.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 418.9,
+      "equip": "PERFIL S8 400",
+      "qty": 21.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 400.6,
+      "equip": "PORCA S",
+      "qty": 145.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 162.94,
+      "equip": "QUADRO LEV 125-2",
+      "qty": 53.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 109.77,
+      "equip": "QUADRO LEV 200-2",
+      "qty": 46.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 10.08,
+      "equip": "TRIPÉ ARTICULADO",
+      "qty": 5.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 44.86,
+      "equip": "TUBO 48/100",
+      "qty": 6.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 13.41,
+      "equip": "TUBO 48/150",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 291.06,
+      "equip": "TUBO 48/175",
+      "qty": 22.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 31.23,
+      "equip": "TUBO 48/200",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 24.3,
+      "equip": "TUBO 48/225",
+      "qty": 3.0
+    },
+    {
+      "tipo": "Saída",
+      "contrato": "08",
+      "obra": "CONTRACTOR | ESC. + PAR2,3,5,6",
+      "data": "2026-04-08",
+      "data_fmt": "08/04/2026",
+      "peso_kg": 0.12,
+      "equip": "TUBO 48/250",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 0.5,
+      "equip": "BASE REGULAVEL 30S",
+      "qty": 142.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 2.78,
+      "equip": "BRAÇADEIRA GIRATÓRIA S",
+      "qty": 100.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 206.44,
+      "equip": "DIAGONAL 170x200 - 2,60",
+      "qty": 12.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 16.19,
+      "equip": "ESCORA FÊMEA EURO",
+      "qty": 7.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 0.0,
+      "equip": "ESCORA FÊMEA MÁX",
+      "qty": 38.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 13.44,
+      "equip": "ESCORA MACHO EURO",
+      "qty": 7.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 0.0,
+      "equip": "ESCORA MACHO MÁX",
+      "qty": 38.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 3.08,
+      "equip": "FORCADO DUPLO S",
+      "qty": 9.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 1.05,
+      "equip": "FORCADO DUPLO S20",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 0.57,
+      "equip": "FORCADO REGULÁVEL E",
+      "qty": 15.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 5.39,
+      "equip": "FORCADO REGULÁVEL S",
+      "qty": 19.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 111.81,
+      "equip": "FORCADO REGULÁVEL S20",
+      "qty": 108.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 0.97,
+      "equip": "FORCADO SIMPLES S",
+      "qty": 17.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 9.52,
+      "equip": "FORCADO SIMPLES S20",
+      "qty": 17.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 102.09,
+      "equip": "PERFIL S10 150",
+      "qty": 6.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 965.25,
+      "equip": "PERFIL S12 450",
+      "qty": 17.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 86.67,
+      "equip": "PERFIL S12-150",
+      "qty": 5.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 0.77,
+      "equip": "PERFIL S20 145",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 6.13,
+      "equip": "PERFIL S20 195",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S20 330",
+      "qty": 7.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 19.5,
+      "equip": "PERFIL S20 360",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 0.52,
+      "equip": "PERFIL S20 390",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S20 450",
+      "qty": 3.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 5.27,
+      "equip": "PERFIL S20 490",
+      "qty": 2.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 6.13,
+      "equip": "PERFIL S20 590",
+      "qty": 21.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PERFIL S8 250 E",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 19.95,
+      "equip": "PERFIL S8 400",
+      "qty": 1.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 0.3,
+      "equip": "PINO EURO",
+      "qty": 7.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 0.0,
+      "equip": "PINO MÁX",
+      "qty": 38.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 0.0,
+      "equip": "POSTE S100",
+      "qty": 58.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 0.0,
+      "equip": "POSTE S250",
+      "qty": 58.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 0.0,
+      "equip": "POSTE S300",
+      "qty": 82.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 0.0,
+      "equip": "TRAVESSA S100",
+      "qty": 42.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 0.0,
+      "equip": "TRAVESSA S120",
+      "qty": 306.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 0.0,
+      "equip": "TRAVESSA S170",
+      "qty": 96.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 22.17,
+      "equip": "TRIPÉ ARTICULADO",
+      "qty": 11.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 13.37,
+      "equip": "TUBO 48/025",
+      "qty": 140.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 0.0,
+      "equip": "TUBO 48/275",
+      "qty": 49.0
+    },
+    {
+      "tipo": "Retorno",
+      "contrato": "160",
+      "obra": "INCOLAJES",
+      "data": "2026-04-10",
+      "data_fmt": "10/04/2026",
+      "peso_kg": 0.0,
+      "equip": "TUBO S275",
+      "qty": 49.0
+    }
+  ],
+  "timeline": [
+    {
+      "data": "Hoje",
+      "saldo": 150233.19,
+      "tipo": "hoje",
+      "qty": 0,
+      "nome": "",
+      "contrato": ""
+    },
+    {
+      "data": "23/03",
+      "saldo": 150520.67,
+      "tipo": "misto",
+      "qty": 287.48,
+      "nome": "16 movimentações",
+      "contrato": ""
+    },
+    {
+      "data": "24/03",
+      "saldo": 136699.21,
+      "tipo": "misto",
+      "qty": -13821.46,
+      "nome": "32 movimentações",
+      "contrato": ""
+    },
+    {
+      "data": "25/03",
+      "saldo": 135581.67,
+      "tipo": "misto",
+      "qty": -1117.54,
+      "nome": "32 movimentações",
+      "contrato": ""
+    },
+    {
+      "data": "27/03",
+      "saldo": 142293.82,
+      "tipo": "misto",
+      "qty": 6712.15,
+      "nome": "39 movimentações",
+      "contrato": ""
+    },
+    {
+      "data": "28/03",
+      "saldo": 141824.47,
+      "tipo": "misto",
+      "qty": -469.35,
+      "nome": "21 movimentações",
+      "contrato": ""
+    },
+    {
+      "data": "30/03",
+      "saldo": 141776.4,
+      "tipo": "misto",
+      "qty": -48.07,
+      "nome": "10 movimentações",
+      "contrato": ""
+    },
+    {
+      "data": "01/04",
+      "saldo": 127153.77,
+      "tipo": "misto",
+      "qty": -14622.63,
+      "nome": "26 movimentações",
+      "contrato": ""
+    },
+    {
+      "data": "03/04",
+      "saldo": 127425.14,
+      "tipo": "misto",
+      "qty": 271.37,
+      "nome": "19 movimentações",
+      "contrato": ""
+    },
+    {
+      "data": "04/04",
+      "saldo": 125431.93,
+      "tipo": "misto",
+      "qty": -1993.21,
+      "nome": "17 movimentações",
+      "contrato": ""
+    },
+    {
+      "data": "05/04",
+      "saldo": 128500.22,
+      "tipo": "misto",
+      "qty": 3068.29,
+      "nome": "131 movimentações",
+      "contrato": ""
+    },
+    {
+      "data": "06/04",
+      "saldo": 125643.02,
+      "tipo": "misto",
+      "qty": -2857.2,
+      "nome": "29 movimentações",
+      "contrato": ""
+    },
+    {
+      "data": "07/04",
+      "saldo": 122952.98,
+      "tipo": "misto",
+      "qty": -2690.04,
+      "nome": "13 movimentações",
+      "contrato": ""
+    },
+    {
+      "data": "08/04",
+      "saldo": 118952.23,
+      "tipo": "misto",
+      "qty": -4000.75,
+      "nome": "34 movimentações",
+      "contrato": ""
+    },
+    {
+      "data": "10/04",
+      "saldo": 120572.09,
+      "tipo": "misto",
+      "qty": 1619.86,
+      "nome": "39 movimentações",
+      "contrato": ""
+    }
+  ],
+  "ociosoMap": {
+    "PERFIL L14 200": 3.0,
+    "PERFIL L14 400": 30.0,
+    "PERFIL S10 150": 15.0,
+    "PERFIL S10 200": 45.0,
+    "PERFIL S10 250": 72.0,
+    "PERFIL S10 300": 1.0,
+    "PERFIL S12-150": 32.0,
+    "PERFIL S20 195": 18.0,
+    "PERFIL S20 360": 4.0,
+    "PERFIL S20 390": 3.0,
+    "PERFIL S5 100": 14.0,
+    "PERFIL S6 100": 24.0,
+    "PERFIL S6 150": 201.0,
+    "PERFIL S6 300": 96.0,
+    "PERFIL W200-300": 2.0,
+    "PERFIL W200-600": 4.0,
+    "PERFIL W310-600": 2.0,
+    "QUADRO FCH 90 C/ ESCADA": 18.0,
+    "QUADRO FCH 90 S/ ESCADA": 33.0
+  },
+  "mapa": [
+    {
+      "contrato": "159",
+      "obra": "Ginasio Jones dos Santos DED",
+      "cliente": "ENGIX CONSTRUCOES E SERVICOS LTDA",
+      "endereco": "Bento Ferreira, Vitória - ES",
+      "lat": -20.318,
+      "lng": -40.314,
+      "peso_total": 11366.32,
+      "peso_sub": 791.0,
+      "val_indeniz": 320203.43,
+      "val_ind_sub": 24610.29,
+      "pct_sub": 7.0
+    },
+    {
+      "contrato": "141",
+      "obra": "ED ASPEN",
+      "cliente": "TOKMA PARTICIPACOES LTDA",
+      "endereco": "Avenida Saturnino de Brito, 174, Enseada do Sua, Vitória",
+      "lat": -20.316,
+      "lng": -40.313,
+      "peso_total": 665.44,
+      "peso_sub": 13.75,
+      "val_indeniz": 16748.39,
+      "val_ind_sub": 770.28,
+      "pct_sub": 2.1
+    },
+    {
+      "contrato": "164",
+      "obra": "SEMBOI - CONS CORREDOR NOVA LINDENBERG",
+      "cliente": "CONSÓRCIO CORREDOR NOVA LINDEMBERGH",
+      "endereco": "RUA JOSE RAMOS DE OLIVEIRA, Nossa srª da Penha, VILA VELHA/ES",
+      "lat": -20.293,
+      "lng": -40.278,
+      "peso_total": 1928.52,
+      "peso_sub": 1505.5,
+      "val_indeniz": 12720.04,
+      "val_ind_sub": 4187.48,
+      "pct_sub": 78.1
+    },
+    {
+      "contrato": "168",
+      "obra": "ALAMEDA DAS CASTANHEIRAS",
+      "cliente": "Antônio Medeiros Madeira",
+      "endereco": "Rua Alameda das Castanheiras _ Quadra AE  Lote 005",
+      "lat": null,
+      "lng": null,
+      "peso_total": 6978.3,
+      "peso_sub": 0.0,
+      "val_indeniz": 141366.68,
+      "val_ind_sub": 0.0,
+      "pct_sub": 0.0
+    },
+    {
+      "contrato": "165",
+      "obra": "ALPHAVILLE 3 PRAIAS - RES. EVERSON DADALTO",
+      "cliente": "QUALITY CONSTRUTORA E INCORPORADORA LTDA",
+      "endereco": "Alphaville 3 Praias - Guarapari/ES",
+      "lat": -20.673,
+      "lng": -40.512,
+      "peso_total": 9229.18,
+      "peso_sub": 0.0,
+      "val_indeniz": 259407.62,
+      "val_ind_sub": 0.0,
+      "pct_sub": 0.0
+    },
+    {
+      "contrato": "146",
+      "obra": "Residência Carone",
+      "cliente": "DW EMPREENDIMENTOS IMOBILIARIOS LTDA",
+      "endereco": "AVENIDA PIETRANGELO VIVAQUA DEBIASE 1, 100, PRAIA DO MORRO, GUARAPARI, CEP 29.216-900, CONDOMINIO ALDEIA DA PRAIA S E T O R C - 0 2",
+      "lat": -20.673,
+      "lng": -40.512,
+      "peso_total": 26508.39,
+      "peso_sub": 3207.01,
+      "val_indeniz": 709879.53,
+      "val_ind_sub": 72513.84,
+      "pct_sub": 12.1
+    },
+    {
+      "contrato": "135",
+      "obra": "Teatro Glória",
+      "cliente": "PHD CONSTRUCOES E PAVIMENTACOES LTDA",
+      "endereco": "Av. Jerônimo Monteiro, 428 - Centro - Vitória",
+      "lat": -20.316,
+      "lng": -40.313,
+      "peso_total": 36875.0,
+      "peso_sub": 20741.42,
+      "val_indeniz": 808733.72,
+      "val_ind_sub": 474880.4,
+      "pct_sub": 56.2
+    },
+    {
+      "contrato": "59",
+      "obra": "Colégio São José",
+      "cliente": "FAE CONSTRUCOES E SERVICOS LTDA",
+      "endereco": "Av. Luciano das Neves, 500 - Centro de Vila Velha, Vila Velha - ES, 29100-201",
+      "lat": -20.33,
+      "lng": -40.292,
+      "peso_total": 883.31,
+      "peso_sub": 145.28,
+      "val_indeniz": 39891.72,
+      "val_ind_sub": 6256.98,
+      "pct_sub": 16.4
+    },
+    {
+      "contrato": "130",
+      "obra": "PRIME OFTALMOLOGIA - 2 FASE da obra",
+      "cliente": "CLÍNICA OFTALMOLÓGICA BAHIA GOING LTDA - ME",
+      "endereco": "Rua Alberto Sartório, 173, Universitário, São Mateus,  CEP29933-400",
+      "lat": -18.716,
+      "lng": -39.858,
+      "peso_total": 23280.96,
+      "peso_sub": 21617.92,
+      "val_indeniz": 557885.37,
+      "val_ind_sub": 543271.18,
+      "pct_sub": 92.9
+    },
+    {
+      "contrato": "42",
+      "obra": "Ed Biarritz Residence",
+      "cliente": "Onix Empreendimentos Imobiliarios Ltda",
+      "endereco": "Av Miramar, lotes 01, 02, 03, 04, 17 e 18, Quadra 16, Enseada Azul , Guarapari/ ES -Cep 29206-070",
+      "lat": -20.673,
+      "lng": -40.512,
+      "peso_total": 1471.97,
+      "peso_sub": 100.24,
+      "val_indeniz": 64488.03,
+      "val_ind_sub": 692.14,
+      "pct_sub": 6.8
+    },
+    {
+      "contrato": "170",
+      "obra": "RESIDENCIA BOULEVARD DA LAGOA",
+      "cliente": "AGUIA PARTICIPACOES E SERVICOS LTDA",
+      "endereco": "AVENIDA TALMA RODRIGUES RIBEIRO S/N",
+      "lat": null,
+      "lng": null,
+      "peso_total": 8455.18,
+      "peso_sub": 9.0,
+      "val_indeniz": 226358.66,
+      "val_ind_sub": 246.14,
+      "pct_sub": 0.1
+    },
+    {
+      "contrato": "101",
+      "obra": "Itabira",
+      "cliente": "ITABIRA CONNECTED EMPREENDIMENTOS SPE LTDA",
+      "endereco": "², situado na Rua Itaboraí, 107, Praia  de Itaparica, Vila Velha/ES, CEP: 29.102-195,",
+      "lat": -20.33,
+      "lng": -40.292,
+      "peso_total": 299.54,
+      "peso_sub": 22.19,
+      "val_indeniz": 16174.58,
+      "val_ind_sub": 1450.34,
+      "pct_sub": 7.4
+    },
+    {
+      "contrato": "158",
+      "obra": "RESIDÊNCIA AMARY",
+      "cliente": "Luciana Pimenta Ambrozevicius",
+      "endereco": "Av. Norte Sul, Guarapari - ES, 29206-570",
+      "lat": -20.673,
+      "lng": -40.512,
+      "peso_total": 5928.47,
+      "peso_sub": 206.34,
+      "val_indeniz": 188615.63,
+      "val_ind_sub": 6206.69,
+      "pct_sub": 3.5
+    },
+    {
+      "contrato": "157",
+      "obra": "MIX CAR \u0013  Galpão Via Forte (Alphaville)",
+      "cliente": "MIX CAR VEICULOS LTDA",
+      "endereco": "ALPHA VIP MALL - ALAMEDA MAJOR PISSARRA, S/N - LOJA 3 - Carapina, Serra - ES, 29161-279",
+      "lat": -20.128,
+      "lng": -40.308,
+      "peso_total": 16248.66,
+      "peso_sub": 379.32,
+      "val_indeniz": 251719.7,
+      "val_ind_sub": 25548.74,
+      "pct_sub": 2.3
+    },
+    {
+      "contrato": "162",
+      "obra": "GALPAO SIERRALOG",
+      "cliente": "SIERRA LOG LTDA",
+      "endereco": "Rua Holdercim,1308 SETRO II, SERRA/ES",
+      "lat": -20.128,
+      "lng": -40.308,
+      "peso_total": 2423.56,
+      "peso_sub": 2273.16,
+      "val_indeniz": 62072.62,
+      "val_ind_sub": 57719.38,
+      "pct_sub": 93.8
+    },
+    {
+      "contrato": "150",
+      "obra": "Alphaville 3 Praias - Residência Alessandra",
+      "cliente": "QUALITY CONSTRUTORA E INCORPORADORA LTDA",
+      "endereco": "Guarapari Bairro Perocão",
+      "lat": -20.673,
+      "lng": -40.512,
+      "peso_total": 1163.67,
+      "peso_sub": 5.24,
+      "val_indeniz": 15379.33,
+      "val_ind_sub": 341.96,
+      "pct_sub": 0.5
+    },
+    {
+      "contrato": "148",
+      "obra": "Sede Receita Federal",
+      "cliente": "MINISTERIO DA FAZENDA",
+      "endereco": "avenida Marechal Mascarenhas de Moraes , 1333, Ilha de Santa Maria, Vitória/ES",
+      "lat": -20.316,
+      "lng": -40.313,
+      "peso_total": 2946.6,
+      "peso_sub": 2724.4,
+      "val_indeniz": 42875.13,
+      "val_ind_sub": 32728.03,
+      "pct_sub": 92.5
+    },
+    {
+      "contrato": "126",
+      "obra": "Alphaville 3 Praias - Res Luciana",
+      "cliente": "QUALITY CONSTRUTORA E INCORPORADORA LTDA",
+      "endereco": "Guarapari Bairro Perocão",
+      "lat": -20.673,
+      "lng": -40.512,
+      "peso_total": 15857.73,
+      "peso_sub": 1254.03,
+      "val_indeniz": 412566.03,
+      "val_ind_sub": 47851.63,
+      "pct_sub": 7.9
+    },
+    {
+      "contrato": "167",
+      "obra": "OTAMERICA TERMINAIS",
+      "cliente": "CONSTRUTORA CAMPO GRANDE LTDA",
+      "endereco": "Rua Vila Isabel, 0, São Torquato, Vila Velha",
+      "lat": -20.33,
+      "lng": -40.292,
+      "peso_total": 3765.18,
+      "peso_sub": 2278.51,
+      "val_indeniz": 96164.98,
+      "val_ind_sub": 53000.81,
+      "pct_sub": 60.5
+    },
+    {
+      "contrato": "155",
+      "obra": "AEX 011 \u0013  Medlev",
+      "cliente": "MEDLEVENSOHN COMERCIO E REPRESENTACOES DE PRODUTOS HOSPITALARES LTDA",
+      "endereco": "CD MEDLEVENSOHN, localizada na BR 101 NORTE, KM 244 - Serra - ES",
+      "lat": -20.128,
+      "lng": -40.308,
+      "peso_total": 74.98,
+      "peso_sub": 42.92,
+      "val_indeniz": 3707.21,
+      "val_ind_sub": 1601.21,
+      "pct_sub": 57.2
+    },
+    {
+      "contrato": "142",
+      "obra": "Dallas Fontes",
+      "cliente": "PROMIX COMERCIO E LOCACAO DE EQUIPAMENTOS LTDA",
+      "endereco": "Centro - Guarapari - ES Rua Joaquim Da Silva Lima, 356 - Centro, Guarapari - ES | 29200-260",
+      "lat": -20.673,
+      "lng": -40.512,
+      "peso_total": 11375.68,
+      "peso_sub": 9638.27,
+      "val_indeniz": 277525.39,
+      "val_ind_sub": 221511.97,
+      "pct_sub": 84.7
+    },
+    {
+      "contrato": "109",
+      "obra": "Alphaville 3 Praias - Res Homero",
+      "cliente": "QUALITY CONSTRUTORA E INCORPORADORA LTDA",
+      "endereco": "Guarapari Bairro Perocão",
+      "lat": -20.673,
+      "lng": -40.512,
+      "peso_total": 89.76,
+      "peso_sub": 38.24,
+      "val_indeniz": 4450.82,
+      "val_ind_sub": 2721.34,
+      "pct_sub": 42.6
+    },
+    {
+      "contrato": "172",
+      "obra": "MOSAICO UFES",
+      "cliente": "Fundação Espírito Santense de TecnologiaFEST",
+      "endereco": "Avenida Fernando Ferrari, nº 1080 Salas 301-306, Mata da Praia, Vitória/ES",
+      "lat": -20.316,
+      "lng": -40.313,
+      "peso_total": 0.0,
+      "peso_sub": 0.0,
+      "val_indeniz": 0.0,
+      "val_ind_sub": 0.0,
+      "pct_sub": 0
+    },
+    {
+      "contrato": "152",
+      "obra": "Residência A. Varejão",
+      "cliente": "RAPHAEL LIMA DESIGNER E CONSTRUTOR LTDA",
+      "endereco": "Rua F84",
+      "lat": null,
+      "lng": null,
+      "peso_total": 960.15,
+      "peso_sub": 0.0,
+      "val_indeniz": 6294.7,
+      "val_ind_sub": 0.0,
+      "pct_sub": 0.0
+    },
+    {
+      "contrato": "137",
+      "obra": "Reescoramento Shopping Praia da Costa",
+      "cliente": "VARGAS ENGENHARIA LTDA",
+      "endereco": "AV. DR. OLIVIO LIRA, 353 - Nº 353 - PRAIA DA COSTA, VILA VELHA - ES CEP: 29101-950",
+      "lat": -20.33,
+      "lng": -40.292,
+      "peso_total": 619.24,
+      "peso_sub": 0.0,
+      "val_indeniz": 4095.6,
+      "val_ind_sub": 0.0,
+      "pct_sub": 0.0
+    },
+    {
+      "contrato": "161",
+      "obra": "RESIDÊNCIA ILHA DO FRADE",
+      "cliente": "VIA RIO PARTICIPACOES LTDA",
+      "endereco": "RUA PEDRO FRANKLIM CORREA LIMA, ILHA DO FRADE, VITÓRIA/ES",
+      "lat": -20.316,
+      "lng": -40.313,
+      "peso_total": 1122.0,
+      "peso_sub": 0.0,
+      "val_indeniz": 61.0,
+      "val_ind_sub": 0.0,
+      "pct_sub": 0.0
+    },
+    {
+      "contrato": "138",
+      "obra": "Ed. Nilton Valadão",
+      "cliente": "NILTON VALÉRIO ROSA VALADÃO",
+      "endereco": "R. Manuel Vivácqua,200, Jabour",
+      "lat": -20.38,
+      "lng": -40.32,
+      "peso_total": 89.76,
+      "peso_sub": 0.0,
+      "val_indeniz": 484.4,
+      "val_ind_sub": 0.0,
+      "pct_sub": 0.0
+    },
+    {
+      "contrato": "103",
+      "obra": "Residência Álvaro - Alphaville 3 praias",
+      "cliente": "QUALITY CONSTRUTORA E INCORPORADORA LTDA",
+      "endereco": "RODOVIA DO SOL, LOTE 02, QUADRA E1, PEROCAO, GUARAPARI, CEP 29.220-730",
+      "lat": -20.673,
+      "lng": -40.512,
+      "peso_total": 30.37,
+      "peso_sub": 5.16,
+      "val_indeniz": 1742.5,
+      "val_ind_sub": 436.8,
+      "pct_sub": 17.0
+    },
+    {
+      "contrato": "124",
+      "obra": "Alphaville 3 praias -  Res Roberta e Gustavo",
+      "cliente": "QUALITY CONSTRUTORA E INCORPORADORA LTDA",
+      "endereco": "Guarapari Bairro Perocão",
+      "lat": -20.673,
+      "lng": -40.512,
+      "peso_total": 35.05,
+      "peso_sub": 11.2,
+      "val_indeniz": 1920.5,
+      "val_ind_sub": 672.0,
+      "pct_sub": 32.0
+    },
+    {
+      "contrato": "147",
+      "obra": "Hotel Radium",
+      "cliente": "INSTITUTO MODUS VIVENDI DE DESENVOLVIMENTO SOCIAL, CULTURAL E AMBIENTAL",
+      "endereco": "R. Simplício Almeida Rodrigues, 2 - Centro, Guarapari - ES, 29200-370",
+      "lat": -20.673,
+      "lng": -40.512,
+      "peso_total": 20.0,
+      "peso_sub": 0.0,
+      "val_indeniz": 1.3,
+      "val_ind_sub": 0.0,
+      "pct_sub": 0.0
+    },
+    {
+      "contrato": "166",
+      "obra": "RODOVIÁRIA",
+      "cliente": "VETOR - ENGENHARIA E CONSTRUCOES LTDA",
+      "endereco": "Av.Alexandre Buaiz, 350 \u0013  Ilha do Príncipe, Vitória/ES",
+      "lat": -20.316,
+      "lng": -40.313,
+      "peso_total": 619.24,
+      "peso_sub": 0.0,
+      "val_indeniz": 33216.1,
+      "val_ind_sub": 0.0,
+      "pct_sub": 0.0
+    },
+    {
+      "contrato": "163",
+      "obra": "EDIFICIO MARIA DE FATIMA",
+      "cliente": "TOFOLI EMPREENDIMENTOS IMOBILIARIOS LTDA",
+      "endereco": "AL GAIVOTAS, s/n, ENSEADA AZUL, GUARAPARI/ES",
+      "lat": -20.673,
+      "lng": -40.512,
+      "peso_total": 564.2,
+      "peso_sub": 0.0,
+      "val_indeniz": 40274.5,
+      "val_ind_sub": 0.0,
+      "pct_sub": 0.0
+    },
+    {
+      "contrato": "160",
+      "obra": "Portalflex",
+      "cliente": "Incolajes Industria e Comercio de Lajes LTDA",
+      "endereco": "Rua Torricelli, 73, Parque Residencial Laranjeiras",
+      "lat": -20.2,
+      "lng": -40.31,
+      "peso_total": 0.9,
+      "peso_sub": 0.0,
+      "val_indeniz": 24.62,
+      "val_ind_sub": 0.0,
+      "pct_sub": 0.0
+    },
+    {
+      "contrato": "110",
+      "obra": "Alphaville 3 Praias - Res Eduardo",
+      "cliente": "QUALITY CONSTRUTORA E INCORPORADORA LTDA",
+      "endereco": "Guarapari Bairro Perocão",
+      "lat": -20.673,
+      "lng": -40.512,
+      "peso_total": 0.9,
+      "peso_sub": 0.9,
+      "val_indeniz": 24.61,
+      "val_ind_sub": 24.61,
+      "pct_sub": 100.0
+    }
+  ]
+}
