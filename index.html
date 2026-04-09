@@ -1,0 +1,1967 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Leve — Dashboard Logístico</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+<style>
+:root{
+  --leve-green:#8AB73A;--leve-dark:#3D5044;--leve-mid:#6A9228;--leve-lt:#C5DC8A;--leve-pale:#EEF4DC;--leve-olive:#4A6030;
+  --bg:#F2F5EC;--bg2:#E8EEE0;--card:#FFFFFF;--card2:#F7FAF2;
+  --tx:#2A3A24;--tx2:#4A6030;--mu:#6B7E5A;--mu2:#8F9E80;
+  --bd:rgba(58,80,44,.1);--bd2:rgba(58,80,44,.18);
+  --green:#8AB73A;--green-a:rgba(138,183,58,.12);
+  --red:#C0392B;--red-a:rgba(192,57,43,.1);
+  --orange:#D68910;--orange-a:rgba(214,137,16,.1);
+  --blue:#2471A3;--blue-a:rgba(36,113,163,.1);
+  --purple:#7D3C98;--teal:#1A7A6E;
+  --f:'Inter',sans-serif;--ft:'Inter Tight',sans-serif;--mono:'SF Mono','Fira Mono',monospace;
+  --r:10px;--r2:14px;
+  --sh:0 1px 4px rgba(58,80,44,.08),0 2px 12px rgba(58,80,44,.04);
+  --sh2:0 4px 20px rgba(58,80,44,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100vh;font-size:14px;line-height:1.5}
+body::before{content:'';position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse 900px 600px at 0% 0%,rgba(138,183,58,.07) 0%,transparent 70%),radial-gradient(ellipse 700px 500px at 100% 100%,rgba(61,80,68,.06) 0%,transparent 70%),var(--bg)}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:200;background:rgba(242,245,236,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd2);display:flex;align-items:center;gap:16px;padding:0 24px;height:58px;flex-wrap:wrap}
+.nav-logo{display:flex;align-items:center;gap:8px;flex-shrink:0;text-decoration:none}
+.nav-divider{width:1px;height:22px;background:var(--bd2);flex-shrink:0}
+.nav-tabs{display:flex;gap:2px;flex:1}
+.nav-tab{padding:6px 13px;border-radius:6px;cursor:pointer;font-size:.78rem;font-weight:500;color:var(--mu);border:none;background:none;transition:all .15s;white-space:nowrap;font-family:var(--f)}
+.nav-tab:hover{color:var(--tx);background:var(--bd)}
+.nav-tab.active{color:var(--leve-dark);background:var(--green-a);font-weight:600}
+.nav-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nav-date{font-size:.7rem;color:var(--mu);font-family:var(--mono)}
+.nav-live{display:flex;align-items:center;gap:5px;font-size:.7rem;color:var(--leve-mid);font-weight:600}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 5px var(--green);animation:blink 2.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.upload-btn{display:flex;align-items:center;gap:6px;padding:4px 10px;border-radius:6px;border:1px solid var(--bd2);background:var(--card);color:var(--tx2);font-size:.72rem;font-weight:600;cursor:pointer;transition:all .15s;font-family:var(--f);box-shadow:var(--sh)}
+.upload-btn:hover{border-color:var(--green);color:var(--green);background:var(--green-a)}
+
+/* MAIN */
+.main{max-width:1440px;margin:0 auto;padding:22px 20px}
+.tab-content{display:none}.tab-content.active{display:block}
+.sec-title{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--mu2);margin-bottom:13px;display:flex;align-items:center;gap:8px}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--bd2)}
+
+/* GAUGE KPI ROW */
+.gauge-kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:20px}
+.gauge-kpi-card{background:#1a2818;border:1px solid rgba(138,183,58,.2);border-radius:var(--r2);padding:14px 16px 16px;box-shadow:0 4px 20px rgba(0,0,0,.3);display:flex;flex-direction:column;align-items:center}
+.gauge-kpi-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.7px;color:rgba(255,255,255,.65);font-weight:700;margin-bottom:4px;text-align:center}
+.gauge-canvas-wrap{display:flex;flex-direction:column;align-items:center;width:200px;margin:0 auto}
+.gauge-canvas-wrap canvas{display:block}
+.gauge-center-val{text-align:center;font-family:var(--ft);font-weight:700;font-size:1.6rem;color:#ffffff;letter-spacing:-.5px;line-height:1;margin-top:8px;padding:4px 0 2px}
+.gauge-vals{display:flex;flex-direction:column;align-items:center;margin-top:8px;gap:2px}
+.gauge-pct{font-family:var(--ft);font-weight:700;font-size:1.7rem;color:#ffffff;letter-spacing:-.5px;line-height:1}
+.gauge-pct-unit{font-size:1rem;font-weight:500;margin-left:1px;color:rgba(255,255,255,.8)}
+.gauge-peso{font-family:var(--ft);font-weight:700;font-size:1rem;color:rgba(255,255,255,.85);letter-spacing:-.3px;line-height:1}
+.gauge-center-unit{font-size:.85rem;font-weight:500;display:inline;margin-left:1px;color:rgba(255,255,255,.7)}
+.gauge-kpi-sub{font-size:.68rem;color:rgba(255,255,255,.45);margin-top:8px;text-align:center}
+
+/* KPI SMALL */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin-bottom:16px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px;box-shadow:var(--sh);position:relative;overflow:hidden;transition:box-shadow .2s}
+.kpi:hover{box-shadow:var(--sh2)}
+.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.kpi.gn::before{background:var(--green)}.kpi.gd::before{background:var(--leve-dark)}
+.kpi.or::before{background:var(--orange)}.kpi.rd::before{background:var(--red)}
+.kpi.bl::before{background:var(--blue)}.kpi.tl::before{background:var(--teal)}
+.kpi-label{font-size:.64rem;text-transform:uppercase;letter-spacing:.6px;color:var(--mu);font-weight:600;margin-bottom:6px}
+.kpi-val{font-family:var(--ft);font-size:1.45rem;font-weight:700;line-height:1;letter-spacing:-.5px}
+.kpi.gn .kpi-val{color:var(--leve-mid)}.kpi.gd .kpi-val{color:var(--leve-dark)}
+.kpi.or .kpi-val{color:var(--orange)}.kpi.rd .kpi-val{color:var(--red)}
+.kpi.bl .kpi-val{color:var(--blue)}.kpi.tl .kpi-val{color:var(--teal)}
+.kpi-sub{font-size:.66rem;color:var(--mu);margin-top:4px}
+
+/* CARD */
+.card{background:var(--card);border:1px solid var(--bd);border-radius:var(--r2);padding:17px 19px;box-shadow:var(--sh)}
+.card-title{font-size:.76rem;font-weight:600;color:var(--tx);margin-bottom:13px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.card-title span{color:var(--mu);font-weight:400;font-size:.68rem}
+.chart-wrap{position:relative;width:100%;min-height:300px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.g21{display:grid;grid-template-columns:2fr 1fr;gap:14px;margin-bottom:14px}
+.g12{display:grid;grid-template-columns:1fr 2fr;gap:14px;margin-bottom:14px}
+@media(max-width:860px){.g2,.g21,.g12{grid-template-columns:1fr}}
+
+/* GAUGE BARS */
+.gauge-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.gauge-lbl{font-size:.73rem;color:var(--tx2);min-width:140px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gauge-bar{flex:1;height:5px;background:var(--bg2);border-radius:3px;overflow:hidden}
+.gauge-fill{height:100%;border-radius:3px}
+.gauge-pct{font-size:.7rem;color:var(--mu);min-width:38px;text-align:right;font-family:var(--mono)}
+.gauge-kg{font-size:.67rem;color:var(--mu2);font-family:var(--mono);min-width:80px;text-align:right}
+
+/* STACK */
+.stack-row{display:grid;grid-template-columns:130px 1fr 54px;align-items:center;gap:9px;margin-bottom:7px}
+.stack-name{font-size:.73rem;color:var(--tx);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stack-bar-wrap{height:15px;border-radius:3px;background:var(--bg2);display:flex;overflow:hidden}
+.stack-seg{height:100%}
+.stack-pct{font-size:.67rem;color:var(--mu);font-family:var(--mono);text-align:right}
+
+/* TABLE */
+.tw{overflow-x:auto}
+.dt{width:100%;border-collapse:collapse;font-size:.76rem}
+.dt th{padding:7px 9px;text-align:left;color:var(--mu);font-weight:600;font-size:.63rem;text-transform:uppercase;letter-spacing:.5px;border-bottom:1.5px solid var(--bd2);white-space:nowrap;background:var(--card2)}
+.dt td{padding:6px 9px;border-bottom:1px solid var(--bd);vertical-align:middle}
+.dt tr:last-child td{border-bottom:none}
+.dt tr:hover td{background:var(--leve-pale)}
+.dt td.n{font-family:var(--mono);font-size:.7rem;text-align:right;color:var(--mu)}
+.dt td.n.ok{color:var(--leve-mid);font-weight:600}.dt td.n.warn{color:var(--orange);font-weight:600}.dt td.n.cr{color:var(--red);font-weight:600}
+.dt td.fw{font-weight:500;color:var(--tx)}
+
+/* PILLS */
+.pill{display:inline-block;padding:2px 8px;border-radius:20px;font-size:.62rem;font-weight:700;white-space:nowrap}
+.pill.gn{background:var(--green-a);color:var(--leve-mid);border:1px solid rgba(138,183,58,.25)}
+.pill.rd{background:var(--red-a);color:var(--red);border:1px solid rgba(192,57,43,.2)}
+.pill.or{background:var(--orange-a);color:var(--orange);border:1px solid rgba(214,137,16,.2)}
+.pill.bl{background:var(--blue-a);color:var(--blue);border:1px solid rgba(36,113,163,.2)}
+.pill.gd{background:rgba(61,80,68,.08);color:var(--leve-dark);border:1px solid rgba(61,80,68,.15)}
+
+/* TIMELINE */
+.tl{position:relative;padding-left:14px}
+.tl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--bd2)}
+.tl-item{position:relative;padding:0 0 13px 18px}
+.tl-item::before{content:'';position:absolute;left:-5px;top:5px;width:9px;height:9px;border-radius:50%;border:2px solid}
+.tl-item.saida::before{border-color:var(--green);background:var(--green-a)}
+.tl-item.dev::before{border-color:var(--red);background:var(--red-a)}
+.tl-item.both::before{border-color:var(--orange);background:var(--orange-a)}
+.tl-date{font-size:.65rem;font-family:var(--mono);color:var(--mu2);margin-bottom:2px}
+.tl-title{font-size:.76rem;font-weight:600;color:var(--tx)}
+.tl-contrato{font-size:.67rem;color:var(--mu);font-family:var(--mono);margin-top:1px}
+.tl-peso{display:inline-block;margin-top:3px;font-size:.68rem;font-family:var(--mono);font-weight:600}
+.tl-peso.s{color:var(--green)}.tl-peso.d{color:var(--red)}
+
+/* DEFICIT CARDS */
+.dc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:11px;margin-bottom:16px}
+.dc{background:var(--card);border:1px solid var(--bd);border-radius:var(--r2);padding:14px 15px;box-shadow:var(--sh);position:relative;overflow:hidden}
+.dc::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px}
+.dc.critico::before,.dc.alto::before,.dc.medio::before{background:var(--orange)}
+.dc.baixo::before{background:var(--green)}
+.dc-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+.dc-obra{font-size:.84rem;font-weight:700;color:var(--tx)}
+.dc-contrato{font-size:.66rem;color:var(--mu);font-family:var(--mono);margin-top:1px}
+.dc-data{font-size:.7rem;font-family:var(--mono);font-weight:600}
+.dc.critico .dc-data,.dc.alto .dc-data,.dc.medio .dc-data{color:var(--orange)}
+.dc.baixo .dc-data{color:var(--green)}
+.dc-meta{font-size:.68rem;color:var(--mu);margin-bottom:7px}
+.dc-item-row{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;border-bottom:1px solid var(--bd)}
+.dc-item-row:last-child{border-bottom:none}
+.dc-equip{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.72rem;color:var(--tx)}
+.dc-falta{font-family:var(--mono);font-size:.68rem;color:var(--red);font-weight:700;margin-left:8px;white-space:nowrap}
+
+/* SEARCH */
+.search-wrap{position:relative;margin-bottom:12px}
+.search-wrap input{width:100%;background:var(--card);border:1px solid var(--bd2);border-radius:var(--r);padding:8px 11px 8px 32px;color:var(--tx);font-size:.78rem;font-family:var(--f);outline:none;box-shadow:var(--sh);transition:border-color .15s}
+.search-wrap input:focus{border-color:var(--green)}
+.search-wrap input::placeholder{color:var(--mu2)}
+.search-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--mu2);font-size:13px;pointer-events:none}
+.filter-bar{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px}
+
+/* CALENDAR */
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px}
+.cal-nav-title{font-family:var(--ft);font-size:1rem;font-weight:700;color:var(--leve-dark);letter-spacing:-.3px}
+.cal-nav-btns{display:flex;gap:6px}
+.cal-btn{background:var(--card);border:1px solid var(--bd2);border-radius:6px;padding:5px 12px;font-size:.75rem;font-weight:600;color:var(--tx2);cursor:pointer;transition:all .15s;font-family:var(--f)}
+.cal-btn:hover{background:var(--leve-pale);border-color:var(--green)}
+.cal-btn.active{background:var(--leve-dark);color:#fff;border-color:var(--leve-dark)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--bd2);border-radius:var(--r);overflow:hidden;border:1px solid var(--bd2)}
+.cal-dow{background:var(--leve-dark);color:rgba(255,255,255,.85);text-align:center;padding:8px 4px;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px}
+.cal-cell{background:var(--card);min-height:96px;padding:7px 7px 6px;vertical-align:top}
+.cal-cell:hover{background:var(--leve-pale)}
+.cal-cell.other-month{background:var(--bg2)}
+.cal-cell.other-month .cal-day-num{color:var(--mu2)}
+.cal-cell.today{background:var(--leve-pale)}
+.cal-cell.today .cal-day-num{background:var(--leve-dark);color:#fff;border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-weight:700}
+.cal-day-num{font-size:.75rem;font-weight:600;color:var(--tx2);margin-bottom:4px;display:inline-block}
+.cal-event{border-radius:4px;padding:2px 6px;font-size:.63rem;font-weight:700;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;display:block;line-height:1.4;cursor:default;border-left:3px solid}
+.cal-event.saida{background:rgba(138,183,58,.15);color:#4a6030;border-left-color:#8AB73A}
+.cal-event.saida.faltante{background:rgba(214,137,16,.13);color:#7D5000;border-left-color:#D68910}
+.cal-event.retorno{background:rgba(192,57,43,.08);color:#8B2218;border-left-color:#C0392B}
+.cal-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.7rem;color:var(--mu)}
+.cal-legend-item{display:flex;align-items:center;gap:5px}
+.cal-legend-dot{width:10px;height:10px;border-radius:2px;border-left:3px solid}
+.cal-event-count{font-size:.58rem;color:var(--mu);margin-top:1px;display:block}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:500;background:rgba(42,58,36,.5);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:24px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--card);border:1px solid var(--bd2);border-radius:var(--r2);padding:28px;width:100%;max-width:520px;box-shadow:var(--sh2)}
+.modal h2{font-family:var(--ft);font-size:.98rem;font-weight:700;color:var(--tx);margin-bottom:4px}
+.modal p{font-size:.78rem;color:var(--mu);margin-bottom:20px}
+.drop-zone{border:2px dashed var(--bd2);border-radius:var(--r);padding:26px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:12px;background:var(--bg)}
+.drop-zone:hover,.drop-zone.over{border-color:var(--green);background:var(--leve-pale)}
+.drop-zone .drop-icon{font-size:1.8rem;margin-bottom:6px;opacity:.7}
+.drop-zone p{font-size:.78rem;color:var(--mu);margin-top:4px}
+.drop-zone b{color:var(--green);font-weight:600}
+.file-list{font-size:.74rem;color:var(--mu2);font-family:var(--mono);min-height:18px;margin-bottom:14px}
+.file-list .ok{color:var(--leve-mid);font-weight:600}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end}
+.btn{padding:7px 16px;border-radius:6px;font-size:.78rem;font-weight:500;cursor:pointer;font-family:var(--f);border:1px solid var(--bd2);background:var(--card);color:var(--mu);transition:all .15s}
+.btn:hover{color:var(--tx)}
+.btn.primary{background:var(--leve-dark);color:#fff;border-color:var(--leve-dark);font-weight:700}
+.btn.primary:hover{background:var(--leve-olive);border-color:var(--leve-olive)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="#">
+    <svg width="110" height="34" viewBox="0 0 180 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0"  y="0"  width="20" height="20" rx="3" fill="#8AB73A"/>
+      <rect x="22" y="22" width="20" height="20" rx="3" fill="#8AB73A"/>
+      <rect x="22" y="0"  width="20" height="20" rx="3" fill="#C5DC8A"/>
+      <rect x="0"  y="22" width="20" height="20" rx="3" fill="#6A9228"/>
+      <text x="50" y="30" font-family="Inter Tight,Inter,sans-serif" font-weight="700" font-size="26" fill="#3D5044" letter-spacing="-1">leve</text>
+      <text x="50" y="42" font-family="Inter,sans-serif" font-size="7" fill="#6B7E5A" letter-spacing="0.4">SOLUÇÕES EM FORMAS, ANDAIMES E ESCORAMENTOS</text>
+    </svg>
+  </a>
+  <div class="nav-divider"></div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="showTab('geral',this)">Visão Geral</button>
+    <button class="nav-tab" onclick="showTab('ociosidade',this)">Ociosidade</button>
+    <button class="nav-tab" onclick="showTab('logistica',this)">Grade Logística</button>
+    <button class="nav-tab" onclick="showTab('estoque',this)">Estoque</button>
+    <button class="nav-tab" onclick="showTab('contratos',this)">Evolução de Contratos</button>
+    <button class="nav-tab" onclick="showTab('sublocacao',this)">Sublocação</button>
+    <button class="nav-tab" onclick="showTab('astec',this)">ASTEC</button>
+  </div>
+  <div class="nav-right">
+    <div class="nav-live"><div class="live-dot"></div>Ao vivo</div>
+    <div class="nav-date" id="navDate"></div>
+    
+  </div>
+</nav>
+
+
+
+<div class="main">
+
+
+
+<div class="tab-content active" id="tab-geral">
+  <div class="sec-title">Indicadores principais</div>
+  <div class="gauge-kpi-row" id="gaugeKpiRow"></div>
+  <div class="sec-title">Estoque por família e distribuição</div>
+  <div class="g21">
+    <div class="card"><div class="card-title">Composição por família <span>peso total (kg)</span></div><div class="chart-wrap" style="height:250px"><canvas id="cFamilia"></canvas></div></div>
+    <div class="card"><div class="card-title">Distribuição <span>% do estoque</span></div><div class="chart-wrap" style="height:250px"><canvas id="cDonut"></canvas></div></div>
+  </div>
+  <div class="g2">
+    <div class="card"><div class="card-title">Ociosidade por família <span>% disponível / total</span></div><div id="gaugeWrap"></div></div>
+    <div class="card"><div class="card-title">Disponível vs Locado <span>em toneladas</span></div><div id="stackWrap"></div></div>
+  </div>
+  <div style="margin-bottom:18px">
+    <div class="card">
+      <div class="card-title">Ociosidade para locação imediata <span>quadros (un) e perfis (m lineares) · após todas as movimentações previstas</span></div>
+      <div id="ocioImediataWrap" style="min-height:120px"></div>
+    </div>
+  </div>
+  <div class="sec-title">Evolução do saldo — ciclo atual</div>
+  <div class="card" style="margin-bottom:14px"><div class="card-title">Saldo em peso (kg) <span>simulação cronológica · estoque compartilhado entre cargas</span></div><div class="chart-wrap" style="height:220px"><canvas id="cEvolucao"></canvas></div></div>
+  <div class="g2">
+    <div class="card"><div class="card-title">Fluxo por data <span>saídas e retornos (kg)</span></div><div class="chart-wrap" style="height:170px"><canvas id="cFluxo"></canvas></div></div>
+    <div class="card"><div class="card-title">Próximas Movimentações Mapeadas por Contrato</div>
+      <div class="tw"><table class="dt"><thead><tr><th>Contrato</th><th>Obra</th><th>Data</th><th>Tipo</th><th style="text-align:right">Peso (kg)</th></tr></thead><tbody id="tbMovs"></tbody></table></div>
+    </div>
+  </div>
+</div>
+
+<div class="tab-content" id="tab-ociosidade">
+  <div class="sec-title">Ociosidade por família</div>
+  <div class="kpi-grid" id="kpiOcio"></div>
+  <div class="g2">
+    <div class="card"><div class="card-title">% de ociosidade por família</div><div class="chart-wrap" style="height:290px"><canvas id="cOcio"></canvas></div></div>
+    <div class="card"><div class="card-title">Peso disponível no pátio <span>toneladas ociosas</span></div><div class="chart-wrap" style="height:290px"><canvas id="cPesoDisp"></canvas></div></div>
+  </div>
+  <div class="card"><div class="card-title">Detalhe por equipamento <span>top 40 por peso disponível</span></div>
+    <div class="tw"><table class="dt"><thead><tr><th>Equipamento</th><th>Família</th><th style="text-align:right">Disp. (un)</th><th style="text-align:right">Locado (un)</th><th style="text-align:right">Peso Disp. (kg)</th><th style="text-align:right">Peso Loc. (kg)</th><th style="text-align:right">Ociosidade</th></tr></thead><tbody id="tbOcio"></tbody></table></div>
+  </div>
+</div>
+
+<div class="tab-content" id="tab-logistica">
+  <div class="sec-title">Grade logística</div>
+  <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr)" id="kpiLog"></div>
+  <div class="card" style="margin-bottom:14px">
+    <div class="cal-nav">
+      <div class="cal-nav-title" id="calMonthTitle"></div>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+        <div class="cal-legend">
+          <div class="cal-legend-item"><div class="cal-legend-dot" style="background:rgba(138,183,58,.15);border-left-color:#8AB73A"></div>Saída OK</div>
+          <div class="cal-legend-item"><div class="cal-legend-dot" style="background:rgba(214,137,16,.13);border-left-color:#D68910"></div>Saída com Itens Faltantes</div>
+          <div class="cal-legend-item"><div class="cal-legend-dot" style="background:rgba(192,57,43,.08);border-left-color:#C0392B"></div>Retorno</div>
+        </div>
+        <div class="cal-nav-btns">
+          <button class="cal-btn active" id="btnMar" onclick="showMonth(2026,3,this)">Março 2026</button>
+          <button class="cal-btn" id="btnAbr" onclick="showMonth(2026,4,this)">Abril 2026</button>
+        </div>
+      </div>
+    </div>
+    <div id="calGrid"></div>
+  </div>
+  <div class="g2" style="margin-bottom:14px">
+    <div class="card"><div class="card-title">Peso por atendimento <span>kg · colorido por criticidade</span></div><div class="chart-wrap" style="height:320px"><canvas id="cCargas"></canvas></div></div>
+    <div class="card"><div class="card-title">Linha do tempo</div><div class="tl" id="tlWrap"></div></div>
+  </div>
+  <div class="sec-title">Déficits por carga — análise cronológica com estoque compartilhado</div>
+  <div class="dc-grid" id="dcGrid"></div>
+</div>
+
+<div class="tab-content" id="tab-estoque">
+  <div class="sec-title">Inventário completo</div>
+  <div class="search-wrap"><span class="search-icon">&#128269;</span><input type="text" placeholder="Buscar equipamento..." id="srchInput" oninput="renderEstoque()"></div>
+  <div class="filter-bar" id="fBar"></div>
+  <div class="card"><div class="tw">
+    <table class="dt"><thead><tr>
+      <th>Equipamento</th><th>Família</th>
+      <th style="text-align:right">Disp.</th><th style="text-align:right">Locado</th>
+      <th style="text-align:right">Manut.</th><th style="text-align:right">Total</th>
+      <th style="text-align:right">Peso/un</th><th style="text-align:right">Peso Total</th>
+      <th style="text-align:right">Peso Disp.</th><th style="text-align:right">Ociosidade</th>
+    </tr></thead><tbody id="tbEstoque"></tbody></table>
+  </div></div>
+</div>
+
+</div>
+<script>
+var __D0={};
+var D={};
+var MAPA={contratos:[],loaded:false};
+
+const CL = {green:'#8AB73A',greenDark:'#3D5044',greenMid:'#6A9228',greenLt:'#C5DC8A',red:'#C0392B',orange:'#D68910',blue:'#2471A3',teal:'#1A7A6E',purple:'#7D3C98',bd:'rgba(58,80,44,.08)',mu:'#8F9E80'};
+
+const f  = (n,d) => Number(n).toLocaleString('pt-BR',{minimumFractionDigits:d||0,maximumFractionDigits:d||0});
+const ft = n => (n/1000).toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1})+' t';
+const fp = n => Number(n).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+
+Chart.defaults.color = CL.mu;
+Chart.defaults.font.family = "'Inter',sans-serif";
+Chart.defaults.font.size = 11;
+const charts = {};
+function mkChart(id,cfg){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),cfg);}
+
+// ── TABS ──
+function showTab(id,btn){
+  document.querySelectorAll('.tab-content').forEach(e=>e.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(e=>e.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  if(btn) btn.classList.add('active');
+  // Render tab-specific charts AFTER tab is visible (canvas needs dimensions)
+  if(id==='contratos' && MAPA.loaded) setTimeout(function(){renderContratos();},150);
+  if(id==='sublocacao' && MAPA.loaded) setTimeout(function(){renderSublocacao();},10);
+  if(id==='astec') setTimeout(function(){renderMapaASTEC();renderCoberturaPlano();},10);
+}
+
+// ── SPEEDOMETER GAUGES ──
+function drawGauge(canvasId, pct, zones, meta){
+  var canvas = document.getElementById(canvasId);
+  if(!canvas) return;
+
+  var SIZE = 200;
+  canvas.width  = SIZE;
+  canvas.height = Math.round(SIZE * 0.60);
+
+  var ctx = canvas.getContext('2d');
+  var W = canvas.width, H = canvas.height;
+  if(!W||!H||W<=0||H<=0) return;
+
+  var cx = W/2;
+  var cy = H - 14;
+  var Ro = W * 0.38;
+  var Ri = Ro * 0.44;
+
+  ctx.clearRect(0,0,W,H);
+  function toA(p){ return Math.PI + (p/100)*Math.PI; }
+
+  function wedge(p1,p2,fillColor){
+    if(p2<=p1) return;
+    ctx.beginPath();
+    ctx.moveTo(cx,cy);
+    ctx.arc(cx,cy,Ro,toA(p1),toA(p2));
+    ctx.arc(cx,cy,Ri,toA(p2),toA(p1),true);
+    ctx.closePath();
+    ctx.fillStyle=fillColor; ctx.fill();
+  }
+
+  // ── 1. BACKGROUND ZONES ──────────────────────────
+  var prev=0;
+  if(zones&&zones.length){
+    for(var i=0;i<zones.length;i++){ wedge(prev,zones[i].end,zones[i].bgColor); prev=zones[i].end; }
+  } else { wedge(0,100,'rgba(255,255,255,0.1)'); }
+
+  // ── 2. BRIGHT FILL ───────────────────────────────
+  if(pct>0&&zones&&zones.length){
+    var p=0;
+    for(var i=0;i<zones.length;i++){
+      var se=Math.min(pct,zones[i].end);
+      if(p<se) wedge(p,se,zones[i].color);
+      p=zones[i].end; if(p>=pct) break;
+    }
+  } else if(pct>0){ wedge(0,pct,'#58a6ff'); }
+
+  // ── 3. ZONE SEPARATORS ───────────────────────────
+  if(zones&&zones.length){
+    ctx.strokeStyle='rgba(10,20,10,0.65)'; ctx.lineWidth=2;
+    for(var i=0;i<zones.length-1;i++){
+      var a=toA(zones[i].end);
+      ctx.beginPath();
+      ctx.moveTo(cx+Ri*Math.cos(a),cy+Ri*Math.sin(a));
+      ctx.lineTo(cx+Ro*Math.cos(a),cy+Ro*Math.sin(a));
+      ctx.stroke();
+    }
+  }
+
+  // ── 4. OUTER BORDER ──────────────────────────────
+  ctx.beginPath(); ctx.arc(cx,cy,Ro,Math.PI,0); ctx.arc(cx,cy,Ri,0,Math.PI,true);
+  ctx.closePath(); ctx.strokeStyle='rgba(0,0,0,0.25)'; ctx.lineWidth=1; ctx.stroke();
+
+  // ── 5. NEEDLE ────────────────────────────────────
+  var nA=toA(pct), nLen=Ri*0.85;
+  ctx.shadowColor='rgba(0,0,0,0.5)'; ctx.shadowBlur=4;
+  ctx.beginPath();
+  ctx.moveTo(cx-3*Math.cos(nA+Math.PI/2),cy-3*Math.sin(nA+Math.PI/2));
+  ctx.lineTo(cx+nLen*Math.cos(nA),cy+nLen*Math.sin(nA));
+  ctx.lineTo(cx+3*Math.cos(nA+Math.PI/2),cy+3*Math.sin(nA+Math.PI/2));
+  ctx.closePath(); ctx.fillStyle='#000000'; ctx.fill();
+  // White outline for contrast
+  ctx.beginPath();
+  ctx.moveTo(cx-3*Math.cos(nA+Math.PI/2),cy-3*Math.sin(nA+Math.PI/2));
+  ctx.lineTo(cx+nLen*Math.cos(nA),cy+nLen*Math.sin(nA));
+  ctx.lineTo(cx+3*Math.cos(nA+Math.PI/2),cy+3*Math.sin(nA+Math.PI/2));
+  ctx.closePath(); ctx.strokeStyle='rgba(255,255,255,0.6)'; ctx.lineWidth=1; ctx.stroke();
+  ctx.shadowColor='transparent'; ctx.shadowBlur=0;
+  ctx.beginPath(); ctx.arc(cx,cy,Ri*0.28,0,Math.PI*2);
+  ctx.fillStyle='#000000'; ctx.fill();
+  ctx.strokeStyle='rgba(255,255,255,0.4)'; ctx.lineWidth=1.5; ctx.stroke();
+
+  // ── 6. OUTSIDE LABELS — all same style (tick + pill) ─
+  function outsideLabel(pVal, txt){
+    var a   = toA(pVal);
+    var tR  = Ro + 8;
+    var lR  = Ro + 20;
+    var tx  = cx + lR*Math.cos(a);
+    var ty  = cy + lR*Math.sin(a);
+
+    // tick
+    ctx.beginPath();
+    ctx.moveTo(cx+(Ro+1)*Math.cos(a), cy+(Ro+1)*Math.sin(a));
+    ctx.lineTo(cx+tR*Math.cos(a),     cy+tR*Math.sin(a));
+    ctx.strokeStyle='rgba(255,255,255,0.85)';
+    ctx.lineWidth=2; ctx.stroke();
+
+    // pill background
+    ctx.font='bold 8px Inter,sans-serif';
+    var tw=ctx.measureText(txt).width+7;
+    var th=13;
+    // roundRect fallback for older browsers
+    var rx=3, bx=tx-tw/2, by=ty-th/2;
+    ctx.beginPath();
+    ctx.moveTo(bx+rx,by);
+    ctx.lineTo(bx+tw-rx,by); ctx.arcTo(bx+tw,by,bx+tw,by+rx,rx);
+    ctx.lineTo(bx+tw,by+th-rx); ctx.arcTo(bx+tw,by+th,bx+tw-rx,by+th,rx);
+    ctx.lineTo(bx+rx,by+th); ctx.arcTo(bx,by+th,bx,by+th-rx,rx);
+    ctx.lineTo(bx,by+rx); ctx.arcTo(bx,by,bx+rx,by,rx);
+    ctx.closePath();
+    ctx.fillStyle='rgba(0,0,0,0.55)'; ctx.fill();
+
+    // text
+    ctx.fillStyle='#ffffff';
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText(txt, tx, ty);
+  }
+
+  // All boundaries: 0%, zone ends (15%,30% or 70%,85%), 100%
+  if(zones&&zones.length){
+    outsideLabel(0, '0%');
+    for(var i=0;i<zones.length-1;i++){
+      outsideLabel(zones[i].end, zones[i].end+'%');
+    }
+    outsideLabel(100, '100%');
+  } else {
+    outsideLabel(0,'0%'); outsideLabel(100,'100%');
+  }
+}
+
+function renderGaugeKPIs(){
+  const k=D.kpis;
+
+  // ── PROJECTION HELPER ────────────────────────────────────────────────
+  // Compute disponivel_kg at today + N days using movimentacoes
+  function projetarDisponivel(diasFuturos){
+    var hoje = new Date();
+    hoje.setHours(0,0,0,0);
+    var limite = new Date(hoje.getTime() + diasFuturos*24*60*60*1000);
+    var limiteStr = limite.toISOString().slice(0,10); // YYYY-MM-DD
+    var dispProj = k.peso_disponivel_kg||0;
+    (D.movimentacoes||[]).forEach(function(m){
+      if(!m.data) return;
+      if(m.data > limiteStr) return; // beyond window
+      var kg = parseFloat(m.peso_kg)||0;
+      if(m.tipo==='Retorno') dispProj += kg;   // returns add to disponivel
+      else                   dispProj -= kg;   // saídas remove from disponivel
+    });
+    return Math.max(0, dispProj);
+  }
+
+  var totalKg  = k.peso_total_kg||0;
+  var dispKg   = k.peso_disponivel_kg||0;
+  var locKg    = k.peso_locado_kg||0;
+
+  // Current
+  var ocioPct  = Math.round(k.ociosidade_pct||0);
+  var locPct   = Math.round(k.taxa_locacao_pct||0);
+
+  // Projections
+  var disp30   = projetarDisponivel(30);
+  var disp60   = projetarDisponivel(60);
+  var ocio30   = totalKg>0 ? Math.round(disp30/totalKg*1000)/10 : 0;
+  var ocio60   = totalKg>0 ? Math.round(disp60/totalKg*1000)/10 : 0;
+
+  // Helper: format kg -> t string
+  function fmtT(kg){ return (Math.round(kg/100)/10).toFixed(1)+'t'; }
+
+  // Zone sets
+  const zOcio=[
+    {end:15, color:'#2d7a3a', bgColor:'rgba(45,122,58,0.35)'},
+    {end:30, color:'#c98a00', bgColor:'rgba(201,138,0,0.35)'},
+    {end:100,color:'#9b1c1c', bgColor:'rgba(155,28,28,0.35)'},
+  ];
+  const zLoc=[
+    {end:70, color:'#9b1c1c', bgColor:'rgba(155,28,28,0.35)'},
+    {end:85, color:'#c98a00', bgColor:'rgba(201,138,0,0.35)'},
+    {end:100,color:'#2d7a3a', bgColor:'rgba(45,122,58,0.35)'},
+  ];
+
+  const gauges=[
+    {
+      id:'g-ocio', label:'Ociosidade Geral',
+      val:ocioPct, unit:'%', peso: fmtT(dispKg),
+      pesoLabel:'disponível no pátio',
+      pct:ocioPct, zones:zOcio, meta:15
+    },
+    {
+      id:'g-loc', label:'Taxa de Locação',
+      val:locPct, unit:'%', peso: fmtT(locKg),
+      pesoLabel:'em campo',
+      pct:locPct, zones:zLoc, meta:85
+    },
+    {
+      id:'g-disp', label:'Ociosidade em 30 dias',
+      val:Math.round(ocio30*10)/10, unit:'%', peso: fmtT(disp30),
+      pesoLabel:'disponível previsto',
+      pct:Math.round(ocio30), zones:zOcio, meta:15
+    },
+    {
+      id:'g-fld', label:'Ociosidade em 60 dias',
+      val:Math.round(ocio60*10)/10, unit:'%', peso: fmtT(disp60),
+      pesoLabel:'disponível previsto',
+      pct:Math.round(ocio60), zones:zOcio, meta:15
+    },
+  ];
+
+  document.getElementById('gaugeKpiRow').innerHTML=gauges.map(g=>
+    '<div class="gauge-kpi-card">'+
+    '<div class="gauge-kpi-label">'+g.label+'</div>'+
+    '<div class="gauge-canvas-wrap"><canvas id="'+g.id+'"></canvas></div>'+
+    '<div class="gauge-vals">'+
+      '<span class="gauge-pct">'+g.val+'<span class="gauge-pct-unit">%</span></span>'+
+      '<span class="gauge-peso">'+g.peso+'</span>'+
+    '</div>'+
+    '<div class="gauge-kpi-sub">'+g.pesoLabel+'</div>'+
+    '</div>'
+  ).join('');
+
+  requestAnimationFrame(()=>{gauges.forEach(g=>drawGauge(g.id,g.pct,g.zones,g.meta||null));});
+}
+
+function renderGauges(){
+  document.getElementById('gaugeWrap').innerHTML=D.grupos.filter(x=>x.Peso_Total>0).map(x=>{
+    const p=x.Ociosidade,c=p>50?CL.green:p>20?CL.blue:p>10?CL.orange:CL.red;
+    return '<div class="gauge-row"><div class="gauge-lbl">'+x.Grupo+'</div><div class="gauge-bar"><div class="gauge-fill" style="width:'+Math.min(p,100)+'%;background:'+c+'"></div></div><div class="gauge-pct">'+p+'%</div><div class="gauge-kg">'+f(x.Peso_Disp)+' kg</div></div>';
+  }).join('');
+}
+function renderStack(){
+  document.getElementById('stackWrap').innerHTML=D.grupos.filter(x=>x.Peso_Total>0).map(x=>{
+    const dp=(x.Peso_Disp/x.Peso_Total*100).toFixed(1),lp=(x.Peso_Loc/x.Peso_Total*100).toFixed(1);
+    return '<div class="stack-row"><div class="stack-name">'+x.Grupo+'</div><div class="stack-bar-wrap"><div class="stack-seg" style="width:'+dp+'%;background:'+CL.green+'"></div><div class="stack-seg" style="width:'+lp+'%;background:'+CL.greenDark+';opacity:.6"></div></div><div class="stack-pct">'+(x.Peso_Total/1000).toFixed(1)+' t</div></div>';
+  }).join('');
+}
+function renderChartFamilia(){
+  const gs=D.grupos.filter(x=>x.Peso_Total>0);
+  mkChart('cFamilia',{type:'bar',data:{labels:gs.map(g=>g.Grupo),datasets:[
+    {label:'Disponível',data:gs.map(g=>g.Peso_Disp),backgroundColor:CL.green,borderRadius:2,stack:'s'},
+    {label:'Locado',data:gs.map(g=>g.Peso_Loc),backgroundColor:CL.greenDark,borderRadius:2,stack:'s'}
+  ]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',labels:{boxWidth:9,padding:12}},tooltip:{callbacks:{label:i=>' '+i.dataset.label+': '+f(i.raw)+' kg'}}},scales:{x:{stacked:true,grid:{color:CL.bd},ticks:{callback:v=>(v/1000).toFixed(0)+'k'}},y:{stacked:true,grid:{color:'transparent'}}}}});
+}
+function renderChartDonut(){
+  const k=D.kpis;
+  mkChart('cDonut',{type:'doughnut',data:{labels:['Disponível (pátio)','Locado (campo)'],datasets:[{data:[k.peso_disponivel_kg,k.peso_locado_kg],backgroundColor:[CL.green,CL.greenDark],borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,cutout:'66%',plugins:{legend:{position:'bottom',labels:{boxWidth:9,padding:10}},tooltip:{callbacks:{label:i=>i.label+': '+ft(i.raw)+' ('+(i.raw/k.peso_total_kg*100).toFixed(1)+'%)'}}}}});
+}
+function renderChartEvolucao(){
+  const tl=D.timeline;
+  mkChart('cEvolucao',{type:'line',data:{labels:tl.map(t=>t.data),datasets:[{label:'Saldo (kg)',data:tl.map(t=>t.saldo),borderColor:CL.greenMid,backgroundColor:'rgba(138,183,58,.07)',fill:true,tension:.35,pointRadius:4.5,borderWidth:2.5,pointBackgroundColor:tl.map(t=>t.saldo<42000?CL.red:t.saldo>73000?CL.green:CL.greenMid),pointBorderColor:'#F2F5EC',pointBorderWidth:1.5}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:i=>'Saldo: '+f(i.raw)+' kg ('+ft(i.raw)+')'}}},scales:{x:{grid:{color:CL.bd},ticks:{font:{size:10}}},y:{grid:{color:CL.bd},ticks:{callback:v=>(v/1000).toFixed(0)+'k'}}}}});
+}
+function renderChartFluxo(){
+  const tl=D.timeline.slice(1);
+  mkChart('cFluxo',{type:'bar',data:{labels:tl.map(t=>t.data),datasets:[
+    {label:'Saída',data:tl.map(t=>t.tipo==='saida'?-t.qty:0),backgroundColor:CL.green,borderRadius:2,stack:'f'},
+    {label:'Retorno',data:tl.map(t=>t.tipo==='dev'?t.qty:0),backgroundColor:CL.red,borderRadius:2,stack:'f'}
+  ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',labels:{boxWidth:8,padding:10}},tooltip:{callbacks:{label:i=>i.dataset.label+': '+f(Math.abs(i.raw))+' kg'}}},scales:{x:{stacked:true,grid:{color:CL.bd},ticks:{font:{size:10}}},y:{stacked:true,grid:{color:CL.bd},ticks:{callback:v=>(v/1000).toFixed(0)+'k'}}}}});
+}
+function renderMovimentacoes(){
+  var rows = '';
+  D.movimentacoes.forEach(function(m, idx){
+    var isSaida = m.tipo==='Saída';
+    var hasItens = m.itens_carga && m.itens_carga.length > 0;
+    var expandId = 'mvexp_'+idx;
+    var btnToggle = hasItens
+      ? '<button onclick="toggleMovItens(''+expandId+'')" style="background:none;border:1px solid var(--bd2);border-radius:4px;width:18px;height:18px;cursor:pointer;font-size:.65rem;color:var(--mu);display:inline-flex;align-items:center;justify-content:center;padding:0;vertical-align:middle;transition:all .15s" id="btn_'+expandId+'">+</button>'
+      : '<span style="display:inline-block;width:18px"></span>';
+    rows += '<tr>'
+      +'<td class="fw" style="font-family:var(--mono);font-size:.7rem">'+m.contrato+'</td>'
+      +'<td class="fw" style="display:flex;align-items:center;gap:6px">'+btnToggle+'<span>'+m.obra+'</span></td>'
+      +'<td class="n" style="white-space:nowrap">'+m.data_fmt+'</td>'
+      +'<td><span class="pill '+(isSaida?'gn':'rd')+'">'+m.tipo+'</span></td>'
+      +'<td class="n '+(isSaida?'ok':'cr')+'">'+(isSaida?'−':'+')+fp(m.peso_kg)+'</td>'
+      +'</tr>';
+    if(hasItens){
+      // Ordena itens por peso desc
+      var sorted = m.itens_carga.slice().sort(function(a,b){return b.peso_kg - a.peso_kg;});
+      var itensHtml = sorted.map(function(it){
+        return '<tr style="background:var(--green-a)">'
+          +'<td></td>'
+          +'<td style="padding:4px 8px 4px 28px;font-size:.7rem;color:var(--tx2)">'+it.equip+'</td>'
+          +'<td></td>'
+          +'<td style="font-family:var(--mono);font-size:.68rem;color:var(--mu);text-align:right;white-space:nowrap">'+it.qty+' un</td>'
+          +'<td class="n" style="font-size:.7rem;color:var(--mu2)">'+fp(it.peso_kg)+'</td>'
+          +'</tr>';
+      }).join('');
+      rows += '<tr id="'+expandId+'" style="display:none"><td colspan="5" style="padding:0"><table style="width:100%;border-collapse:collapse">'+itensHtml+'</table></td></tr>';
+    }
+  });
+  document.getElementById('tbMovs').innerHTML = rows;
+}
+function toggleMovItens(id){
+  var row = document.getElementById(id);
+  var btn = document.getElementById('btn_'+id);
+  if(!row) return;
+  var open = row.style.display !== 'none';
+  row.style.display = open ? 'none' : 'table-row';
+  if(btn) btn.textContent = open ? '+' : '−';
+  if(btn) btn.style.color = open ? 'var(--mu)' : 'var(--leve-green)';
+  if(btn) btn.style.borderColor = open ? 'var(--bd2)' : 'var(--leve-green)';
+}
+
+// ── ABA 2 ──
+function renderKPIsOcio(){
+  document.getElementById('kpiOcio').innerHTML=D.grupos.filter(x=>x.Peso_Total>0).sort((a,b)=>b.Ociosidade-a.Ociosidade).map(g=>{
+    const cls=g.Ociosidade>50?'gn':g.Ociosidade>20?'bl':g.Ociosidade>10?'or':'rd';
+    return '<div class="kpi '+cls+'"><div class="kpi-label">'+g.Grupo+'</div><div class="kpi-val">'+g.Ociosidade+'%</div><div class="kpi-sub">'+ft(g.Peso_Disp)+' ociosos</div></div>';
+  }).join('');
+}
+function renderTableOcio(){
+  const sorted=[...D.itens].filter(x=>x.Peso_Total>0).sort((a,b)=>b.Peso_Disponivel-a.Peso_Disponivel).slice(0,40);
+  document.getElementById('tbOcio').innerHTML=sorted.map(it=>{
+    const pct=it.Peso_Total>0?(it.Peso_Disponivel/it.Peso_Total*100):0;
+    const c=pct>50?' ok':pct>20?'':' warn';
+    return '<tr><td class="fw">'+it.Equipamento+'</td><td><span class="pill gd" style="font-size:.6rem">'+it.Grupo+'</span></td><td class="n ok">'+f(it.Qtde_Disponivel)+'</td><td class="n warn">'+f(it.Qtde_Locado)+'</td><td class="n ok">'+fp(it.Peso_Disponivel)+'</td><td class="n warn">'+fp(it.Peso_Locado)+'</td><td class="n'+c+'">'+pct.toFixed(1)+'%</td></tr>';
+  }).join('');
+}
+function renderChartOcio(){
+  const gs=D.grupos.filter(x=>x.Peso_Total>0);
+  mkChart('cOcio',{type:'bar',data:{labels:gs.map(g=>g.Grupo),datasets:[{label:'Ociosidade %',data:gs.map(g=>g.Ociosidade),borderRadius:3,backgroundColor:gs.map(g=>g.Ociosidade>50?CL.green:g.Ociosidade>20?CL.blue:g.Ociosidade>10?CL.orange:CL.red)}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'transparent'}},y:{max:100,grid:{color:CL.bd},ticks:{callback:v=>v+'%'}}}}});
+}
+function renderChartPesoDisp(){
+  const gs=D.grupos.filter(x=>x.Peso_Total>0).sort((a,b)=>b.Peso_Disp-a.Peso_Disp);
+  mkChart('cPesoDisp',{type:'bar',data:{labels:gs.map(g=>g.Grupo),datasets:[{label:'Peso disponível (kg)',data:gs.map(g=>g.Peso_Disp),backgroundColor:CL.greenLt,borderRadius:3,borderColor:CL.green,borderWidth:1}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:i=>f(i.raw)+' kg ('+ft(i.raw)+')'}}},scales:{x:{grid:{color:CL.bd},ticks:{callback:v=>(v/1000).toFixed(0)+'k'}},y:{grid:{color:'transparent'}}}}});
+}
+
+// ── ABA 3 ──
+function renderKPIsLog(){
+  const totalS=D.movimentacoes.filter(m=>m.tipo==='Saída').reduce((s,m)=>s+m.peso_kg,0);
+  const totalR=D.movimentacoes.filter(m=>m.tipo==='Retorno').reduce((s,m)=>s+m.peso_kg,0);
+  const saldos=D.timeline.map(t=>t.saldo);
+  document.getElementById('kpiLog').innerHTML=
+    '<div class="kpi gn"><div class="kpi-label">Total Saídas</div><div class="kpi-val">'+ft(totalS)+'</div><div class="kpi-sub">'+D.deficit_cards.length+' cargas mapeadas</div></div>'+
+    '<div class="kpi rd"><div class="kpi-label">Total Retornos</div><div class="kpi-val">'+ft(totalR)+'</div><div class="kpi-sub">'+D.movimentacoes.filter(m=>m.tipo==='Retorno').length+' devoluções previstas</div></div>'+
+    '<div class="kpi or"><div class="kpi-label">Saldo Mínimo</div><div class="kpi-val">'+ft(Math.min(...saldos))+'</div><div class="kpi-sub">pico crítico do ciclo</div></div>'+
+    '<div class="kpi bl"><div class="kpi-label">Saldo Final</div><div class="kpi-val">'+ft(saldos[saldos.length-1])+'</div><div class="kpi-sub">após última movimentação</div></div>';
+}
+function renderTimeline(){
+  const byDate={};
+  D.movimentacoes.forEach(m=>{
+    if(!byDate[m.data_fmt])byDate[m.data_fmt]={saidas:[],devs:[]};
+    if(m.tipo==='Saída')byDate[m.data_fmt].saidas.push(m);else byDate[m.data_fmt].devs.push(m);
+  });
+  document.getElementById('tlWrap').innerHTML=Object.entries(byDate).map(([data,ev])=>{
+    const tipo=ev.saidas.length&&ev.devs.length?'both':ev.saidas.length?'saida':'dev';
+    const lbl=tipo==='both'?'Saída + Retorno':tipo==='saida'?'Saída':'Retorno';
+    let items='';
+    ev.saidas.forEach(m=>{items+='<div class="tl-contrato">'+m.contrato+' — '+m.obra+'</div><span class="tl-peso s">−'+fp(m.peso_kg)+' kg</span>';});
+    ev.devs.forEach(m=>{items+='<div class="tl-contrato">'+m.contrato+' — '+m.obra+'</div><span class="tl-peso d">+'+fp(m.peso_kg)+' kg</span>';});
+    return '<div class="tl-item '+tipo+'"><div class="tl-date">'+data+'</div><div class="tl-title">'+lbl+'</div>'+items+'</div>';
+  }).join('');
+}
+function renderDeficitCards(){
+  document.getElementById('dcGrid').innerHTML=[...D.deficit_cards].sort((a,b)=>(a.data_sort||"").localeCompare(b.data_sort||"")).map(c=>{
+    const lbl=c.n_deficit===0?'OK':'Itens Faltantes';
+    const pc=c.n_deficit===0?'gn':'or';
+    const rows=c.itens_falta.map(it=>'<div class="dc-item-row"><span class="dc-equip">'+it.equip+'</span><span class="dc-falta">−'+f(it.falta)+' un</span></div>').join('');
+    const st=c.n_deficit>0?'alto':'baixo';
+    return '<div class="dc '+st+'"><div class="dc-head"><div><div class="dc-obra">'+c.obra+'</div><div class="dc-contrato">'+c.contrato+'</div></div><div><div class="dc-data">'+c.data+'</div><span class="pill '+pc+'" style="margin-top:4px;display:block;text-align:center">'+lbl+'</span></div></div><div class="dc-meta">'+c.n_deficit+' item'+(c.n_deficit!==1?'s':'')+' em déficit · '+c.n_ok+' OK · '+fp(c.peso_kg)+' kg</div><div>'+rows+(rows?'':'<span style="color:var(--leve-mid);font-size:.72rem">Sem déficits identificados</span>')+'</div></div>';
+  }).join('');
+}
+function renderChartCargas(){
+  const dc=[...D.deficit_cards].sort((a,b)=>(a.data_sort||"").localeCompare(b.data_sort||""));
+  mkChart('cCargas',{type:'bar',data:{labels:dc.map(c=>c.obra),datasets:[{label:'Peso (kg)',data:dc.map(c=>c.peso_kg),borderRadius:3,backgroundColor:dc.map(c=>c.n_deficit>0?CL.orange:CL.green)}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:i=>fp(i.raw)+' kg'}}},scales:{x:{grid:{color:CL.bd},ticks:{callback:v=>(v/1000).toFixed(1)+'t'}},y:{grid:{color:'transparent'},ticks:{font:{size:10}}}}}});
+}
+
+// ── ABA 4 ──
+let activeGrp='';
+function buildFilterBar(){
+  const grupos=[...new Set(D.itens.map(i=>i.Grupo))].sort();
+  const bar=document.getElementById('fBar');
+  bar.innerHTML='';
+  const mkBtn=(lbl,grp,active)=>{
+    const b=document.createElement('button');
+    b.className='nav-tab'+(active?' active':'');
+    b.textContent=lbl;
+    b.onclick=()=>setGrp(grp,b);
+    bar.appendChild(b);
+  };
+  mkBtn('Todos ('+D.itens.length+')','',true);
+  grupos.forEach(g=>mkBtn(g+' ('+D.itens.filter(i=>i.Grupo===g).length+')',g,false));
+}
+function setGrp(g,btn){
+  activeGrp=g;
+  document.querySelectorAll('#fBar .nav-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderEstoque();
+}
+function renderEstoque(){
+  const q=document.getElementById('srchInput').value.toLowerCase();
+  const rows=D.itens.filter(it=>(!q||it.Equipamento.toLowerCase().includes(q))&&(!activeGrp||it.Grupo===activeGrp));
+  const total=it=>it.Qtde_Disponivel+it.Qtde_Locado+it.Qtde_Manutencao;
+  document.getElementById('tbEstoque').innerHTML=rows.map(it=>{
+    const oc=it.Peso_Total>0?it.Peso_Disponivel/it.Peso_Total*100:0;
+    const c=oc>50?' ok':oc>20?'':' warn';
+    const pu=total(it)>0?it.Peso_Total/total(it):0;
+    return '<tr><td class="fw">'+it.Equipamento+'</td><td><span class="pill gd" style="font-size:.6rem">'+it.Grupo+'</span></td><td class="n ok">'+f(it.Qtde_Disponivel)+'</td><td class="n warn">'+f(it.Qtde_Locado)+'</td><td class="n">'+f(it.Qtde_Manutencao)+'</td><td class="n">'+f(total(it))+'</td><td class="n">'+(pu>0?fp(pu):'—')+'</td><td class="n">'+fp(it.Peso_Total)+'</td><td class="n ok">'+fp(it.Peso_Disponivel)+'</td><td class="n'+c+'">'+oc.toFixed(1)+'%</td></tr>';
+  }).join('');
+}
+
+// ── UPLOAD MODAL ──
+let pendingFiles={csv:null,xlsx:null,mapa:null};
+function onDragOver(e){e.preventDefault();document.getElementById('dropZone').classList.add('over');}
+function onDragLeave(){document.getElementById('dropZone').classList.remove('over');}
+function onDrop(e){e.preventDefault();document.getElementById('dropZone').classList.remove('over');handleFiles(e.dataTransfer.files);}
+function onFileSelect(e){handleFiles(e.target.files);}
+
+
+
+// ── RENDER: OCIOSIDADE PARA LOCAÇÃO IMEDIATA ─────────────────────────────
+function renderOcioImediata(){
+  var wrap = document.getElementById('ocioImediataWrap');
+  if(!wrap) return;
+
+  // Use ociosoMap if available (from planejamento simulation),
+  // fallback to disponivel_hoje if only SAM is loaded
+  var ociosoMap = D.ociosoMap || null;
+  var itens     = D.itens    || [];
+
+  if(!itens.length && !ociosoMap){
+    wrap.innerHTML='<div style="padding:20px;color:var(--mu);font-size:.82rem">Carregue o SAM CSV e o Planejamento XLSX para visualizar.</div>';
+    return;
+  }
+
+  // Extract perfil length from name: last number = cm -> metres
+  function getMetros(name){
+    var m = name.match(/[-\s](\d{2,3})\s*(?:E)?$/i);
+    if(m) return parseInt(m[1])/100;
+    return null;
+  }
+
+  // Build per-item ocioso quantity
+  // If ociosoMap available: use simulated final stock (correct logic)
+  // Else: use disponivel today (fallback)
+  function getOcioso(name){
+    if(ociosoMap && ociosoMap.hasOwnProperty(name)) return ociosoMap[name];
+    if(!ociosoMap){
+      // fallback: find in D.itens
+      var it = itens.find(function(x){ return x.Equipamento===name; });
+      return it ? (it.Qtde_Disponivel||0) : 0;
+    }
+    return 0; // not in ociosoMap = 0 ocioso (all needed or none available)
+  }
+
+  // Collect all item names (from SAM itens or from ociosoMap keys)
+  var allNames = [];
+  if(itens.length){
+    itens.forEach(function(it){ if(it.Equipamento) allNames.push(it.Equipamento); });
+  } else {
+    allNames = Object.keys(ociosoMap||{});
+  }
+
+  var quadros    = [];
+  var acessorios = [];
+  var perfisMap  = {};
+
+  // Novos equipamentos contados em unidades
+  // Itens excluídos explicitamente: BARRA S050, BARRA S075 E, BARRA S150,
+  //   BASE REGULAVEL 30S, BASE REGULAVEL 32S, CONECTOR S N, CRUZETA 155 N, FORCADO REGULAVEL E
+  function isAcessorio(n){
+    var u = n.toUpperCase().trim();
+    // Exclusões explícitas
+    if(u==='BARRA S050' || u==='BARRA S075 E' || u==='BARRA S150') return false;
+    if(u==='BASE REGULAVEL 30S' || u==='BASE REGULAVEL 32S') return false;
+    if(/CONECTOR S N/i.test(n)) return false;
+    if(u==='CRUZETA 155 N') return false;
+    if(/FORCADO REGULAVEL E/i.test(n)) return false;
+    // Inclusões
+    return /forcado\s+regul/i.test(n)                     ||
+           /forcado\s+simples\s+s(?!\s*20)/i.test(n)    ||
+           /forcado\s+duplo\s+s/i.test(n)                ||
+           /cruzeta/i.test(n)                              ||
+           /base\s+regul/i.test(n)                        ||
+           /^barra\s+s/i.test(n)                          ||
+           /^escora\s+s350/i.test(n)                      ||
+           /^escora\s+euro/i.test(n)                      ||
+           /^conector\b/i.test(n);
+  }
+  // W200 e W310 excluídos intencionalmente
+  function isPerfilExcluido(n){
+    return /^perfil\s/i.test(n) && /\bW(200|310)\b/i.test(n);
+  }
+
+  allNames.forEach(function(name){
+    if(/prolongador/i.test(name)) return;
+    if(isPerfilExcluido(name)) return;
+    var qty = getOcioso(name);
+    if(qty <= 0 && !isAcessorio(name)) return; // acessórios aparecem mesmo com qty=0
+
+    if(/quadro/i.test(name)){
+      if(qty > 0) quadros.push({nome:name, qtde:Math.round(qty)});
+    } else if(isAcessorio(name)){
+      // evita duplicatas
+      var already = acessorios.some(function(a){ return a.nome===name; });
+      if(!already) acessorios.push({nome:name, qtde:Math.round(Math.max(0,qty))});
+    } else if(/^perfil\s/i.test(name)){
+      var metros = getMetros(name);
+      if(!metros) return;
+      var family = name.replace(/\s+\d+\s*E?\s*$/i,'').replace(/-\d+\s*E?\s*$/i,'').trim();
+      if(!perfisMap[family]) perfisMap[family]={nome:family,totalM:0,itens:[]};
+      var tm = Math.round(qty*metros*100)/100;
+      perfisMap[family].totalM += qty*metros;
+      perfisMap[family].itens.push({nome:name,qtde:Math.round(qty),metros:metros,totalM:tm});
+    }
+  });
+
+  // Garante que todos os acessórios monitorados aparecem, mesmo com qty=0
+  // Os nomes devem bater exatamente com o SAM (case-insensitive match feito abaixo)
+  var ACESSORIOS_FIXOS = [
+    'FORCADO REGULAVEL S','FORCADO REGULAVEL S20',
+    'FORCADO SIMPLES S',
+    'FORCADO DUPLO S',
+    'CRUZETA 135/155 S',
+    'BASE REGULAVEL 45S',
+    'BARRA S075','BARRA S100','BARRA S100 SUPER',
+    'ESCORA S350',
+    'ESCORA EURO',
+    'CONECTOR S'
+  ];
+  ACESSORIOS_FIXOS.forEach(function(fixo){
+    var already = acessorios.some(function(a){ return a.nome.toUpperCase()===fixo.toUpperCase(); });
+    if(!already && isAcessorio(fixo)){
+      // Só adiciona se o nome existir no SAM (evita itens fantasma que nunca existiram)
+      var existsInSam = allNames.some(function(n){ return n.toUpperCase()===fixo.toUpperCase(); });
+      if(existsInSam) acessorios.push({nome:fixo, qtde:0});
+    }
+  });
+
+  quadros.sort(function(a,b){return a.nome.localeCompare(b.nome);});
+  acessorios.sort(function(a,b){return a.nome.localeCompare(b.nome);});
+  var perfisList = Object.values(perfisMap).sort(function(a,b){return a.nome.localeCompare(b.nome);});
+  perfisList.forEach(function(pf){
+    pf.totalM = Math.round(pf.totalM*100)/100;
+    pf.itens.sort(function(a,b){return a.nome.localeCompare(b.nome);});
+  });
+
+  var totalQ = quadros.reduce(function(s,q){return s+q.qtde;},0);
+  var totalM = perfisList.reduce(function(s,p){return s+p.totalM;},0);
+
+  // Source label
+  var sourceNote = ociosoMap
+    ? '<span style="color:var(--leve-green);font-size:.68rem;font-weight:600">✓ Simulação completa</span> <span style="color:var(--mu);font-size:.65rem">(disponível hoje + devoluções - saídas previstas)</span>'
+    : '<span style="color:#c98a00;font-size:.68rem;font-weight:600">⚠ Apenas disponível hoje</span> <span style="color:var(--mu);font-size:.65rem">(carregue o Planejamento XLSX para simulação completa)</span>';
+
+  // ── SUMMARY CARDS ────────────────────────────────────────────────────
+  var html = '<div style="display:flex;gap:14px;margin-bottom:16px;flex-wrap:wrap;align-items:center">';
+  html += '<div style="background:var(--green-a);border-left:3px solid var(--leve-green);border-radius:0 8px 8px 0;padding:9px 16px;min-width:150px">'
+    +'<div style="font-size:.63rem;text-transform:uppercase;letter-spacing:.7px;color:var(--mu);margin-bottom:2px">Total quadros ociosos</div>'
+    +'<div style="font-size:1.4rem;font-weight:700;color:var(--leve-dark)">'+totalQ+'<span style="font-size:.75rem;font-weight:500"> un</span></div>'
+    +'</div>';
+  html += '<div style="background:var(--green-a);border-left:3px solid var(--leve-green);border-radius:0 8px 8px 0;padding:9px 16px;min-width:150px">'
+    +'<div style="font-size:.63rem;text-transform:uppercase;letter-spacing:.7px;color:var(--mu);margin-bottom:2px">Total perfis ociosos</div>'
+    +'<div style="font-size:1.4rem;font-weight:700;color:var(--leve-dark)">'+Math.round(totalM).toLocaleString('pt-BR')+'<span style="font-size:.75rem;font-weight:500"> m</span></div>'
+    +'</div>';
+  html += '<div style="flex:1;min-width:200px">'+sourceNote+'</div>';
+  html += '</div>';
+
+  // ── TOOLTIP ──────────────────────────────────────────────────────────
+  html += '<div id="ocioTip" style="display:none;position:fixed;background:rgba(30,40,30,0.95);color:#fff;padding:8px 12px;border-radius:8px;font-size:11px;pointer-events:none;z-index:9999;max-width:340px;line-height:1.7"></div>';
+
+  // ── SECTION TITLE ────────────────────────────────────────────────────
+  html += '<div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--mu);margin-bottom:12px">Equipamentos principais disponíveis (metros lineares e un)</div>';
+
+  // ── UNIFIED BAR LIST ─────────────────────────────────────────────────
+  var maxM = perfisList.length ? Math.max.apply(null, perfisList.map(function(p){return p.totalM;})) : 1;
+  var maxQ = quadros.length ? Math.max.apply(null, quadros.map(function(q){return q.qtde;})) : 1;
+  var maxA = acessorios.length ? Math.max.apply(null, acessorios.map(function(a){return a.qtde;})) : 1;
+  var maxUnidades = Math.max(maxQ, maxA);
+  var qScale = maxM / maxUnidades;
+
+  // Largura fixa do label: única para todas as linhas → alinhamento perfeito das barras
+  var LBL = 160; // px
+
+  function ocioBar(label, pct, valueLabel, color, tipData, isEmpty){
+    var labelColor = isEmpty ? 'var(--mu2)' : 'var(--tx2)';
+    var valColor   = isEmpty ? 'var(--mu2)' : 'var(--leve-dark)';
+    var barBg      = isEmpty ? 'var(--bd)'  : 'var(--bd)';
+    return '<div style="display:flex;align-items:center;gap:12px;cursor:default;padding:1px 0" data-tip="'+encodeURIComponent(tipData)+'" class="ocio-row">'
+      +'<div style="width:'+LBL+'px;font-size:.72rem;font-weight:600;color:'+labelColor+';text-align:right;white-space:nowrap;flex-shrink:0">'+label+'</div>'
+      +'<div style="flex:1;height:14px;background:'+barBg+';border-radius:4px;overflow:hidden;min-width:0">'
+      +(isEmpty ? '' : '<div style="height:14px;width:'+pct+'%;background:'+color+';border-radius:4px;transition:width .3s"></div>')
+      +'</div>'
+      +'<div style="width:72px;font-size:.75rem;font-weight:'+(isEmpty?'500':'700')+';color:'+valColor+';text-align:right;flex-shrink:0;font-variant-numeric:tabular-nums">'+valueLabel+'</div>'
+      +'</div>';
+  }
+
+  function groupHeader(label){
+    return '<div style="display:flex;align-items:center;gap:12px;margin-top:4px;margin-bottom:2px">'
+      +'<div style="width:'+LBL+'px;flex-shrink:0"></div>'
+      +'<div style="flex:1;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--mu2)">'+label+'</div>'
+      +'</div>';
+  }
+
+  function groupSep(){
+    return '<div style="display:flex;align-items:center;gap:12px;margin:10px 0 8px">'
+      +'<div style="width:'+LBL+'px;flex-shrink:0"></div>'
+      +'<div style="flex:1;height:1px;background:var(--bd2)"></div>'
+      +'</div>';
+  }
+
+  html += '<div style="display:flex;flex-direction:column;gap:4px">';
+
+  // PERFIS
+  if(perfisList.length){
+    html += groupHeader('Perfis — metros lineares');
+    perfisList.forEach(function(pf){
+      var pct = Math.round(pf.totalM/maxM*100);
+      var mLabel = Math.round(pf.totalM).toLocaleString('pt-BR')+'m';
+      var shortName = pf.nome.replace(/^PERFIL\s+/i,'');
+      var comp = pf.itens.map(function(it){
+        return '<span style="color:#aef">'+it.nome.replace(/^PERFIL\s+/i,'')+'</span> ×'+it.qtde+' = '+it.totalM+'m';
+      }).join('<br>');
+      var tipData = pf.nome+' · '+Math.round(pf.totalM).toLocaleString('pt-BR')+'m<br>'+comp;
+      html += ocioBar(shortName, pct, mLabel, 'var(--leve-green)', tipData, false);
+    });
+  }
+
+  // ACESSÓRIOS (unidades)
+  if(acessorios.length){
+    html += groupSep();
+    html += groupHeader('Acessórios — unidades');
+    acessorios.forEach(function(a){
+      var isEmpty = a.qtde === 0;
+      var pct = isEmpty ? 0 : Math.max(1, Math.round(a.qtde*qScale/maxM*100));
+      var tipData = a.nome+' · '+(isEmpty ? 'nenhum disponível' : a.qtde+' un');
+      html += ocioBar(a.nome, pct, isEmpty ? '—' : a.qtde+' un', '#6A9228', tipData, isEmpty);
+    });
+  }
+
+  // QUADROS (unidades)
+  if(quadros.length){
+    html += groupSep();
+    html += groupHeader('Quadros — unidades');
+    quadros.forEach(function(q){
+      var pct = Math.max(1, Math.round(q.qtde*qScale/maxM*100));
+      var shortName = q.nome.replace(/^QUADRO\s+/i,'');
+      var tipData = q.nome+' · '+q.qtde+' un';
+      html += ocioBar(shortName, pct, q.qtde+' un', '#6A9228', tipData, false);
+    });
+  }
+
+  if(!quadros.length && !acessorios.length && !perfisList.length){
+    html += '<div style="padding:16px 0;color:var(--mu);font-size:.82rem">Nenhum item ocioso para locação imediata após simular todas as movimentações.</div>';
+  }
+
+  html += '</div>';
+  wrap.innerHTML = html;
+
+  // Tooltip events
+  var tip = document.getElementById('ocioTip');
+  wrap.querySelectorAll('.ocio-row').forEach(function(row){
+    row.addEventListener('mouseenter',function(e){
+      if(!tip)return;
+      tip.innerHTML=decodeURIComponent(this.getAttribute('data-tip'));
+      tip.style.display='block';
+      tip.style.left=(e.clientX+16)+'px';
+      tip.style.top=(e.clientY-10)+'px';
+    });
+    row.addEventListener('mousemove',function(e){
+      if(!tip)return;
+      tip.style.left=(e.clientX+16)+'px';
+      tip.style.top=(e.clientY-10)+'px';
+    });
+    row.addEventListener('mouseleave',function(){if(tip)tip.style.display='none';});
+  });
+}
+
+// ── RENDER: EVOLUÇÃO DE CONTRATOS ────────────────────────────────────────
+function renderContratos(){
+  if(!MAPA.loaded) return;
+
+  var cts = MAPA.contratos.filter(function(c){return c.peso_total>=1000;})
+    .sort(function(a,b){return b.peso_total-a.peso_total;});
+
+  // Cross with planning
+  var movMap = {};
+  if(D.movimentacoes && D.movimentacoes.length){
+    D.movimentacoes.forEach(function(m){
+      var raw = String(m.contrato||'').trim();
+      var ct  = raw.indexOf('/')>-1 ? raw.split('/')[0].trim() : raw.replace(/\D/g,'');
+      if(!ct||ct==='XXX') return;
+      if(!movMap[ct]) movMap[ct]=0;
+      var kg = parseFloat(m.peso_kg)||0;
+      if(m.tipo==='Saída') movMap[ct] += kg;
+      else movMap[ct] -= kg;
+    });
+  }
+
+  var labels    = cts.map(function(c){ return 'CT '+c.contrato; });
+  var tooltips  = cts.map(function(c){ return c.obra; });
+  var current   = cts.map(function(c){ return Math.round(c.peso_total)/1000; });
+  var deltas    = cts.map(function(c){ return Math.round(movMap[String(c.contrato)]||0)/1000; });
+  var projected = cts.map(function(c,i){ return Math.max(0,Math.round((current[i]+(deltas[i]||0))*100)/100); });
+  var projColors = projected.map(function(p,i){
+    if(!deltas[i]) return 'rgba(138,183,58,0.55)';
+    return deltas[i]>0?'rgba(39,174,96,0.85)':'rgba(231,76,60,0.85)';
+  });
+
+  // ── TABLE ────────────────────────────────────────
+  var tbody=document.getElementById('tblContratosBody');
+  if(tbody){
+    tbody.innerHTML=cts.slice().reverse().map(function(c,i){
+      var idx2=cts.length-1-i;
+      var d=deltas[idx2], proj=projected[idx2];
+      var arrow=d>0?'<span style="color:#27ae60;font-weight:700">&#9650; +'+d.toFixed(2)+'t</span>'
+               :d<0?'<span style="color:#e74c3c;font-weight:700">&#9660; '+d.toFixed(2)+'t</span>'
+               :'<span style="color:#aaa">&#8212;</span>';
+      return '<tr style="border-bottom:1px solid var(--bd)">'
+        +'<td style="padding:6px 8px;font-weight:600">'+c.contrato+'</td>'
+        +'<td style="padding:6px 8px">'+c.obra+'</td>'
+        +'<td style="padding:6px 8px;text-align:right">'+current[idx2].toFixed(2)+'</td>'
+        +'<td style="padding:6px 8px;text-align:right">'+arrow+'</td>'
+        +'<td style="padding:6px 8px;text-align:right">'+proj.toFixed(2)+'</td>'
+        +'<td style="padding:6px 8px;text-align:center">'+(d>0?'<span style="color:#27ae60">&#9650;</span>':d<0?'<span style="color:#e74c3c">&#9660;</span>':'<span style="color:#ccc">&#9679;</span>')+'</td>'
+        +'</tr>';
+    }).join('');
+  }
+
+  // ── CHART ────────────────────────────────────────
+  var wrap = document.getElementById('chartContratosWrap');
+  if(!wrap) return;
+  var h = Math.max(420, 80 + cts.length*38);
+  wrap.style.height = h+'px';
+
+  // Use pure canvas renderer — works everywhere, no CDN dependency
+  var oldC = document.getElementById('cContratos');
+  if(oldC) oldC.remove();
+  var canvas = document.createElement('canvas');
+  canvas.id = 'cContratos';
+  wrap.appendChild(canvas);
+
+  // Tooltip div for obra names
+  var tip = document.getElementById('ctTip');
+  if(!tip){
+    tip = document.createElement('div');
+    tip.id = 'ctTip';
+    tip.style.cssText = 'position:fixed;background:rgba(30,40,30,0.92);color:#fff;padding:6px 10px;border-radius:6px;font-size:12px;pointer-events:none;display:none;z-index:9999;max-width:260px;line-height:1.4';
+    document.body.appendChild(tip);
+  }
+
+  // Get container width AFTER append (DOM layout)
+  var W = wrap.clientWidth || 800;
+  var H = h;
+  canvas.width  = W;
+  canvas.height = H;
+
+  var ctx2d = canvas.getContext('2d');
+  var padL=55, padR=24, padT=36, padB=70;
+  var cW=W-padL-padR, cH=H-padT-padB;
+  var maxV=0;
+  current.concat(projected).forEach(function(v){if(v>maxV)maxV=v;});
+  if(!maxV)maxV=1;
+
+  // Grid
+  ctx2d.fillStyle='#f8f9f7';
+  ctx2d.fillRect(padL,padT,cW,cH);
+  ctx2d.strokeStyle='rgba(0,0,0,0.07)'; ctx2d.lineWidth=1;
+  for(var gi=0;gi<=5;gi++){
+    var gy=padT+cH-(gi/5)*cH;
+    ctx2d.beginPath(); ctx2d.moveTo(padL,gy); ctx2d.lineTo(padL+cW,gy); ctx2d.stroke();
+    ctx2d.fillStyle='#777'; ctx2d.font='10px Inter,sans-serif'; ctx2d.textAlign='right';
+    ctx2d.fillText((maxV*gi/5).toFixed(1)+'t', padL-5, gy+4);
+  }
+
+  // Bars
+  var nG=labels.length, nS=2;
+  var groupW=cW/nG;
+  var barW=Math.max(6, Math.min(28, groupW*0.38));
+  var groupGap=(groupW-barW*nS)/3;
+
+  labels.forEach(function(lbl,gi){
+    var gx=padL+gi*groupW;
+    var vals=[current[gi],projected[gi]];
+    var colors=['rgba(61,80,68,0.85)', projColors[gi]];
+
+    vals.forEach(function(v,si){
+      var bh=(v/maxV)*cH;
+      var bx=gx+groupGap*(si+1)+barW*si;
+      var by=padT+cH-bh;
+      ctx2d.fillStyle=colors[si];
+      ctx2d.beginPath();
+      if(ctx2d.roundRect){
+        ctx2d.roundRect(bx,by,barW,bh,[3,3,0,0]);
+      } else {
+        ctx2d.rect(bx,by,barW,bh);
+      }
+      ctx2d.fill();
+      // Value on bar
+      if(bh>18){
+        ctx2d.fillStyle='rgba(255,255,255,0.95)';
+        ctx2d.font='bold 8px Inter,sans-serif';
+        ctx2d.textAlign='center';
+        ctx2d.fillText(v.toFixed(1), bx+barW/2, by+12);
+      }
+    });
+
+    // X label — contract number
+    ctx2d.fillStyle='#333'; ctx2d.font='bold 10px Inter,sans-serif'; ctx2d.textAlign='center';
+    ctx2d.fillText(lbl, gx+groupW/2, padT+cH+14);
+    // Obra name (truncated)
+    var obra=tooltips[gi]; if(obra.length>14) obra=obra.slice(0,13)+'…';
+    ctx2d.fillStyle='#888'; ctx2d.font='8px Inter,sans-serif';
+    ctx2d.fillText(obra, gx+groupW/2, padT+cH+26);
+    // Delta arrow above group
+    if(deltas[gi]!==0){
+      var arrow=deltas[gi]>0?'▲ +'+deltas[gi].toFixed(1):'▼ '+deltas[gi].toFixed(1);
+      ctx2d.fillStyle=deltas[gi]>0?'#27ae60':'#e74c3c';
+      ctx2d.font='bold 9px Inter,sans-serif'; ctx2d.textAlign='center';
+      var topY=padT+cH-Math.max(current[gi],projected[gi])/maxV*cH-8;
+      ctx2d.fillText(arrow+'t', gx+groupW/2, topY);
+    }
+  });
+
+  // Legend
+  var legY=H-16;
+  var legData=[
+    {label:'Saldo atual',color:'rgba(61,80,68,0.85)'},
+    {label:'Projeção (verde=aumento, vermelho=redução)',color:'rgba(39,174,96,0.85)'}
+  ];
+  legData.forEach(function(l,i){
+    var lx=padL+i*220;
+    ctx2d.fillStyle=l.color; ctx2d.fillRect(lx,legY-8,12,10);
+    ctx2d.fillStyle='#444'; ctx2d.font='10px Inter,sans-serif'; ctx2d.textAlign='left';
+    ctx2d.fillText(l.label, lx+16, legY+1);
+  });
+
+  // Mousemove tooltip showing full obra name
+  canvas.onmousemove = function(e){
+    var rect = canvas.getBoundingClientRect();
+    var mx = (e.clientX - rect.left) * (W / rect.width);
+    var gi = Math.floor((mx - padL) / groupW);
+    if(gi>=0 && gi<labels.length && tooltips[gi]){
+      tip.style.display='block';
+      tip.style.left=(e.clientX+14)+'px';
+      tip.style.top=(e.clientY-10)+'px';
+      tip.innerHTML='<strong>'+labels[gi]+'</strong><br>'+tooltips[gi]
+        +'<br><span style="opacity:.8">Atual: '+current[gi].toFixed(2)+'t'+(deltas[gi]?' &nbsp;|&nbsp; Delta: '+(deltas[gi]>0?'+':'')+deltas[gi].toFixed(2)+'t':'')+'</span>';
+    } else { tip.style.display='none'; }
+  };
+  canvas.onmouseleave = function(){ tip.style.display='none'; };
+}
+
+// ── RENDER: SUBLOCAÇÃO ────────────────────────────────────────────────────
+function renderSublocacao(){
+  if(!MAPA.loaded) return;
+  var all = MAPA.contratos;
+  // Filter >=1t for bar charts
+  var cts1t = all.filter(function(c){return c.peso_total>=1000;});
+
+  // KPI Cards
+  var totalPesoSub = all.reduce(function(s,c){return s+c.peso_sub;},0);
+  var totalValSub  = all.reduce(function(s,c){return s+c.val_ind_sub;},0);
+  var totalPeso    = all.reduce(function(s,c){return s+c.peso_total;},0);
+  var pctSub       = totalPeso>0?(totalPesoSub/totalPeso*100).toFixed(1):0;
+  var nContrSub    = all.filter(function(c){return c.peso_sub>0;}).length;
+
+  var kpis=[
+    {label:'Peso sublocado total',val:(totalPesoSub/1000).toFixed(1)+'t',cor:'#e67e22'},
+    {label:'% sublocado da frota',val:pctSub+'%',cor:'#e74c3c'},
+    {label:'Contratos c/ sublocado',val:nContrSub+'/'+all.length,cor:'#8e44ad'},
+    {label:'Val. indenização sublocado',val:'R$ '+Math.round(totalValSub).toLocaleString('pt-BR'),cor:'#2980b9'},
+  ];
+  var kpiDiv=document.getElementById('subKpiCards');
+  if(kpiDiv) kpiDiv.innerHTML=kpis.map(function(k){
+    return '<div style="background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:14px 16px;border-top:3px solid '+k.cor+'">'
+      +'<div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.7px;color:var(--mu);margin-bottom:6px">'+k.label+'</div>'
+      +'<div style="font-size:1.4rem;font-weight:700;color:'+k.cor+'">'+k.val+'</div>'
+      +'</div>';
+  }).join('');
+
+  ['cSublocacao','cSubPct'].forEach(function(id){var c=Chart.getChart(id);if(c)c.destroy();});
+
+  // Chart 1 — Valor indenização sublocado (vertical bar, sorted ascending, >=1t)
+  var ctsVal = cts1t.filter(function(c){return c.val_ind_sub>0;})
+    .sort(function(a,b){return a.val_ind_sub-b.val_ind_sub;});
+  var ctx1=document.getElementById('cSublocacao');
+  if(ctx1){
+    var h1=Math.max(320, 80+ctsVal.length*42);
+    ctx1.parentElement.style.height=h1+'px';
+    new Chart(ctx1,{
+      type:'bar',
+      data:{
+        labels:ctsVal.map(function(c){return 'CT '+c.contrato;}),
+        datasets:[{
+          label:'Valor indenização sublocado (R$)',
+          data:ctsVal.map(function(c){return Math.round(c.val_ind_sub);}),
+          backgroundColor:'rgba(231,76,60,0.8)',
+          borderRadius:3
+        }]
+      },
+      options:{
+        responsive:true,maintainAspectRatio:false,
+        plugins:{
+          legend:{display:false},
+          tooltip:{callbacks:{
+            title:function(items){return ctsVal[items[0].dataIndex].obra;},
+            label:function(i){return 'R$ '+i.raw.toLocaleString('pt-BR');}
+          }}
+        },
+        scales:{
+          x:{ticks:{color:'#333',font:{size:10}},grid:{color:'rgba(0,0,0,0.05)'}},
+          y:{ticks:{callback:function(v){return 'R$'+Math.round(v/1000)+'k';}},
+             title:{display:true,text:'Valor indenização (R$)',font:{size:11}}}
+        }
+      }
+    });
+  }
+
+  // Chart 2 — % sublocado: horizontal stacked bar (like Composição por família)
+  // Each bar = full contract weight, colored portion = sublocated
+  var ctsPct = cts1t.slice().sort(function(a,b){return b.pct_sub-a.pct_sub;});
+  var ctx2=document.getElementById('cSubPct');
+  if(ctx2){
+    var h2=Math.max(320,60+ctsPct.length*26);
+    ctx2.parentElement.style.height=h2+'px';
+    new Chart(ctx2,{
+      type:'bar',
+      data:{
+        labels:ctsPct.map(function(c){return 'CT '+c.contrato+' — '+c.obra.slice(0,25);}),
+        datasets:[
+          {
+            label:'Sublocado',
+            data:ctsPct.map(function(c){return Math.round(c.peso_sub)/1000;}),
+            backgroundColor:ctsPct.map(function(c){
+              return c.pct_sub>=50?'rgba(231,76,60,0.85)':c.pct_sub>=20?'rgba(230,126,34,0.8)':'rgba(243,156,18,0.75)';
+            }),
+            borderRadius:0
+          },
+          {
+            label:'Próprio',
+            data:ctsPct.map(function(c){return Math.round(c.peso_total-c.peso_sub)/1000;}),
+            backgroundColor:'rgba(61,80,68,0.35)',
+            borderRadius:0
+          }
+        ]
+      },
+      options:{
+        indexAxis:'y',
+        responsive:true,maintainAspectRatio:false,
+        plugins:{
+          legend:{display:true,position:'top',labels:{font:{size:11},padding:14}},
+          tooltip:{callbacks:{
+            title:function(items){return ctsPct[items[0].dataIndex].obra;},
+            afterTitle:function(items){return ctsPct[items[0].dataIndex].pct_sub+'% sublocado';},
+            label:function(i){return i.dataset.label+': '+i.raw.toFixed(2)+'t';}
+          }}
+        },
+        scales:{
+          x:{stacked:true,ticks:{callback:function(v){return v+'t';}},grid:{color:'rgba(0,0,0,0.05)'}},
+          y:{stacked:true,ticks:{font:{size:10}},grid:{display:false}}
+        }
+      }
+    });
+  }
+
+  // Table — all contracts
+  var tbody=document.getElementById('tblSubBody');
+  if(tbody) tbody.innerHTML=all.slice().sort(function(a,b){return b.pct_sub-a.pct_sub;}).map(function(c){
+    var color=c.pct_sub>=50?'#e74c3c':c.pct_sub>=20?'#e67e22':'#27ae60';
+    var pesoT=(Math.round(c.peso_total)/1000).toFixed(2);
+    var pesoS=(Math.round(c.peso_sub)/1000).toFixed(2);
+    var valF=c.val_ind_sub>0?'R$ '+Math.round(c.val_ind_sub).toLocaleString('pt-BR'):'R$ 0';
+    return '<tr style="border-bottom:1px solid var(--bd)">'
+      +'<td style="padding:6px 8px;font-weight:600">'+c.contrato+'</td>'
+      +'<td style="padding:6px 8px">'+c.obra+'</td>'
+      +'<td style="padding:6px 8px;text-align:right">'+pesoT+'</td>'
+      +'<td style="padding:6px 8px;text-align:right">'+pesoS+'</td>'
+      +'<td style="padding:6px 8px;text-align:right;font-weight:600;color:'+color+'">'+c.pct_sub+'%</td>'
+      +'<td style="padding:6px 8px;text-align:right">'+valF+'</td>'
+      +'</tr>';
+  }).join('');
+}
+
+// ── RENDER: MAPA ASTEC ────────────────────────────────────────────────────
+
+
+// ── RENDER: COBERTURA DE PLANEJAMENTO (ASTEC) ─────────────────────────────
+function renderCoberturaPlano(){
+  var canvas  = document.getElementById('gaugeCobPlan');
+  var labelEl = document.getElementById('cobPlanLabel');
+  var tblEl   = document.getElementById('cobPlanTabela');
+  if(!canvas) return;
+
+  // Contratos >=1t from MAPA
+  var cts1t = (MAPA.loaded ? MAPA.contratos : [])
+    .filter(function(c){ return c.peso_total >= 1000; });
+
+  // Contratos with at least 1 Retorno in movimentacoes
+  var comRetorno = {};
+  (D.movimentacoes||[]).forEach(function(m){
+    if(m.tipo !== 'Retorno') return;
+    var raw = String(m.contrato||'').trim();
+    var ct  = raw.indexOf('/')>-1 ? raw.split('/')[0].trim() : raw.replace(/\D/g,'');
+    if(ct && ct !== 'XXX') comRetorno[ct] = m;
+  });
+
+  var total   = cts1t.length;
+  var comPlan = cts1t.filter(function(c){
+    return !!comRetorno[String(c.contrato)];
+  }).length;
+  var semPlan = total - comPlan;
+  var pct     = total > 0 ? Math.round(comPlan/total*100) : 0;
+
+  // ── GAUGE ────────────────────────────────────────────────────────────
+  var W = canvas.width, H = canvas.height;
+  var cx = W/2, cy = H - 14;
+  var Ro = W * 0.38, Ri = Ro * 0.44;
+  var ctx = canvas.getContext('2d');
+  ctx.clearRect(0,0,W,H);
+
+  function toA(p){ return Math.PI + (p/100)*Math.PI; }
+  function wedge(p1,p2,fill){
+    if(p2<=p1) return;
+    ctx.beginPath();
+    ctx.moveTo(cx,cy);
+    ctx.arc(cx,cy,Ro,toA(p1),toA(p2));
+    ctx.arc(cx,cy,Ri,toA(p2),toA(p1),true);
+    ctx.closePath();
+    ctx.fillStyle=fill; ctx.fill();
+  }
+
+  // Zones: 0-50 red, 50-80 yellow, 80-100 green
+  var zones=[
+    {end:50,  color:'#9b1c1c', bg:'rgba(155,28,28,0.35)'},
+    {end:80,  color:'#c98a00', bg:'rgba(201,138,0,0.35)'},
+    {end:100, color:'#2d7a3a', bg:'rgba(45,122,58,0.35)'},
+  ];
+  // Background
+  var prev=0;
+  zones.forEach(function(z){ wedge(prev,z.end,z.bg); prev=z.end; });
+  // Fill up to pct
+  prev=0;
+  zones.forEach(function(z){
+    var se=Math.min(pct,z.end);
+    if(prev<se) wedge(prev,se,z.color);
+    prev=z.end; if(prev>=pct) return;
+  });
+  // Separators
+  ctx.strokeStyle='rgba(10,20,10,0.5)'; ctx.lineWidth=2;
+  zones.slice(0,-1).forEach(function(z){
+    var a=toA(z.end);
+    ctx.beginPath();
+    ctx.moveTo(cx+Ri*Math.cos(a),cy+Ri*Math.sin(a));
+    ctx.lineTo(cx+Ro*Math.cos(a),cy+Ro*Math.sin(a));
+    ctx.stroke();
+  });
+  // Border
+  ctx.beginPath(); ctx.arc(cx,cy,Ro,Math.PI,0); ctx.arc(cx,cy,Ri,0,Math.PI,true);
+  ctx.closePath(); ctx.strokeStyle='rgba(0,0,0,0.15)'; ctx.lineWidth=1; ctx.stroke();
+  // Needle
+  var nA=toA(pct);
+  ctx.shadowColor='rgba(0,0,0,0.4)'; ctx.shadowBlur=4;
+  ctx.beginPath();
+  ctx.moveTo(cx-3*Math.cos(nA+Math.PI/2),cy-3*Math.sin(nA+Math.PI/2));
+  ctx.lineTo(cx+(Ri*0.85)*Math.cos(nA),cy+(Ri*0.85)*Math.sin(nA));
+  ctx.lineTo(cx+3*Math.cos(nA+Math.PI/2),cy+3*Math.sin(nA+Math.PI/2));
+  ctx.closePath(); ctx.fillStyle='#000'; ctx.fill();
+  ctx.shadowColor='transparent'; ctx.shadowBlur=0;
+  ctx.beginPath(); ctx.arc(cx,cy,Ri*0.28,0,Math.PI*2);
+  ctx.fillStyle='#000'; ctx.fill();
+  ctx.strokeStyle='rgba(255,255,255,0.3)'; ctx.lineWidth=1; ctx.stroke();
+  // Boundary labels
+  function outsideLabel(p, txt){
+    var a=toA(p), lr=Ro+20, tx=cx+lr*Math.cos(a), ty=cy+lr*Math.sin(a);
+    ctx.beginPath();
+    ctx.moveTo(cx+(Ro+1)*Math.cos(a),cy+(Ro+1)*Math.sin(a));
+    ctx.lineTo(cx+(Ro+9)*Math.cos(a),cy+(Ro+9)*Math.sin(a));
+    ctx.strokeStyle='rgba(255,255,255,0.7)'; ctx.lineWidth=2; ctx.stroke();
+    ctx.font='bold 8px Inter,sans-serif';
+    var tw=ctx.measureText(txt).width+6;
+    var bx=tx-tw/2, by=ty-6;
+    ctx.beginPath(); ctx.rect(bx,by,tw,13);
+    ctx.fillStyle='rgba(0,0,0,0.45)'; ctx.fill();
+    ctx.fillStyle='#fff'; ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText(txt,tx,ty);
+  }
+  outsideLabel(0,'0%'); outsideLabel(50,'50%'); outsideLabel(80,'80%'); outsideLabel(100,'100%');
+
+  // Center value
+  ctx.font='bold 18px Inter,sans-serif';
+  ctx.fillStyle='var(--leve-dark,#3D5044)';
+  ctx.textAlign='center'; ctx.textBaseline='middle';
+  ctx.fillText(pct+'%', cx, cy-Ri*0.5);
+
+  // Label below canvas
+  if(labelEl){
+    var color = pct>=80?'#2d7a3a':pct>=50?'#c98a00':'#9b1c1c';
+    labelEl.innerHTML = '<span style="font-size:1.1rem;font-weight:700;color:'+color+'">'+comPlan+'</span>'
+      +'<span style="color:var(--mu)"> de </span>'
+      +'<span style="font-size:1.1rem;font-weight:700">'+total+'</span>'
+      +'<span style="color:var(--mu)"> contratos com devolução mapeada</span>';
+  }
+
+  // ── TABLE ────────────────────────────────────────────────────────────
+  if(!tblEl) return;
+  var rows = cts1t.slice().sort(function(a,b){
+    // Com planejamento first, then sem, alphabetical within each group
+    var ha = !!comRetorno[String(a.contrato)];
+    var hb = !!comRetorno[String(b.contrato)];
+    if(ha!==hb) return hb?1:-1;
+    return a.obra.localeCompare(b.obra);
+  });
+
+  var html = '<table style="width:100%;border-collapse:collapse;font-size:.76rem">';
+  html += '<thead><tr style="border-bottom:2px solid var(--bd2);color:var(--mu);font-size:.63rem;text-transform:uppercase;letter-spacing:.5px">'
+    +'<th style="text-align:left;padding:5px 8px">Contrato</th>'
+    +'<th style="text-align:left;padding:5px 8px">Obra</th>'
+    +'<th style="text-align:right;padding:5px 8px">Saldo (t)</th>'
+    +'<th style="text-align:center;padding:5px 8px">Devolução</th>'
+    +'<th style="text-align:left;padding:5px 8px">Data prevista</th>'
+    +'</tr></thead><tbody>';
+
+  rows.forEach(function(c){
+    var mov = comRetorno[String(c.contrato)];
+    var hasPlan = !!mov;
+    var statusBadge = hasPlan
+      ? '<span style="background:rgba(45,122,58,0.15);color:#2d7a3a;border-radius:4px;padding:2px 7px;font-weight:600">✓ Mapeada</span>'
+      : '<span style="background:rgba(155,28,28,0.12);color:#9b1c1c;border-radius:4px;padding:2px 7px;font-weight:600">✗ Sem previsão</span>';
+    var data = mov ? mov.data_fmt : '—';
+    html += '<tr style="border-bottom:1px solid var(--bd)">'
+      +'<td style="padding:5px 8px;font-weight:600">'+c.contrato+'</td>'
+      +'<td style="padding:5px 8px">'+c.obra+'</td>'
+      +'<td style="padding:5px 8px;text-align:right">'+(Math.round(c.peso_total)/1000).toFixed(1)+'</td>'
+      +'<td style="padding:5px 8px;text-align:center">'+statusBadge+'</td>'
+      +'<td style="padding:5px 8px;color:var(--mu)">'+data+'</td>'
+      +'</tr>';
+  });
+  html += '</tbody></table>';
+  tblEl.innerHTML = html;
+}
+
+function showObraDetalhe(contratos){
+  var div = document.getElementById('obraDetalhe');
+  if(!div) return;
+  if(!contratos || !contratos.length){
+    div.innerHTML = '<span style="color:var(--mu)">Nenhuma obra encontrada.</span>';
+    return;
+  }
+  div.innerHTML = contratos.map(function(c){
+    var pesoT = (Math.round(c.peso_total)/1000).toFixed(2);
+    var pesoS = c.peso_sub>0 ? (Math.round(c.peso_sub)/1000).toFixed(2) : null;
+    return '<div style="border-bottom:1px solid var(--bd);padding:10px 0;margin-bottom:6px">'
+      +'<div style="font-weight:600;font-size:.88rem;color:var(--tx)">'+c.obra+'</div>'
+      +'<div style="color:var(--mu);font-size:.75rem;margin-top:2px">Contrato '+c.contrato+' &nbsp;·&nbsp; '+c.cliente+'</div>'
+      +'<div style="margin-top:6px;display:flex;gap:16px;flex-wrap:wrap;font-size:.78rem">'
+      +'<span><strong>'+pesoT+'t</strong> em obra</span>'
+      +(pesoS?'<span style="color:#e67e22"><strong>'+pesoS+'t</strong> sublocado ('+c.pct_sub+'%)</span>':'')
+      +'</div>'
+      +'<div style="font-size:.72rem;color:var(--mu);margin-top:4px">'+c.endereco+'</div>'
+      +'</div>';
+  }).join('');
+}
+
+function renderMapaASTEC(){
+  var svg = document.getElementById('svgMapa');
+  if(!svg) return;
+
+  // Coordinate system: north=top, south=bottom
+  // ES bounds: lat -17.7(N) to -21.4(S), lng -41.9(W) to -39.5(E)
+  var LAT_MAX=-17.7, LAT_MIN=-21.4, LNG_MIN=-41.9, LNG_MAX=-39.5;
+  var PAD=30, SW=400, SH=520;
+
+  function sv(lat,lng){
+    var x = PAD + (lng-LNG_MIN)/(LNG_MAX-LNG_MIN)*(SW-PAD*2);
+    var y = PAD + (LAT_MAX-lat)/(LAT_MAX-LAT_MIN)*(SH-PAD*2);
+    return {x:Math.round(x), y:Math.round(y)};
+  }
+
+  // ES state outline from real coordinates
+  var esPath = 'M 143 55 L 186 52 L 228 49 L 271 52 L 328 67 L 339 105 L 330 142 L 320 192 L 289 241 L 285 281 L 278 304 L 271 328 L 259 351 L 257 366 L 240 391 L 225 415 L 193 440 L 165 463 L 136 471 L 101 484 L 80 465 L 65 440 L 80 415 L 101 391 L 129 366 L 143 341 L 150 316 L 157 291 L 165 266 L 179 241 L 186 216 L 193 192 L 172 167 L 157 142 L 143 117 L 136 92 L 136 67 Z';
+
+  var html = '<defs><filter id="sd"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.3"/></filter></defs>';
+
+  // Ocean background
+  html += '<rect x="0" y="0" width="400" height="520" fill="#d6eaf8" opacity="0.4"/>';
+  // State fill
+  html += '<path d="'+esPath+'" fill="#d4e8c2" stroke="#6a9a3a" stroke-width="2" stroke-linejoin="round"/>';
+
+  // Reference city dots + labels
+  var cities=[
+    {n:'São Mateus',lat:-18.72,lng:-39.86},
+    {n:'Vitória',lat:-20.30,lng:-40.34},
+    {n:'Vila Velha',lat:-20.36,lng:-40.29},
+    {n:'Serra',lat:-20.13,lng:-40.31},
+    {n:'Guarapari',lat:-20.67,lng:-40.51},
+    {n:'Cachoeiro',lat:-20.85,lng:-41.11},
+    {n:'Colatina',lat:-19.50,lng:-40.63},
+  ];
+  cities.forEach(function(c){
+    var p=sv(c.lat,c.lng);
+    html+='<circle cx="'+p.x+'" cy="'+p.y+'" r="2" fill="#555" opacity="0.5"/>';
+    html+='<text x="'+(p.x+5)+'" y="'+(p.y+4)+'" font-size="8" fill="#444" font-family="Inter,sans-serif" opacity="0.8">'+c.n+'</text>';
+  });
+
+  if(MAPA.loaded){
+    // Group by location
+    var pins={};
+    MAPA.contratos.forEach(function(c){
+      if(!c.lat||!c.lng)return;
+      var k=c.lat.toFixed(2)+','+c.lng.toFixed(2);
+      if(!pins[k])pins[k]={lat:c.lat,lng:c.lng,list:[]};
+      pins[k].list.push(c);
+    });
+
+    // Store pin data globally for click handler
+    window._mapaPin={};
+    Object.keys(pins).forEach(function(k){
+      var pin=pins[k];
+      var p=sv(pin.lat,pin.lng);
+      var n=pin.list.length;
+      var r=Math.max(14,Math.min(26,10+n*3));
+      var hasSub=pin.list.some(function(c){return c.peso_sub>0;});
+      var fill=hasSub?'#e67e22':'#3D5044';
+      var safeKey='k'+k.replace(/[^a-z0-9]/gi,'_');
+      window._mapaPin[safeKey]=pin.list;
+      // All circles carry data-pin so any click registers
+      html+='<circle cx="'+p.x+'" cy="'+p.y+'" r="'+(r+5)+'" fill="'+fill+'" opacity="0.18" data-pin="'+safeKey+'" style="cursor:pointer" pointer-events="all"/>';
+      html+='<circle cx="'+p.x+'" cy="'+p.y+'" r="'+r+'" fill="'+fill+'" filter="url(#sd)" data-pin="'+safeKey+'" style="cursor:pointer" pointer-events="all"/>';
+      html+='<text x="'+p.x+'" y="'+(p.y+4)+'" font-size="11" fill="#fff" text-anchor="middle" font-weight="bold" font-family="Inter,sans-serif" pointer-events="none">'+n+'</text>';
+    });
+
+    var noCoord=MAPA.contratos.filter(function(c){return !c.lat;}).length;
+    if(noCoord>0)html+='<text x="200" y="512" font-size="9" fill="#888" text-anchor="middle" font-family="Inter,sans-serif">'+noCoord+' obra(s) sem coordenada mapeada</text>';
+  } else {
+    html+='<text x="200" y="270" font-size="12" fill="#777" text-anchor="middle" font-family="Inter,sans-serif">Carregue mapa.csv para ver as obras</text>';
+  }
+
+  svg.innerHTML = html;
+
+  // Click delegation on parent div — most reliable approach for SVG+innerHTML
+  window._clickPin = function(key){
+    var data = window._mapaPin && window._mapaPin[key];
+    if(data) showObraDetalhe(data);
+  };
+  var mapaDiv = document.getElementById('mapaES');
+  if(mapaDiv){
+    // Remove old listener to avoid duplicates
+    mapaDiv.onclick = function(e){
+      var el = e.target;
+      // Walk up to find data-pin
+      while(el && el !== mapaDiv){
+        var pin = el.getAttribute && el.getAttribute('data-pin');
+        if(pin){ window._clickPin(pin); return; }
+        el = el.parentElement;
+      }
+    };
+  }
+
+  var leg=document.getElementById('mapaLegend');
+  if(leg){
+    if(MAPA.loaded){
+      var tot=MAPA.contratos.length;
+      var mapped=MAPA.contratos.filter(function(c){return c.lat;}).length;
+      leg.innerHTML='<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#3D5044;margin-right:4px;vertical-align:middle"></span>Sem sublocado&nbsp;&nbsp;'
+        +'<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#e67e22;margin-right:4px;vertical-align:middle"></span>Com sublocado&nbsp;&nbsp;'
+        +'<span style="color:var(--mu)">'+mapped+'/'+tot+' contratos mapeados · número = qtd. no local</span>';
+    } else {
+      leg.innerHTML='<span style="color:var(--mu)">Carregue o arquivo mapa.csv para visualizar as obras no mapa.</span>';
+    }
+  }
+}
+
+// ── GRADE DE VISITAS ──────────────────────────────────────────────────────
+var visitasData = [];
+
+function addVisitaRow(data){
+  var obras = MAPA.loaded ? MAPA.contratos.map(function(c){return '<option value="'+c.contrato+'|'+c.obra+'">'+c.contrato+' — '+c.obra+'</option>';}).join('') : '';
+  var row = data || {data:'',contrato:'',obra:'',tecnico:'',tipo:'Inspeção',status:'Agendada',obs:''};
+  var idx = visitasData.length;
+  visitasData.push(row);
+  var tr = '<tr id="vrow-'+idx+'" style="border-bottom:1px solid var(--bd)">'
+    +'<td style="padding:4px 6px"><input type="date" value="'+row.data+'" onchange="visitasData['+idx+'].data=this.value" style="width:110px;font-size:.75rem;padding:3px 6px;border:1px solid var(--bd);border-radius:4px;background:var(--card);color:var(--tx);font-family:var(--f)"></td>'
+    +'<td style="padding:4px 6px"><select onchange="var p=this.value.split(\'|\');visitasData['+idx+'].contrato=p[0];visitasData['+idx+'].obra=p[1]||\'\';" style="font-size:.75rem;padding:3px 6px;border:1px solid var(--bd);border-radius:4px;background:var(--card);color:var(--tx);font-family:var(--f);min-width:80px"><option value="">--</option>'+obras+'</select></td>'
+    +'<td style="padding:4px 6px"><input value="'+row.obra+'" onchange="visitasData['+idx+'].obra=this.value" style="width:130px;font-size:.75rem;padding:3px 6px;border:1px solid var(--bd);border-radius:4px;background:var(--card);color:var(--tx);font-family:var(--f)" placeholder="Obra"></td>'
+    +'<td style="padding:4px 6px"><input value="'+row.tecnico+'" onchange="visitasData['+idx+'].tecnico=this.value" style="width:100px;font-size:.75rem;padding:3px 6px;border:1px solid var(--bd);border-radius:4px;background:var(--card);color:var(--tx);font-family:var(--f)" placeholder="Técnico"></td>'
+    +'<td style="padding:4px 6px"><select onchange="visitasData['+idx+'].tipo=this.value" style="font-size:.75rem;padding:3px 6px;border:1px solid var(--bd);border-radius:4px;background:var(--card);color:var(--tx);font-family:var(--f)">'
+    +'<option'+(row.tipo==='Inspeção'?' selected':'')+'">Inspeção</option>'
+    +'<option'+(row.tipo==='Manutenção'?' selected':'')+'">Manutenção</option>'
+    +'<option'+(row.tipo==='Montagem'?' selected':'')+'">Montagem</option>'
+    +'<option'+(row.tipo==='Desmontagem'?' selected':'')+'">Desmontagem</option>'
+    +'<option'+(row.tipo==='Entrega'?' selected':'')+'">Entrega</option>'
+    +'</select></td>'
+    +'<td style="padding:4px 6px"><select onchange="visitasData['+idx+'].status=this.value;this.parentElement.parentElement.style.background=this.value===\'Realizada\'?\'rgba(138,183,58,.08)\':this.value===\'Cancelada\'?\'rgba(231,76,60,.06)\':\'\';" style="font-size:.75rem;padding:3px 6px;border:1px solid var(--bd);border-radius:4px;background:var(--card);color:var(--tx);font-family:var(--f)">'
+    +'<option'+(row.status==='Agendada'?' selected':'')+'">Agendada</option>'
+    +'<option'+(row.status==='Realizada'?' selected':'')+'">Realizada</option>'
+    +'<option'+(row.status==='Cancelada'?' selected':'')+'">Cancelada</option>'
+    +'</select></td>'
+    +'<td style="padding:4px 6px"><input value="'+(row.obs||'')+'" onchange="visitasData['+idx+'].obs=this.value" style="width:160px;font-size:.75rem;padding:3px 6px;border:1px solid var(--bd);border-radius:4px;background:var(--card);color:var(--tx);font-family:var(--f)" placeholder="Observações"></td>'
+    +'<td style="padding:4px 6px;text-align:center"><button onclick="removeVisita('+idx+')" style="background:none;border:none;color:#e74c3c;cursor:pointer;font-size:14px">✕</button></td>'
+    +'</tr>';
+  var tbody = document.getElementById('tblVisitasBody');
+  if(tbody) tbody.insertAdjacentHTML('beforeend', tr);
+}
+
+function removeVisita(idx){
+  visitasData[idx]=null;
+  var row = document.getElementById('vrow-'+idx);
+  if(row) row.remove();
+}
+
+function exportVisitas(){
+  var rows = visitasData.filter(Boolean);
+  if(!rows.length){alert('Nenhuma visita para exportar.');return;}
+  var csv = 'Data;Contrato;Obra;Técnico;Tipo;Status;Observações\n'
+    + rows.map(function(r){return [r.data,r.contrato,r.obra,r.tecnico,r.tipo,r.status,r.obs].join(';');}).join('\n');
+  var blob = new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'visitas_tecnicas_'+new Date().toISOString().slice(0,10)+'.csv';
+  a.click();
+}
+
+
+
+
+// ── AUTENTICAÇÃO ─────────────────────────────────────────────────────────────
+var _K="LvGv2024xK9#mZ";
+function _sha256(s){function rr(v,n){return(v>>>n)|(v<<(32-n));}var h=[0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];var k=[0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];var b=[];for(var i=0;i<s.length;i++){var c2=s.charCodeAt(i);if(c2<128)b.push(c2);else if(c2<2048)b.push(192|c2>>6,128|c2&63);else b.push(224|c2>>12,128|c2>>6&63,128|c2&63);}var l=b.length*8;b.push(0x80);while(b.length%64!==56)b.push(0);b.push(0,0,0,0,(l>>>24)&255,(l>>>16)&255,(l>>>8)&255,l&255);for(var i=0;i<b.length;i+=64){var w=[];for(var j=0;j<16;j++)w[j]=(b[i+j*4]<<24)|(b[i+j*4+1]<<16)|(b[i+j*4+2]<<8)|b[i+j*4+3];for(var j=16;j<64;j++){var s0=rr(w[j-15],7)^rr(w[j-15],18)^(w[j-15]>>>3);var s1=rr(w[j-2],17)^rr(w[j-2],19)^(w[j-2]>>>10);w[j]=(w[j-16]+s0+w[j-7]+s1)>>>0;}var a=h[0],bv=h[1],c2=h[2],d2=h[3],e=h[4],f2=h[5],g2=h[6],hv=h[7];for(var j=0;j<64;j++){var S1=rr(e,6)^rr(e,11)^rr(e,25);var ch=(e&f2)^(~e&g2);var t1=(hv+S1+ch+k[j]+w[j])>>>0;var S0=rr(a,2)^rr(a,13)^rr(a,22);var maj=(a&bv)^(a&c2)^(bv&c2);var t2=(S0+maj)>>>0;hv=g2;g2=f2;f2=e;e=(d2+t1)>>>0;d2=c2;c2=bv;bv=a;a=(t1+t2)>>>0;}h[0]=(h[0]+a)>>>0;h[1]=(h[1]+bv)>>>0;h[2]=(h[2]+c2)>>>0;h[3]=(h[3]+d2)>>>0;h[4]=(h[4]+e)>>>0;h[5]=(h[5]+f2)>>>0;h[6]=(h[6]+g2)>>>0;h[7]=(h[7]+hv)>>>0;}return h.map(function(v){return('00000000'+v.toString(16)).slice(-8);}).join('').slice(0,16);}
+function _calcToken(){return _sha256(_K+new Date().toISOString().slice(0,7));}
+function _bloquear(){document.body.innerHTML='<div style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:#F2F5EC;font-family:Inter,sans-serif"><div style="background:#fff;border-radius:12px;padding:40px 48px;text-align:center;box-shadow:0 4px 24px rgba(0,0,0,.1)"><div style="font-size:2rem;margin-bottom:12px">&#128274;</div><div style="font-weight:800;font-size:1.1rem;color:#3D5044;margin-bottom:8px">Acesso n&#227;o autorizado</div><div style="font-size:.82rem;color:#6B7E5A">Arquivo de dados inv&#225;lido ou expirado.<br>Entre em contato com o administrador.</div></div></div>';}
+function _ok(tk){return tk===_calcToken();}
+
+// ── DECODE ────────────────────────────────────────────────────────────────────
+function _dec(v){return typeof v==='number'?Math.round(v/1.337*100)/100:v;}
+function _map(raw){
+  if(!raw)return{};
+  var k=raw.kpis||{};
+  return{
+    atualizado_em:raw.ref_dt||'',
+    kpis:{peso_total_kg:_dec(k.cor_a||0),peso_disponivel_kg:_dec(k.cor_b||0),peso_locado_kg:_dec(k.cor_c||0),ociosidade_pct:k.ix_1||0,taxa_locacao_pct:k.ix_2||0,qtd_disponivel:k.nr_a||0,qtd_locado:k.nr_b||0,peso_disponivel_30d:_dec(k.cor_d||0),peso_disponivel_60d:_dec(k.cor_e||0),ociosidade_pct_30d:k.ix_3||0,ociosidade_pct_60d:k.ix_4||0},
+    grupos:(raw.gps||[]).map(function(g){return{Grupo:g.lbl,Itens:g.qt,Peso_Total:_dec(g.va),Peso_Disp:_dec(g.vb),Peso_Loc:_dec(g.vc),Qtd_Disp:g.na,Qtd_Loc:g.nb,Qtd_Man:g.nc,Ociosidade:g.pc};}),
+    itens:(raw.its||[]).map(function(i){return{Equipamento:i.cd,Grupo:i.tp,Qtde_Disponivel:i.qa,Qtde_Locado:i.qb,Qtde_Manutencao:i.qc,Peso_Total:_dec(i.ma),Peso_Disponivel:_dec(i.mb),Peso_Locado:_dec(i.mc)};}),
+    deficit_cards:(raw.dfc||[]).map(function(c){return{contrato:c.xk,obra:c.xl,data:c.xm,data_sort:c.xn,peso_kg:_dec(c.xo),status:c.xp,n_deficit:c.xq,n_ok:c.xr,itens_falta:(c.xs||[]).map(function(i){return{equip:i.xt,necessario:i.xu,disponivel:i.xv,falta:i.xw};})};}),
+    movimentacoes:(raw.mvs||[]).map(function(m){return{tipo:m.tp_mv,contrato:m.rf_mv,obra:m.ob_mv,data:m.dt_mv,data_fmt:m.df_mv,peso_kg:_dec(m.ps_mv),qty:m.qt_mv,itens_carga:(m.ic_mv||[]).map(function(i){return{equip:i.eq,qty:i.qy,peso_kg:_dec(i.pk)};})};}),
+    timeline:(raw.tln||[]).map(function(t){return{data:t.dt_tl,saldo:_dec(t.sl),tipo:t.tp_tl,qty:t.qt_tl,nome:t.nm_tl,contrato:t.ct_tl};}),
+    ociosoMap:raw.ocp||{},
+    mapa:(raw.mp||[]).map(function(c){return{contrato:c.rk,obra:c.rl,cliente:c.rm,endereco:c.rn,lat:c.gx,lng:c.gy,peso_total:_dec(c.ra),peso_sub:_dec(c.rb),val_indeniz:_dec(c.rc),val_ind_sub:_dec(c.rd),pct_sub:c.re};}),
+  };
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+function renderAll(){
+  var navDate=document.getElementById('navDate');
+  if(navDate)navDate.textContent='Base: '+(D.atualizado_em||'—');
+  try{renderOcioImediata();}catch(e){}
+  if(!D.kpis||!D.kpis.peso_total_kg)return;
+
+  try{renderGaugeKPIs();}catch(e){}try{renderGauges();}catch(e){}try{renderStack();}catch(e){}
+  try{renderChartFamilia();}catch(e){}try{renderChartDonut();}catch(e){}try{renderChartEvolucao();}catch(e){}
+  try{renderChartFluxo();}catch(e){}try{renderMovimentacoes();}catch(e){}try{renderKPIsOcio();}catch(e){}
+  try{renderTableOcio();}catch(e){}try{renderChartOcio();}catch(e){}try{renderChartPesoDisp();}catch(e){}
+  try{renderKPIsLog();}catch(e){}try{renderTimeline();}catch(e){}try{renderDeficitCards();}catch(e){}
+  try{renderChartCargas();}catch(e){}try{renderEstoque();}catch(e){}
+  // Inicializa calendário com mês atual
+  try{var now=new Date();showMonth(now.getFullYear(),now.getMonth()+1,document.querySelector('.cal-btn.active'));}catch(e){}
+}
+function _aplicar(raw){
+  Object.assign(D,_map(raw));
+  if(D.mapa&&D.mapa.length){MAPA.contratos=D.mapa;MAPA.loaded=true;}
+  if(MAPA.contratos&&MAPA.contratos.length)MAPA.loaded=true;
+  renderAll();
+  if(MAPA.loaded){try{renderContratos();}catch(e){}try{renderSublocacao();}catch(e){}try{renderMapaASTEC();}catch(e){}try{renderCoberturaPlano();}catch(e){}}
+}
+function carregarDados(){
+  var SPINNER='<div id="_loading" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;background:#F2F5EC;font-family:Inter,sans-serif;gap:16px"><div style="width:48px;height:48px;border:5px solid #C5DC8A;border-top-color:#8AB73A;border-radius:50%;animation:spin 0.9s linear infinite"></div><div id="_msg" style="color:#3D5044;font-weight:600;font-size:.95rem">Carregando dados...</div><style>@keyframes spin{to{transform:rotate(360deg)}}</style></div>';
+  var API='https://leve-api-u2q4.onrender.com/dados';
+  var MAX=8; var tentativas=0;
+
+  // Se ja tem dados em cache da sessao, usa direto sem spinner
+  try{
+    var cache=sessionStorage.getItem('_dadosApi');
+    if(cache){
+      var rawC=JSON.parse(cache);
+      if(_ok(rawC._tk)){
+        sessionStorage.removeItem('_dadosApi');
+        var liveEl=document.getElementById('liveStatus');if(liveEl)liveEl.style.display='flex';
+        _aplicar(rawC);
+        return;
+      }
+    }
+  }catch(e){}
+
+  // Mostra spinner
+  document.body.innerHTML=SPINNER;
+
+  function atualizarMsg(txt){
+    var el=document.getElementById('_msg');
+    if(el)el.textContent=txt;
+  }
+
+  function tentarFetch(){
+    tentativas++;
+    if(tentativas>1) atualizarMsg('Aguardando servidor... ('+tentativas+'/'+MAX+')');
+    fetch(API)
+      .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+      .then(function(raw){
+        if(!_ok(raw._tk)){_bloquear();return;}
+        try{sessionStorage.setItem('_dadosApi',JSON.stringify(raw));}catch(e){}
+        location.reload();
+      })
+      .catch(function(){
+        if(tentativas<MAX){
+          setTimeout(tentarFetch,10000);
+        } else {
+          document.body.innerHTML='<div style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:#F2F5EC;font-family:Inter,sans-serif"><div style="background:#fff;border-radius:12px;padding:40px 48px;text-align:center;box-shadow:0 4px 24px rgba(0,0,0,.1)"><div style="font-size:2rem;margin-bottom:12px">&#128274;</div><div style="font-weight:800;font-size:1.1rem;color:#3D5044;margin-bottom:8px">Sem conexao com o servidor</div><div style="font-size:.82rem;color:#6B7E5A">Verifique sua internet e tente novamente.</div><button onclick="location.reload()" style="margin-top:16px;padding:8px 24px;background:#8AB73A;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:.9rem">Tentar novamente</button></div></div>';
+        }
+      });
+  }
+  tentarFetch();
+}
+
+
+
+// ── GRADE LOGÍSTICA — CALENDÁRIO ─────────────────────────────────────────────
+function showMonth(year, month, btn){
+  // Update active button
+  document.querySelectorAll('.cal-btn').forEach(function(b){b.classList.remove('active');});
+  if(btn) btn.classList.add('active');
+
+  var title = document.getElementById('calMonthTitle');
+  var meses = ['','Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+  if(title) title.textContent = meses[month] + ' ' + year;
+
+  var grid = document.getElementById('calGrid');
+  if(!grid) return;
+
+  // Build calendar days
+  var firstDay = new Date(year, month-1, 1).getDay(); // 0=Sun
+  var daysInMonth = new Date(year, month, 0).getDate();
+
+  // Map deficit_cards to their dates
+  // ATENÇÃO: new Date("YYYY-MM-DD") interpreta como UTC meia-noite, causando
+  // deslocamento de 1 dia para trás em fusos UTC-N (ex: Brasil UTC-3).
+  // Solução: parsear a string manualmente para evitar conversão de timezone.
+  var dcByDate = {};
+  (D.deficit_cards||[]).forEach(function(c){
+    if(!c.data_sort) return;
+    var parts = c.data_sort.split('-'); // ["2026","04","03"]
+    if(parts.length < 3) return;
+    var y = parseInt(parts[0], 10);
+    var mo = parseInt(parts[1], 10);
+    var day = parseInt(parts[2], 10);
+    if(y === year && mo === month){
+      if(!dcByDate[day]) dcByDate[day]=[];
+      dcByDate[day].push(c);
+    }
+  });
+
+  var html = '<div class="cal-grid">';
+  // Day headers
+  ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'].forEach(function(d){
+    html += '<div class="cal-header">'+d+'</div>';
+  });
+  // Empty cells before first day
+  for(var i=0;i<firstDay;i++) html += '<div class="cal-cell empty"></div>';
+  // Days
+  for(var d=1;d<=daysInMonth;d++){
+    var cards = dcByDate[d]||[];
+    var cls = 'cal-cell';
+    if(cards.length){
+      var hasDeficit = cards.some(function(c){return c.n_deficit>0;});
+      cls += hasDeficit ? ' cal-saida-falta' : ' cal-saida-ok';
+    }
+    var today = new Date();
+    if(d===today.getDate() && month===today.getMonth()+1 && year===today.getFullYear()) cls += ' cal-today';
+
+    html += '<div class="'+cls+'">';
+    html += '<span class="cal-day-num">'+d+'</span>';
+    cards.forEach(function(c){
+      var tip = c.obra + (c.n_deficit>0?' ('+c.n_deficit+' itens faltando)':' ✓');
+      html += '<div class="cal-event" title="'+tip+'" style="font-size:.6rem;padding:1px 3px;margin-top:2px;border-radius:2px;background:'+(c.n_deficit>0?'rgba(214,137,16,.2)':'rgba(138,183,58,.2)')+'">'+c.obra.slice(0,12)+'</div>';
+    });
+    html += '</div>';
+  }
+  html += '</div>';
+
+  // Add CSS if not already present
+  if(!document.getElementById('cal-css')){
+    var style = document.createElement('style');
+    style.id = 'cal-css';
+    style.textContent = '.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}.cal-header{text-align:center;font-size:.62rem;font-weight:700;color:var(--mu);padding:4px 0}.cal-cell{min-height:52px;padding:4px;border-radius:4px;background:var(--bg2);font-size:.72rem}.cal-cell.empty{background:transparent}.cal-day-num{font-weight:600;color:var(--tx2);font-size:.7rem}.cal-saida-ok{background:rgba(138,183,58,.15);border-left:3px solid #8AB73A}.cal-saida-falta{background:rgba(214,137,16,.13);border-left:3px solid #D68910}.cal-today{outline:2px solid var(--leve-green)}';
+    document.head.appendChild(style);
+  }
+
+  grid.innerHTML = html;
+}
+
+carregarDados();
+
+</script>
+
+
+<!-- ═══════════════ ABA: EVOLUÇÃO DE CONTRATOS ═══════════════ -->
+<div id="tab-contratos" class="tab-content">
+  <div class="sec-title">Evolução de Contratos — Saldo atual vs projeção</div>
+  <div style="margin-bottom:18px">
+    <div class="card" style="padding:16px 20px">
+      <div class="card-title">Saldo atual vs Projeção após movimentações <span>toneladas em obra · barras agrupadas por contrato (apenas ≥ 1t)</span></div>
+      <div class="chart-wrap" id="chartContratosWrap" style="height:420px"><canvas id="cContratos"></canvas></div>
+    </div>
+    <div style="display:none"><canvas id="cContratosProj"></canvas></div>
+  </div>
+  <div class="card" style="padding:16px 20px;margin-bottom:18px">
+    <div class="card-title">Detalhe por contrato</div>
+    <div style="overflow-x:auto">
+      <table id="tblContratos" style="width:100%;border-collapse:collapse;font-size:.78rem">
+        <thead><tr style="border-bottom:2px solid var(--bd2);color:var(--mu);text-transform:uppercase;font-size:.65rem;letter-spacing:.5px">
+          <th style="text-align:left;padding:6px 8px">Contrato</th>
+          <th style="text-align:left;padding:6px 8px">Obra</th>
+          <th style="text-align:right;padding:6px 8px">Saldo atual (t)</th>
+          <th style="text-align:right;padding:6px 8px">Mov. prevista (t)</th>
+          <th style="text-align:right;padding:6px 8px">Projeção (t)</th>
+          <th style="text-align:center;padding:6px 8px">Tendência</th>
+        </tr></thead>
+        <tbody id="tblContratosBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ ABA: SUBLOCAÇÃO ═══════════════ -->
+<div id="tab-sublocacao" class="tab-content">
+  <div class="sec-title">Sublocação — Exposição por contrato</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:18px" id="subKpiCards"></div>
+  <div class="g2" style="margin-bottom:18px">
+    <div class="card" style="padding:16px 20px">
+      <div class="card-title">Valor de indenização sublocado por contrato <span>R$ · crescente</span></div>
+      <div class="chart-wrap" id="chartSubWrap" style="height:420px"><canvas id="cSublocacao"></canvas></div>
+    </div>
+    <div class="card" style="padding:16px 20px">
+      <div class="card-title">% Sublocado por contrato <span>peso sublocado / total</span></div>
+      <div class="chart-wrap" style="height:420px"><canvas id="cSubPct"></canvas></div>
+    </div>
+  </div>
+  <div class="card" style="padding:16px 20px">
+    <div class="card-title">Tabela de sublocação por contrato</div>
+    <div style="overflow-x:auto">
+      <table id="tblSub" style="width:100%;border-collapse:collapse;font-size:.78rem">
+        <thead><tr style="border-bottom:2px solid var(--bd2);color:var(--mu);text-transform:uppercase;font-size:.65rem;letter-spacing:.5px">
+          <th style="text-align:left;padding:6px 8px">Contrato</th>
+          <th style="text-align:left;padding:6px 8px">Obra</th>
+          <th style="text-align:right;padding:6px 8px">Peso total (t)</th>
+          <th style="text-align:right;padding:6px 8px">Peso sublocado (t)</th>
+          <th style="text-align:right;padding:6px 8px">% sublocado</th>
+          <th style="text-align:right;padding:6px 8px">Val. indenização</th>
+        </tr></thead>
+        <tbody id="tblSubBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ ABA: ASTEC ═══════════════ -->
+<div id="tab-astec" class="tab-content">
+  <div class="sec-title">ASTEC — Mapa de obras e grade de visitas</div>
+  <div class="g2" style="margin-bottom:18px">
+    <div class="card" style="padding:16px 20px">
+      <div class="card-title">Cobertura de planejamento <span>contratos ≥ 1t com devolução mapeada</span></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+        <canvas id="gaugeCobPlan" width="200" height="130" style="display:block"></canvas>
+        <div id="cobPlanLabel" style="text-align:center;font-size:.82rem;color:var(--mu)"></div>
+      </div>
+    </div>
+    <div class="card" style="padding:16px 20px">
+      <div class="card-title">Contratos por status de planejamento</div>
+      <div id="cobPlanTabela" style="overflow-y:auto;max-height:280px"></div>
+    </div>
+  </div>
+  <div class="g2" style="margin-bottom:18px;align-items:start">
+    <div class="card" style="padding:16px 20px">
+      <div class="card-title">Obras ativas no Espírito Santo</div>
+      <div id="mapaES" style="height:480px;border-radius:8px;overflow:hidden;background:#e8ede0;">
+        <svg id="svgMapa" width="100%" height="100%" viewBox="0 0 400 520" preserveAspectRatio="xMidYMid meet" style="display:block;width:100%;height:100%" pointer-events="all"></svg>
+      </div>
+      <div id="mapaLegend" style="margin-top:10px;font-size:.72rem;color:var(--mu)">Clique em um pin para ver detalhes do contrato</div>
+    </div>
+    <div class="card" style="padding:16px 20px">
+      <div class="card-title">Detalhes da obra selecionada</div>
+      <div id="obraDetalhe" style="font-size:.82rem;color:var(--mu);padding:12px 0">Selecione uma obra no mapa.</div>
+    </div>
+  </div>
+  <div class="card" style="padding:16px 20px;margin-bottom:18px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+      <div class="card-title" style="margin:0">Grade de Visitas Técnicas</div>
+      <div style="display:flex;gap:8px">
+        <button onclick="addVisitaRow()" style="font-size:.75rem;padding:5px 12px;border:1px solid var(--leve-green);color:var(--leve-green);background:none;border-radius:6px;cursor:pointer;font-family:var(--f)">+ Adicionar visita</button>
+        <button onclick="exportVisitas()" style="font-size:.75rem;padding:5px 12px;border:1px solid var(--bd2);color:var(--mu);background:none;border-radius:6px;cursor:pointer;font-family:var(--f)">⬇ Exportar CSV</button>
+      </div>
+    </div>
+    <div style="overflow-x:auto">
+      <table id="tblVisitas" style="width:100%;border-collapse:collapse;font-size:.78rem">
+        <thead><tr style="border-bottom:2px solid var(--bd2);color:var(--mu);text-transform:uppercase;font-size:.65rem;letter-spacing:.5px">
+          <th style="padding:6px 8px;text-align:left">Data</th>
+          <th style="padding:6px 8px;text-align:left">Contrato</th>
+          <th style="padding:6px 8px;text-align:left">Obra</th>
+          <th style="padding:6px 8px;text-align:left">Técnico</th>
+          <th style="padding:6px 8px;text-align:left">Tipo de visita</th>
+          <th style="padding:6px 8px;text-align:left">Status</th>
+          <th style="padding:6px 8px;text-align:left">Observações</th>
+          <th style="padding:6px 8px;text-align:center">Ação</th>
+        </tr></thead>
+        <tbody id="tblVisitasBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<footer style="text-align:center;padding:18px 0 14px;font-size:.65rem;color:#8F9E80;border-top:1px solid rgba(58,80,44,.1);margin-top:32px;background:var(--bg)">© 2026 Giancarlo Gavazza. Todos os direitos reservados. Uso interno autorizado.</footer>
+</body>
+</html>
