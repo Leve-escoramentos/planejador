@@ -817,8 +817,10 @@ function renderDeficitCards(){
     var grupoS = famS ? (GRUPO_A.indexOf(famS)>=0 ? 'A' : GRUPO_B.indexOf(famS)>=0 ? 'B' : null) : null;
 
     if(famF && famS && grupoF && grupoS && grupoF===grupoS){
-      // Mesmo grupo: substituto deve ter comprimento maior
-      return compPerfil(S) > compPerfil(F);
+      // Mesma familia no mesmo grupo: substituto deve ter comprimento MAIOR
+      if(famF===famS) return compPerfil(S) > compPerfil(F);
+      // Familia diferente no mesmo grupo (ex: S8 -> S10): comprimento igual OU maior e valido
+      return compPerfil(S) >= compPerfil(F);
     }
     // Mesma família exata (sem grupo): tamanho maior (fallback para famílias fora dos grupos)
     if(famF && famS && famF===famS){
