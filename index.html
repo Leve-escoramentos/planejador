@@ -2184,6 +2184,28 @@ function exportVisitas(){
   var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='visitas_'+new Date().toISOString().slice(0,10)+'.csv';a.click();
 }
 
+// \u2500\u2500 EXPORTAR OCIOSIDADE POR EQUIPAMENTO (CSV) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+var _histEquipRows = [];  // preenchido ao renderizar a tabela do Hist\u00f3rico
+function exportHistEquip(){
+  if(!_histEquipRows.length){ alert('Nenhum dado de ociosidade para exportar.'); return; }
+  function q(v){ return '"'+String(v).replace(/"/g,'""')+'"'; }        // texto entre aspas
+  function n(v){ return String(v).replace('.',','); }                  // n\u00famero com v\u00edrgula decimal (pt-BR)
+  var head=['Equipamento','Unidades paradas','Unidades totais','Receita parada','Receita Total','Ociosidade m\u00e9dia'];
+  var linhas=[head.join(';')];
+  _histEquipRows.forEach(function(r){
+    linhas.push([
+      q(r.equip),
+      r.qtd_parada,
+      r.qtd_total,
+      n(r.vlr_parado.toFixed(2)),
+      n(r.vlr_total.toFixed(2)),
+      n(r.media)
+    ].join(';'));
+  });
+  var blob=new Blob(['\ufeff'+linhas.join('\r\n')],{type:'text/csv;charset=utf-8'});
+  var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='ociosidade_equipamentos_'+new Date().toISOString().slice(0,10)+'.csv';a.click();
+}
+
 // ── AUTENTICAÇÃO ─────────────────────────────────────────────────────────────
 var _K="LvGv2024xK9#mZ";
 function _sha256(s){function rr(v,n){return(v>>>n)|(v<<(32-n));}var h=[0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];var k=[0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];var b=[];for(var i=0;i<s.length;i++){var c2=s.charCodeAt(i);if(c2<128)b.push(c2);else if(c2<2048)b.push(192|c2>>6,128|c2&63);else b.push(224|c2>>12,128|c2>>6&63,128|c2&63);}var l=b.length*8;b.push(0x80);while(b.length%64!==56)b.push(0);b.push(0,0,0,0,(l>>>24)&255,(l>>>16)&255,(l>>>8)&255,l&255);for(var i=0;i<b.length;i+=64){var w=[];for(var j=0;j<16;j++)w[j]=(b[i+j*4]<<24)|(b[i+j*4+1]<<16)|(b[i+j*4+2]<<8)|b[i+j*4+3];for(var j=16;j<64;j++){var s0=rr(w[j-15],7)^rr(w[j-15],18)^(w[j-15]>>>3);var s1=rr(w[j-2],17)^rr(w[j-2],19)^(w[j-2]>>>10);w[j]=(w[j-16]+s0+w[j-7]+s1)>>>0;}var a=h[0],bv=h[1],c2=h[2],d2=h[3],e=h[4],f2=h[5],g2=h[6],hv=h[7];for(var j=0;j<64;j++){var S1=rr(e,6)^rr(e,11)^rr(e,25);var ch=(e&f2)^(~e&g2);var t1=(hv+S1+ch+k[j]+w[j])>>>0;var S0=rr(a,2)^rr(a,13)^rr(a,22);var maj=(a&bv)^(a&c2)^(bv&c2);var t2=(S0+maj)>>>0;hv=g2;g2=f2;f2=e;e=(d2+t1)>>>0;d2=c2;c2=bv;bv=a;a=(t1+t2)>>>0;}h[0]=(h[0]+a)>>>0;h[1]=(h[1]+bv)>>>0;h[2]=(h[2]+c2)>>>0;h[3]=(h[3]+d2)>>>0;h[4]=(h[4]+e)>>>0;h[5]=(h[5]+f2)>>>0;h[6]=(h[6]+g2)>>>0;h[7]=(h[7]+hv)>>>0;}return h.map(function(v){return('00000000'+v.toString(16)).slice(-8);}).join('').slice(0,16);}
@@ -2713,35 +2735,38 @@ function renderHistorico(meses, dados){
       var media = Math.round(e[1].soma/e[1].count*10)/10;
       var qtdTot = qtdTotEquip[e[0]] || 0;
       var qtdParada = Math.round(qtdTot * media / 100);
-      var vlrParado = qtdParada * (vlrUnitEquip[e[0]] || 0);
-      return {equip:e[0], media:media, qtd_total:qtdTot, qtd_parada:qtdParada, vlr_parado:vlrParado};
+      var vlrUnit = vlrUnitEquip[e[0]] || 0;
+      var vlrParado = qtdParada * vlrUnit;
+      var vlrTotal = qtdTot * vlrUnit;
+      return {equip:e[0], media:media, qtd_total:qtdTot, qtd_parada:qtdParada, vlr_parado:vlrParado, vlr_total:vlrTotal};
     })
-    .sort(function(a,b){ return a.media - b.media; }); // menor ociosidade primeiro = mais utilizado
+    .sort(function(a,b){ return a.equip.localeCompare(b.equip, 'pt-BR'); }); // ordem alfabética
+
+  _histEquipRows = equipRows;  // guarda para exportação CSV
 
   var tbEquip = equipRows.map(function(r){
     var cor = r.media < 20 ? 'var(--leve-green)' : r.media < 50 ? 'var(--orange)' : 'var(--red)';
-    var barW = Math.round(r.media);
+    var mono = 'font-family:var(--mono);font-size:.72rem;font-weight:700';
+    var travado = '<span style="font-size:.7rem;color:var(--mu)">—</span>';
     var qtdParadaStr = r.qtd_total > 0
-      ? '<span style="font-family:var(--mono);font-size:.72rem;font-weight:700;color:'+cor+'">'+r.qtd_parada.toLocaleString('pt-BR')+'</span>'
-        +'<span style="font-size:.65rem;color:var(--mu);margin-left:4px">/ '+r.qtd_total.toLocaleString('pt-BR')+' un</span>'
-      : '<span style="font-size:.7rem;color:var(--mu)">—</span>';
+      ? '<span style="'+mono+';color:'+cor+'">'+r.qtd_parada.toLocaleString('pt-BR')+'</span>' : travado;
+    var qtdTotStr = r.qtd_total > 0
+      ? '<span style="'+mono+';color:var(--tx)">'+r.qtd_total.toLocaleString('pt-BR')+'</span>' : travado;
     var vlrParadoStr = r.vlr_parado > 0
-      ? '<span style="font-family:var(--mono);font-size:.72rem;font-weight:700;color:'+cor+'">R$ '+Math.round(r.vlr_parado).toLocaleString('pt-BR')+'</span>'
-        +'<span style="font-size:.6rem;color:var(--mu);margin-left:3px">/mês</span>'
-      : '<span style="font-size:.7rem;color:var(--mu)">—</span>';
+      ? '<span style="'+mono+';color:'+cor+'">R$ '+Math.round(r.vlr_parado).toLocaleString('pt-BR')+'</span>' : travado;
+    var vlrTotalStr = r.vlr_total > 0
+      ? '<span style="'+mono+';color:var(--tx)">R$ '+Math.round(r.vlr_total).toLocaleString('pt-BR')+'</span>' : travado;
     return '<tr>'
       +'<td style="font-size:.72rem">'+r.equip+'</td>'
       +'<td style="text-align:right;white-space:nowrap">'+qtdParadaStr+'</td>'
+      +'<td style="text-align:right;white-space:nowrap">'+qtdTotStr+'</td>'
       +'<td style="text-align:right;white-space:nowrap">'+vlrParadoStr+'</td>'
-      +'<td><div style="display:flex;align-items:center;gap:8px">'
-      +'<div style="flex:1;height:8px;background:var(--bd);border-radius:3px;overflow:hidden">'
-      +'<div style="height:8px;width:'+barW+'%;background:'+cor+';border-radius:3px"></div></div>'
-      +'<span style="font-family:var(--mono);font-size:.7rem;font-weight:700;color:'+cor+';min-width:38px;text-align:right">'+r.media+'%</span>'
-      +'</div></td>'
+      +'<td style="text-align:right;white-space:nowrap">'+vlrTotalStr+'</td>'
+      +'<td style="text-align:right;white-space:nowrap"><span style="'+mono+';color:'+cor+'">'+r.media.toLocaleString('pt-BR')+'%</span></td>'
       +'</tr>';
   }).join('');
   document.getElementById('tbHistEquip').innerHTML = tbEquip ||
-    '<tr><td colspan="4" style="text-align:center;color:var(--mu);padding:16px">Dados de ociosidade por equipamento disponíveis a partir do próximo ciclo</td></tr>';
+    '<tr><td colspan="6" style="text-align:center;color:var(--mu);padding:16px">Dados de ociosidade por equipamento disponíveis a partir do próximo ciclo</td></tr>';
 }
 
 carregarDados();
@@ -2926,14 +2951,19 @@ carregarDados();
 
   <!-- Tabela ociosidade por equipamento -->
   <div class="card">
-    <div class="card-title">Ociosidade média por equipamento <span>no período · menor % = mais utilizado · ordenado do mais ao menos utilizado</span></div>
+    <div class="card-title">
+      <span style="color:var(--tx);font-weight:600">Ociosidade média por equipamento <span style="color:var(--mu);font-weight:400">no período · ordem alfabética</span></span>
+      <button onclick="exportHistEquip()" style="font-size:.72rem;padding:4px 12px;border:1px solid var(--bd2);color:var(--mu);background:none;border-radius:6px;cursor:pointer;font-family:var(--f);white-space:nowrap">⬇ Exportar .csv</button>
+    </div>
     <div class="tw">
       <table class="dt">
         <thead><tr>
           <th>Equipamento</th>
           <th style="text-align:right">Unidades paradas</th>
+          <th style="text-align:right">Unidades totais</th>
           <th style="text-align:right">Receita parada</th>
-          <th>Ociosidade média</th>
+          <th style="text-align:right">Receita Total</th>
+          <th style="text-align:right">Ociosidade média</th>
         </tr></thead>
         <tbody id="tbHistEquip"></tbody>
       </table>
