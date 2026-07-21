@@ -2184,6 +2184,20 @@ function exportVisitas(){
   var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='visitas_'+new Date().toISOString().slice(0,10)+'.csv';a.click();
 }
 
+// \u2500\u2500 BUSCA NA TABELA DE OCIOSIDADE POR EQUIPAMENTO \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+function filtrarHistEquip(){
+  var el=document.getElementById('histEquipBusca');
+  if(!el) return;
+  var norm=function(s){ return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); };
+  var q=norm(el.value.trim());
+  var linhas=document.querySelectorAll('#tbHistEquip tr');
+  linhas.forEach(function(tr){
+    var tds=tr.querySelectorAll('td');
+    if(tds.length<2) return;  // ignora a linha de estado vazio (colspan)
+    tr.style.display = (!q || norm(tds[0].textContent).indexOf(q)>=0) ? '' : 'none';
+  });
+}
+
 // \u2500\u2500 EXPORTAR OCIOSIDADE POR EQUIPAMENTO (CSV) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 var _histEquipRows = [];  // preenchido ao renderizar a tabela do Hist\u00f3rico
 function exportHistEquip(){
@@ -2740,7 +2754,7 @@ function renderHistorico(meses, dados){
       var vlrTotal = qtdTot * vlrUnit;
       return {equip:e[0], media:media, qtd_total:qtdTot, qtd_parada:qtdParada, vlr_parado:vlrParado, vlr_total:vlrTotal};
     })
-    .sort(function(a,b){ return a.equip.localeCompare(b.equip, 'pt-BR'); }); // ordem alfabética
+    .sort(function(a,b){ return a.media - b.media; }); // ociosidade média crescente
 
   _histEquipRows = equipRows;  // guarda para exportação CSV
 
@@ -2767,6 +2781,7 @@ function renderHistorico(meses, dados){
   }).join('');
   document.getElementById('tbHistEquip').innerHTML = tbEquip ||
     '<tr><td colspan="6" style="text-align:center;color:var(--mu);padding:16px">Dados de ociosidade por equipamento disponíveis a partir do próximo ciclo</td></tr>';
+  filtrarHistEquip();  // reaplica busca ativa após re-render
 }
 
 carregarDados();
@@ -2952,8 +2967,12 @@ carregarDados();
   <!-- Tabela ociosidade por equipamento -->
   <div class="card">
     <div class="card-title">
-      <span style="color:var(--tx);font-weight:600">Ociosidade média por equipamento <span style="color:var(--mu);font-weight:400">no período · ordem alfabética</span></span>
+      <span style="color:var(--tx);font-weight:600">Ociosidade média por equipamento <span style="color:var(--mu);font-weight:400">no período · menor % primeiro (mais utilizado)</span></span>
       <button onclick="exportHistEquip()" style="font-size:.72rem;padding:4px 12px;border:1px solid var(--bd2);color:var(--mu);background:none;border-radius:6px;cursor:pointer;font-family:var(--f);white-space:nowrap">⬇ Exportar .csv</button>
+    </div>
+    <div style="margin-bottom:10px">
+      <input id="histEquipBusca" type="text" placeholder="🔎 Buscar equipamento…" oninput="filtrarHistEquip()"
+        style="width:100%;max-width:320px;font-size:.75rem;padding:6px 10px;border:1px solid var(--bd2);border-radius:6px;background:var(--card);color:var(--tx);font-family:var(--f)">
     </div>
     <div class="tw">
       <table class="dt">
