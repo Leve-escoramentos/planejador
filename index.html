@@ -1476,7 +1476,7 @@ function renderContratos(){
   canvas.height = H;
 
   var ctx2d = canvas.getContext('2d');
-  var padL=55, padR=24, padT=36, padB=70;
+  var padL=55, padR=54, padT=36, padB=70;  // padR maior p/ eixo da curva ABC à direita
   var cW=W-padL-padR, cH=H-padT-padB;
   var maxV=0;
   current.concat(projected).forEach(function(v){if(v>maxV)maxV=v;});
@@ -1594,6 +1594,38 @@ function renderContratos(){
     ctx2d.fillText(obra, gx+groupW/2, padT+cH+26);
   });
 
+  // ── CURVA ABC (Pareto) — saldo projetado ACUMULADO, eixo próprio à direita ──
+  var ABC = '#ED7D31';
+  var cumProj = [];
+  (function(){ var acc=0; for(var i=0;i<nG;i++){ acc += Math.max(0, projected[i]||0); cumProj.push(acc); } })();
+  var totalABC = cumProj.length ? cumProj[cumProj.length-1] : 0;
+  if(totalABC > 0){
+    // Eixo direito (tonelagem acumulada) alinhado à grade de 5 divisões
+    for(var ri=0; ri<=5; ri++){
+      var ry = padT + cH - (ri/5)*cH;
+      ctx2d.fillStyle=ABC; ctx2d.font='10px Inter,sans-serif'; ctx2d.textAlign='left';
+      ctx2d.fillText((totalABC*ri/5).toFixed(0)+'t', padL+cW+6, ry+4);
+    }
+    // Pontos no centro de cada grupo, escalados pelo total acumulado
+    var ptsABC = cumProj.map(function(v,i){
+      return { x: padL + i*groupW + groupW/2, y: padT + cH - (v/totalABC)*cH };
+    });
+    // Linha da curva
+    ctx2d.strokeStyle=ABC; ctx2d.lineWidth=2.5; ctx2d.setLineDash([]); ctx2d.lineJoin='round';
+    ctx2d.beginPath();
+    ptsABC.forEach(function(p,i){ if(i===0) ctx2d.moveTo(p.x,p.y); else ctx2d.lineTo(p.x,p.y); });
+    ctx2d.stroke();
+    // Marcadores
+    ptsABC.forEach(function(p){
+      ctx2d.fillStyle='#fff'; ctx2d.beginPath(); ctx2d.arc(p.x,p.y,3.2,0,Math.PI*2); ctx2d.fill();
+      ctx2d.strokeStyle=ABC; ctx2d.lineWidth=1.8; ctx2d.beginPath(); ctx2d.arc(p.x,p.y,3.2,0,Math.PI*2); ctx2d.stroke();
+    });
+    // Rótulo do total no último ponto
+    var lastABC = ptsABC[ptsABC.length-1];
+    ctx2d.fillStyle=ABC; ctx2d.font='bold 10px Inter,sans-serif'; ctx2d.textAlign='right';
+    ctx2d.fillText(totalABC.toFixed(0)+'t total', lastABC.x-6, lastABC.y-7);
+  }
+
   // Legend
   var legY = H - 16;
   [
@@ -1606,6 +1638,15 @@ function renderContratos(){
     ctx2d.fillStyle='#444'; ctx2d.font='10px Inter,sans-serif'; ctx2d.textAlign='left';
     ctx2d.fillText(l.label, lx+16, legY+1);
   });
+  if(totalABC > 0){
+    var lx4 = padL + 3*200;
+    ctx2d.strokeStyle=ABC; ctx2d.lineWidth=2.5; ctx2d.beginPath();
+    ctx2d.moveTo(lx4,legY-3); ctx2d.lineTo(lx4+14,legY-3); ctx2d.stroke();
+    ctx2d.fillStyle='#fff'; ctx2d.beginPath(); ctx2d.arc(lx4+7,legY-3,2.4,0,Math.PI*2); ctx2d.fill();
+    ctx2d.strokeStyle=ABC; ctx2d.lineWidth=1.4; ctx2d.beginPath(); ctx2d.arc(lx4+7,legY-3,2.4,0,Math.PI*2); ctx2d.stroke();
+    ctx2d.fillStyle='#444'; ctx2d.font='10px Inter,sans-serif'; ctx2d.textAlign='left';
+    ctx2d.fillText('Saldo projetado acumulado (curva ABC)', lx4+18, legY+1);
+  }
 
   // Tooltip enriquecido
   canvas.onmousemove = function(e){
@@ -1629,6 +1670,9 @@ function renderContratos(){
         +dStr
         +'<br><span style="opacity:.7">Projeção: '+proj.toFixed(2)+'t</span>'
         +'<br><span style="opacity:.7">% do saldo total: <strong>'+pct+'%</strong></span>'
+        +(totalABC>0 && cumProj[gi]!=null
+           ? '<br><span style="color:#ED7D31">Acumulado ABC: <strong>'+cumProj[gi].toFixed(1)+'t</strong> ('+(cumProj[gi]/totalABC*100).toFixed(0)+'% do total)</span>'
+           : '')
         +zerStr;
     } else { tip.style.display='none'; }
   };
@@ -2794,7 +2838,7 @@ carregarDados();
   <div class="sec-title">Evolução de Contratos — Saldo atual vs projeção</div>
   <div style="margin-bottom:18px">
     <div class="card" style="padding:16px 20px">
-      <div class="card-title">Saldo atual vs Projeção após movimentações <span>toneladas em obra · barras agrupadas por contrato (apenas ≥ 1t)</span></div>
+      <div class="card-title">Saldo atual vs Projeção após movimentações <span>toneladas em obra · barras decrescentes por contrato (≥ 1t) + curva ABC laranja = saldo projetado acumulado da unidade (eixo à direita)</span></div>
       <div class="chart-wrap" id="chartContratosWrap" style="height:420px"><canvas id="cContratos"></canvas></div>
     </div>
     <div style="display:none"><canvas id="cContratosProj"></canvas></div>
