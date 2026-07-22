@@ -1397,16 +1397,36 @@ function renderOcioImediata(){
 }
 
 // ── RENDER: EVOLUÇÃO DE CONTRATOS ────────────────────────────────────────
+// Horizonte (dias) da projeção da aba Evolução de Contratos. 0 = todas as movimentações.
+var _contratosHorizonte = 0;
+
+function setContratosHorizonte(dias, btn){
+  _contratosHorizonte = dias;
+  var box = document.getElementById('ctHorizonteBtns');
+  if(box){ Array.prototype.forEach.call(box.querySelectorAll('.cal-btn'), function(b){ b.classList.remove('active'); }); }
+  if(btn) btn.classList.add('active');
+  try{ renderContratos(); }catch(e){}
+}
+
 function renderContratos(){
   if(!MAPA.loaded) return;
 
   var cts = MAPA.contratos.filter(function(c){return c.peso_total>=1000;})
     .sort(function(a,b){return b.peso_total-a.peso_total;});
 
+  // Horizonte de projeção: filtra movimentações de hoje até N dias (0 = todas)
+  var limiteStr = null;
+  if(_contratosHorizonte>0){
+    var hojeH = new Date(); hojeH.setHours(0,0,0,0);
+    limiteStr = new Date(hojeH.getTime()+_contratosHorizonte*86400000).toISOString().slice(0,10);
+  }
+
   // Cross with planning
   var movMap = {};
   if(D.movimentacoes && D.movimentacoes.length){
     D.movimentacoes.forEach(function(m){
+      // Quando há horizonte ativo, considera só movimentações com data dentro da janela
+      if(limiteStr && (!m.data || m.data > limiteStr)) return;
       var raw = String(m.contrato||'').trim();
       var ct  = raw.indexOf('/')>-1 ? raw.split('/')[0].trim() : raw.replace(/\D/g,'');
       if(!ct||ct==='XXX') return;
@@ -1622,8 +1642,9 @@ function renderContratos(){
     });
     // Rótulo do total no último ponto
     var lastABC = ptsABC[ptsABC.length-1];
+    var sufJan = _contratosHorizonte>0 ? ' (≤'+_contratosHorizonte+'d)' : '';
     ctx2d.fillStyle=ABC; ctx2d.font='bold 10px Inter,sans-serif'; ctx2d.textAlign='right';
-    ctx2d.fillText(totalABC.toFixed(0)+'t total', lastABC.x-6, lastABC.y-7);
+    ctx2d.fillText(totalABC.toFixed(0)+'t total'+sufJan, lastABC.x-6, lastABC.y-7);
   }
 
   // Legend
@@ -2839,6 +2860,12 @@ carregarDados();
   <div style="margin-bottom:18px">
     <div class="card" style="padding:16px 20px">
       <div class="card-title">Saldo atual vs Projeção após movimentações <span>toneladas em obra · barras decrescentes por contrato (≥ 1t) + curva ABC laranja = saldo projetado acumulado da unidade (eixo à direita)</span></div>
+      <div class="cal-nav-btns" id="ctHorizonteBtns" style="margin-bottom:12px">
+        <button class="cal-btn active" onclick="setContratosHorizonte(0,this)">Tudo</button>
+        <button class="cal-btn" onclick="setContratosHorizonte(30,this)">30 dias</button>
+        <button class="cal-btn" onclick="setContratosHorizonte(60,this)">60 dias</button>
+        <button class="cal-btn" onclick="setContratosHorizonte(90,this)">90 dias</button>
+      </div>
       <div class="chart-wrap" id="chartContratosWrap" style="height:420px"><canvas id="cContratos"></canvas></div>
     </div>
     <div style="display:none"><canvas id="cContratosProj"></canvas></div>
