@@ -165,7 +165,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;background:radial-grad
 /* CALENDAR */
 .cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px}
 .cal-nav-title{font-family:var(--ft);font-size:1rem;font-weight:700;color:var(--leve-dark);letter-spacing:-.3px}
-.cal-nav-btns{display:flex;gap:6px}
+.cal-nav-btns{display:flex;gap:6px;flex-wrap:wrap}
 .cal-btn{background:var(--card);border:1px solid var(--bd2);border-radius:6px;padding:5px 12px;font-size:.75rem;font-weight:600;color:var(--tx2);cursor:pointer;transition:all .15s;font-family:var(--f)}
 .cal-btn:hover{background:var(--leve-pale);border-color:var(--green)}
 .cal-btn.active{background:var(--leve-dark);color:#fff;border-color:var(--leve-dark)}
@@ -297,10 +297,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;background:radial-grad
           <div class="cal-legend-item"><div class="cal-legend-dot" style="background:rgba(214,137,16,.13);border-left-color:#D68910"></div>Saída com Itens Faltantes</div>
           <div class="cal-legend-item"><div class="cal-legend-dot" style="background:rgba(192,57,43,.08);border-left-color:#C0392B"></div>Retorno</div>
         </div>
-        <div class="cal-nav-btns">
-          <button class="cal-btn active" id="btnMar" onclick="showMonth(2026,3,this)">Março 2026</button>
-          <button class="cal-btn" id="btnAbr" onclick="showMonth(2026,4,this)">Abril 2026</button>
-        </div>
+        <div class="cal-nav-btns" id="calMesBtns"></div>
       </div>
     </div>
     <div id="calGrid"></div>
@@ -2323,8 +2320,8 @@ function renderAll(){
   try{renderTableOcio();}catch(e){}try{renderChartOcio();}catch(e){}try{renderChartPesoDisp();}catch(e){}
   try{renderKPIsLog();}catch(e){}try{renderTimeline();}catch(e){}try{renderDeficitCards();}catch(e){}
   try{renderChartCargas();}catch(e){}try{renderEstoque();}catch(e){}
-  // Inicializa calendário com mês atual
-  try{var now=new Date();showMonth(now.getFullYear(),now.getMonth()+1,document.querySelector('.cal-btn.active'));}catch(e){}
+  // Monta os botões de mês a partir dos dados e abre no mês atual
+  try{var now=new Date();showMonth(now.getFullYear(),now.getMonth()+1,renderCalMeses());}catch(e){}
 }
 function _aplicar(raw){
   Object.assign(D,_map(raw));
@@ -2384,14 +2381,55 @@ function carregarDados(){
 
 
 // ── GRADE LOGÍSTICA — CALENDÁRIO ─────────────────────────────────────────────
+var _MESES_NOME = ['','Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+
+// Gera os botões de mês a partir dos dados (antes eram fixos em Março/Abril).
+// Usa as mesmas fontes que o calendário desenha: saídas (deficit_cards) e
+// retornos (movimentacoes). O mês atual entra sempre, mesmo sem movimentação.
+// Retorna o botão que deve começar ativo.
+function renderCalMeses(){
+  var box = document.getElementById('calMesBtns');
+  if(!box) return null;
+
+  var set = {};
+  function add(dateStr){
+    if(!dateStr) return;
+    var p = String(dateStr).split('-');
+    if(p.length < 3) return;
+    var y = parseInt(p[0],10), m = parseInt(p[1],10);
+    if(!y || !m || m < 1 || m > 12) return;
+    set[y+'-'+String(m).padStart(2,'0')] = true;
+  }
+  (D.deficit_cards||[]).forEach(function(c){ add(c.data_sort); });
+  (D.movimentacoes||[]).forEach(function(m){ if(m.tipo==='Retorno') add(m.data); });
+
+  var hoje     = new Date();
+  var mesAtual = hoje.getFullYear()+'-'+String(hoje.getMonth()+1).padStart(2,'0');
+  set[mesAtual] = true;
+
+  box.innerHTML = '';
+  var ativo = null;
+  Object.keys(set).sort().forEach(function(ch){
+    var y = parseInt(ch.split('-')[0],10), m = parseInt(ch.split('-')[1],10);
+    var b = document.createElement('button');
+    b.className   = 'cal-btn' + (ch===mesAtual ? ' active' : '');
+    b.textContent = _MESES_NOME[m] + ' ' + y;
+    b.onclick     = function(){ showMonth(y, m, b); };
+    box.appendChild(b);
+    if(ch===mesAtual) ativo = b;
+  });
+  return ativo || box.firstChild;
+}
+
 function showMonth(year, month, btn){
-  // Update active button
-  document.querySelectorAll('.cal-btn').forEach(function(b){b.classList.remove('active');});
+  // Update active button — só dentro da grade logística; a classe .cal-btn
+  // também é usada pelos botões de horizonte da aba Evolução de Contratos.
+  var box = document.getElementById('calMesBtns');
+  if(box) box.querySelectorAll('.cal-btn').forEach(function(b){b.classList.remove('active');});
   if(btn) btn.classList.add('active');
 
   var title = document.getElementById('calMonthTitle');
-  var meses = ['','Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
-  if(title) title.textContent = meses[month] + ' ' + year;
+  if(title) title.textContent = _MESES_NOME[month] + ' ' + year;
 
   var grid = document.getElementById('calGrid');
   if(!grid) return;
